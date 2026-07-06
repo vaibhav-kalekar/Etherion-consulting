@@ -44,13 +44,15 @@ jobs:
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
+          # Project Pages base URL for GitHub Pages (project site)
+          HUGO_BASEURL: "https://vaibhav-kalekar.github.io/Etherion-consulting/"
         run: |
           npm ci
           # build Tailwind CSS into static/css/style.css so Hugo can use it without PostCSS
           npx tailwindcss -i themes/hugo-saasify-theme/assets/css/main.css -o static/css/style.css --minify
           # ensure local node binaries are on PATH (for any tools)
           export PATH="$PWD/node_modules/.bin:$PATH"
-          hugo --minify --baseURL "https://vaibhav-kalekar.github.io/Etherion-consulting/"
+          hugo --minify --baseURL "$HUGO_BASEURL"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
