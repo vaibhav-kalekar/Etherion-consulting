@@ -50,7 +50,7 @@ jobs:
           npx tailwindcss -i themes/hugo-saasify-theme/assets/css/main.css -o static/css/style.css --minify
           # ensure local node binaries are on PATH (for any tools)
           export PATH="$PWD/node_modules/.bin:$PATH"
-          hugo --minify
+          hugo --minify --baseURL "https://vaibhav-kalekar.github.io/Etherion-consulting/"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
