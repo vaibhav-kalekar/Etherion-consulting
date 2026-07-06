@@ -40,13 +40,15 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Install dependencies and Build with Hugo
+      - name: Install dependencies, build CSS and Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
           npm ci
-          # ensure local node binaries are on PATH for Hugo's PostCSS step
+          # build Tailwind CSS into static/css/style.css so Hugo can use it without PostCSS
+          npx tailwindcss -i themes/hugo-saasify-theme/assets/css/main.css -o static/css/style.css --minify
+          # ensure local node binaries are on PATH (for any tools)
           export PATH="$PWD/node_modules/.bin:$PATH"
           hugo --minify
 
