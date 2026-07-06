@@ -59,8 +59,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     
     <!-- Main CSS -->
-    {{ if eq (getenv "CI") "true" }}
-    <!-- Use pre-built CSS on CI (GitHub Actions or other CI) to avoid PostCSS runtime issues -->
+    {{ if getenv "GITHUB_ACTIONS" }}
+    <!-- Use pre-built CSS on CI (GitHub Actions) to avoid PostCSS runtime issues -->
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     {{ else }}
     {{ $css := resources.Get "css/main.css" }}

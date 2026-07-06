@@ -1,0 +1,73 @@
+<section class="border-y border-gray-100 overflow-hidden">
+    <div class="container mx-auto">
+        <div class="py-12">
+            {{ $title := .Get "title" | default (i18n "trustedByCompanies") }}
+            <div class="logo-scroll">
+                <div class="logos-slide{{ if ne (.Get "animate" | default "true") "false" }} animate{{ end }}">
+                    <a href="https://wealthandfinance.digital/issues/q4-2025/10/?__cf_chl_f_tk=1LoRP_EHZKg1S.Q47aJ3C_BdW_1Ef0JOgd153asY5FM-1783320179-1.0.1.1-zkaQEzLfQGb0GE8CNEa3ibfN3Q.5PiJQfFggUZNsnd0" class="brand-title" target="_blank" rel="noopener noreferrer">{{ $title }}</a>
+                    <a href="https://wealthandfinance.digital/issues/q4-2025/10/?__cf_chl_f_tk=1LoRP_EHZKg1S.Q47aJ3C_BdW_1Ef0JOgd153asY5FM-1783320179-1.0.1.1-zkaQEzLfQGb0GE8CNEa3ibfN3Q.5PiJQfFggUZNsnd0" class="brand-title" target="_blank" rel="noopener noreferrer">{{ $title }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.logo-scroll {
+    overflow: hidden;
+    padding: 20px 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.logo-scroll.static {
+    display: flex;
+    justify-content: center;
+    overflow: visible;
+}
+
+.logo-scroll.static .logos-slide {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.logos-slide {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.logos-slide.animate {
+    animation: 20s slide infinite linear;
+}
+
+.brand-title {
+    display: inline-block;
+    margin: 0 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #111827;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% / 2));
+    }
+}
+
+.logo-scroll:hover .logos-slide.animate {
+    animation-play-state: paused;
+}
+
+/* Mobile-specific animation speed */
+@media (max-width: 768px) {
+    .logos-slide.animate {
+        animation: 15s slide infinite linear;
+    }
+}
+</style>
