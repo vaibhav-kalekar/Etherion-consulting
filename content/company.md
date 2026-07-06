@@ -1,17 +1,18 @@
 ---
 title: "About Our Company"
 layout: "company"
-description: "Learn about our mission, leadership team, and the investors backing our vision"
+description: "Learn about our mission, leadership team, and our vision"
 ---
 
 {{< section-container class="bg-gradient-to-b from-blue-50 via-blue-50 to-white pt-20 pb-32" >}}
     <div class="text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">Building the Future of SaaS</h1>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Data Experts With a Human Touch
+        </h1>
         <p class="text-xl text-gray-600 mb-16">We're on a mission to revolutionize how businesses operate in the digital age</p>
         <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-sm p-8">
             <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
             <p class="text-xl text-gray-600">
-                We're dedicated to empowering businesses with innovative SaaS solutions that drive growth and efficiency. Our platform combines cutting-edge technology with intuitive design to solve complex business challenges.
+                To democratize data excellence delivering world-class data capabilities to organisations of all sizes, with the speed, transparency and hands-on expertise that only practitioners can offer.
             </p>
         </div>
     </div>
@@ -22,35 +23,23 @@ description: "Learn about our mission, leadership team, and the investors backin
         <h2 class="text-3xl font-bold text-center mb-12">Leadership Team</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {{< team-member 
-                name="Sarah Johnson"
-                title="Chief Executive Officer"
-                image="/images/company/exec-1.svg"
-                linkedin="#"
+                name="Shweta Naik"
+                title="Managing Partner - Digital Transformation"
+                image="/images/company/Shwe-Naik.jpeg"
+                linkedin="https://www.linkedin.com/in/shweta-n-106a7913/"
             >}}
             {{< team-member 
-                name="Michael Chen"
-                title="Chief Technology Officer"
-                image="/images/company/exec-2.svg"
-                linkedin="#"
+                name="Vaibhav Kalekar"
+                title="Managing Partner - Data Transformation & Governance"
+                image="/images/company/Vaibhav-Kalekar.jpeg"
+                linkedin="https://www.linkedin.com/in/vaibhavkalekar/"
             >}}
             {{< team-member 
-                name="Emily Rodriguez"
-                title="Chief Product Officer"
-                image="/images/company/exec-3.svg"
+                name="Suresh Naik"
+                title="Advisor"
+                image="/images/company/Suresh-naik.jpeg"
                 linkedin="#"
             >}}
-        </div>
-    </div>
-{{< /section-container >}}
-
-{{< section-container class="py-20" >}}
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">Backed by World-Class Investors</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            {{< investor-logo name="Sequoia Capital" image="/images/company/investor-1.svg" >}}
-            {{< investor-logo name="Andreessen Horowitz" image="/images/company/investor-2.svg" >}}
-            {{< investor-logo name="Accel" image="/images/company/investor-3.svg" >}}
-            {{< investor-logo name="Benchmark" image="/images/company/investor-4.svg" >}}
         </div>
     </div>
 {{< /section-container >}}
@@ -60,19 +49,19 @@ description: "Learn about our mission, leadership team, and the investors backin
         <h2 class="text-3xl font-bold text-center mb-12">Company Values</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {{< value-card 
-                title="Innovation First"
+                title="Speed Without Shortcuts"
                 icon="lightbulb"
-                description="We constantly push boundaries and embrace new technologies to solve complex challenges."
+                description="We deliver fast because we're efficient, not because we cut corners."
             >}}
             {{< value-card 
-                title="Customer Success"
+                title="Human-Centered"
                 icon="users"
-                description="Our customers' success is our success. We're committed to delivering exceptional value."
+                description="We build for people, not just systems. Data should empower, not overwhelm."
             >}}
             {{< value-card 
-                title="Transparency"
+                title="Transparent Partnership"
                 icon="eye"
-                description="We believe in open communication and building trust through transparency."
+                description="No black boxes, no surprises. You're part of the journey every step of the way."
             >}}
         </div>
     </div>
@@ -81,10 +70,10 @@ description: "Learn about our mission, leadership team, and the investors backin
 {{< section-container class="py-20" >}}
     <div class="max-w-6xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            {{< stat number="2015" label="Founded" >}}
-            {{< stat number="200+" label="Team Members" >}}
-            {{< stat number="10k+" label="Customers" >}}
-            {{< stat number="50M+" label="Annual Revenue" >}}
+            {{< stat number="2025" label="Founded" >}}
+            {{< stat number="30+" label="Years of Combined Experience" >}}
+            {{< stat number="40+" label="Projects Delivered" >}}
+            {{< stat number="3" label="Team Members" >}}
         </div>
     </div>
 {{< /section-container >}}

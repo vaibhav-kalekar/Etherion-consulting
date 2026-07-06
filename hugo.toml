@@ -1,5 +1,6 @@
-baseURL = "https://saasify-demo.chaoming.li/"
+baseURL = "https://www.etherionconsulting.com"
 defaultContentLanguage = "en"
+title = "Etherion Consulting"
 defaultContentLanguageInSubdir = false
 theme = "hugo-saasify-theme"
 
@@ -8,42 +9,42 @@ theme = "hugo-saasify-theme"
   [languages.en]
     languageCode = "en-us"
     languageName = "English"
-    title = "Saasify"
+    title = "Etherion Consulting"
     weight = 1
     contentDir = "content"
 
   [languages.zh-cn]
     languageCode = "zh-cn"
     languageName = "简体中文"
-    title = "Saasify"
+    title = "Etherion Consulting"
     weight = 2
     contentDir = "content/zh-cn"
 
   [languages.de]
     languageCode = "de-de"
     languageName = "Deutsch"
-    title = "Saasify"
+    title = "Etherion Consulting"
     weight = 3
     contentDir = "content/de"
 
   [languages.fr]
     languageCode = "fr-fr"
     languageName = "Français"
-    title = "Saasify"
+    title = "Etherion Consulting"
     weight = 4
     contentDir = "content/fr"
 
   [languages.es]
     languageCode = "es-es"
     languageName = "Español"
-    title = "Saasify"
+    title = "Etherion Consulting"
     weight = 5
     contentDir = "content/es"
 
   [languages.pt]
     languageCode = "pt-pt"
     languageName = "Português"
-    title = "Saasify"
+    title = "Etherion Consulting"
     weight = 6
     contentDir = "content/pt"
 
@@ -68,10 +69,10 @@ enableGitInfo = true
   path = "page"
 
 [params]
-  description = ""
-  author = "Chaoming Li"
-  logo = "/images/logo.svg"
-  googleAnalytics = "G-E6RMRJ4HQ3"
+  description = "Strategic consulting for modern businesses, specializing in digital transformation, operational efficiency, and growth strategies."
+  author = "Etherion Consulting"
+  logo = "/images/logo.png"
+  googleAnalytics = ""
 
   # VisitorAPI Project ID for automatic language detection
   # Set this to enable auto-detection of visitor's language
@@ -80,19 +81,24 @@ enableGitInfo = true
 
   # Social Media Links
   [params.social]
-    linkedin = "https://linkedin.com/in/chaomingli"
-    twitter = "https://twitter.com/lichaoming"
-    youtube = "https://youtube.com/@chaomingli"
-    facebook = "https://facebook.com/lichaoming"
-    instagram = "https://instagram.com/lichaoming"
-    github = "https://github.com/chaoming"
+    linkedin = "https://linkedin.com/in/etherionconsulting"
+    twitter = "https://twitter.com/etherioncons"
+    youtube = "https://youtube.com/@etherionconsulting"
+    facebook = "https://facebook.com/etherionconsulting"
+    instagram = "https://instagram.com/etherionconsulting"
+    github = "https://github.com/etherionconsulting"
   
   # Footer Configuration
   [params.footer]
     column_1_title = "Features"
     column_2_title = "COMPANY"
     column_3_title = "LEGAL"
-  
+
+  [params.forms]
+    provider = "formspree"
+    formspreeId = "your-formspree-id"
+    honeypot = true
+
   [params.header]
     # Header background and border styles (optional)
     background = "bg-white/80 backdrop-blur-sm"
@@ -100,11 +106,11 @@ enableGitInfo = true
     
     # Logo configuration
     [params.header.logo]
-      src = "/images/logo.svg"
+      src = "/images/logo.png"
     
     # Menu configuration
     [params.header.menu]
-      spacing = "space-x-8"
+      spacing = "space-x-6"
       
       # Dropdown menu configuration
       [params.header.menu.dropdown]
@@ -123,11 +129,13 @@ enableGitInfo = true
     [params.header.buttons]
       # Sign In button
       [params.header.buttons.signIn]
+        enable = false  # Set to false to disable Sign In button in header
         text = "Sign in"
         url = "/signin"
       
       # Get Started button
       [params.header.buttons.getStarted]
+        enable = false  # Set to true to enable Get Started button in header
         text = "Get Started"
         url = "/get-started"
 
@@ -196,8 +204,8 @@ enableGitInfo = true
   # Global CTA Configuration
   [languages.en.params.cta]
     enable = true
-    title = "Ready to Build Your SaaS Website?"
-    description = "Join companies already using our theme to create beautiful, high-performance websites."
+    title = "Data Transformation, Governance & Engineering Services for Modern Enterprises"
+    description = "Enterprise-grade data solutions to drive informed decision-making and business growth. Our expert team delivers tailored services in data transformation, governance, and engineering to help you unlock the full potential of your data assets."
     gradient_from = "#2563eb"  # Indigo-600
     gradient_to = "#7c3aed"    # Purple-600
     gradient_angle = 30
@@ -218,17 +226,19 @@ enableGitInfo = true
   [languages.en.params.header]
     [languages.en.params.header.buttons]
       [languages.en.params.header.buttons.signIn]
+        enable = false  # Set to false to disable Sign In button in header
         text = "Sign in"
         url = "/signin"
       [languages.en.params.header.buttons.getStarted]
-        text = "Get Started"
-        url = "/get-started"
+        enable = true  # Set to true to enable Get Started button in header
+        text = "Contact"
+        url = "/contact"
 
   # Blog configuration
   [languages.en.params.blog]
     enable = true
     title = "Latest Articles"
-    subtitle = "Learn more about web development and best practices"
+    subtitle = "Learn more about Data Governance and best practices"
 
 # Chinese language specific params
 [languages.zh-cn.params]
@@ -428,23 +438,19 @@ enableGitInfo = true
 # English Navigation Menu
 [languages.en.menu]
   [[languages.en.menu.main]]
-    name = "Features"
+    name = "Services"
     weight = 1
     [languages.en.menu.main.params]
       has_submenu = true
       submenu = [
-        { name = "Performance", url = "/features/performance/" },
-        { name = "Design System", url = "/features/design-system/" },
-        { name = "Developer Experience", url = "/features/developer-experience/" }
+        { name = "Digital Transformation", url = "/services/digital-transformation/" },
+        { name = "Data Engineering & Governance", url = "/services/data-engineering/" },
+        { name = "Trainings & Workshops", url = "/services/training-workshops/" }
       ]
   [[languages.en.menu.main]]
-    name = "Pricing"
-    url = "/pricing"
+    name = "Work"
+    url = "/case-studies"
     weight = 2
-  [[languages.en.menu.main]]
-    name = "Docs"
-    url = "/docs"
-    weight = 3
   [[languages.en.menu.main]]
     name = "Blog"
     url = "/blog"
@@ -461,16 +467,16 @@ enableGitInfo = true
 
   # Footer Column 1 Menu
   [[languages.en.menu.footer_column_1]]
-    name = "Performance"
-    url = "/features/performance/"
+    name = "Data Eng. & Governance"
+    url = "/services/data-engineering/"
     weight = 1
   [[languages.en.menu.footer_column_1]]
-    name = "Design System"
-    url = "/features/design-system/"
+    name = "Digital Transformation"
+    url = "/services/digital-transformation/"
     weight = 2
   [[languages.en.menu.footer_column_1]]
-    name = "Developer Experience"
-    url = "/features/developer-experience/"
+    name = "Trainings & Workshops"
+    url = "/services/training-workshops/"
     weight = 3
 
   # Footer Column 2 Menu
@@ -482,10 +488,6 @@ enableGitInfo = true
     name = "About Us"
     url = "/company"
     weight = 2
-  [[languages.en.menu.footer_column_2]]
-    name = "Careers"
-    url = "/careers"
-    weight = 3
 
   # Footer Column 3 Menu
   [[languages.en.menu.footer_column_3]]
