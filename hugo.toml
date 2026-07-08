@@ -71,7 +71,7 @@ enableGitInfo = true
 [params]
   description = "Strategic consulting for modern businesses, specializing in digital transformation, operational efficiency, and growth strategies."
   author = "Etherion Consulting"
-  logo = "/images/logo.png"
+  logo = "images/logo.png"
   googleAnalytics = ""
 
   # VisitorAPI Project ID for automatic language detection
@@ -106,7 +106,7 @@ enableGitInfo = true
     
     # Logo configuration
     [params.header.logo]
-      src = "/images/logo.png"
+      src = "images/logo.png"
     
     # Menu configuration
     [params.header.menu]
