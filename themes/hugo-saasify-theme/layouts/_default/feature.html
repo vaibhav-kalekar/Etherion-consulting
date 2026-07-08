@@ -63,7 +63,7 @@
             </div>
             <div class="mt-16 flex justify-center">
                 <div class="relative rounded-xl bg-white p-8 shadow-2xl ring-1 ring-gray-200">
-                    <img src="{{ .Params.demo.image }}" alt="Demo" class="rounded-lg">
+                    <img src="{{ .Params.demo.image | relURL }}" alt="Demo" class="rounded-lg">
                 </div>
             </div>
         </div>

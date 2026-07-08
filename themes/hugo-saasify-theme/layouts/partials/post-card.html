@@ -2,7 +2,7 @@
     {{ with .Params.featured_image }}
         <a href="{{ $.RelPermalink }}" class="block aspect-w-16 aspect-h-9 overflow-hidden">
             <img 
-                src="{{ . }}" 
+                src="{{ . | relURL }}" 
                 alt="{{ $.Title }}" 
                 class="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
                 loading="lazy"

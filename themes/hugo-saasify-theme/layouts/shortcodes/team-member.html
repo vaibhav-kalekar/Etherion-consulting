@@ -1,7 +1,7 @@
 <div class="team-member text-center">
     <div class="relative mb-4 rounded-lg overflow-hidden aspect-square">
         {{ if .Get "image" }}
-        <img src="{{ .Get "image" }}" alt="{{ .Get "name" }}" class="w-full h-full object-cover">
+        <img src="{{ .Get "image" | relURL }}" alt="{{ .Get "name" }}" class="w-full h-full object-cover">
         {{ else }}
         <div class="w-full h-full bg-gray-200 flex items-center justify-center">
             <svg class="w-20 h-20 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
