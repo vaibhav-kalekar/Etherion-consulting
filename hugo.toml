@@ -204,17 +204,17 @@ enableGitInfo = true
   # Global CTA Configuration
   [languages.en.params.cta]
     enable = true
-    title = "Data Transformation, Governance & Engineering Services for Modern Enterprises"
-    description = "Enterprise-grade data solutions to drive informed decision-making and business growth. Our expert team delivers tailored services in data transformation, governance, and engineering to help you unlock the full potential of your data assets."
+    title = "Still Treating Governance as a Phase Instead of a Foundation?"
+    description = "That's the gap that turns audits into findings and AI pilots into board-level risk. Talk to us before your next migration, model deployment, or compliance review"
     gradient_from = "#2563eb"  # Indigo-600
     gradient_to = "#7c3aed"    # Purple-600
     gradient_angle = 30
     [languages.en.params.cta.primary_button]
-      text = "Get Started Free"
-      url = "/get-started"
+      text = "Schedule a Consultation"
+      url = "/contact"
     [languages.en.params.cta.secondary_button]
-      text = "Book Demo"
-      url = "/demo"
+      text = "Talk to a Governance Lead"
+      url = "/contact"
 
   # Footer Configuration
   [languages.en.params.footer]
@@ -443,9 +443,11 @@ enableGitInfo = true
     [languages.en.menu.main.params]
       has_submenu = true
       submenu = [
-        { name = "Digital Transformation", url = "/services/digital-transformation/" },
-        { name = "Data Engineering & Governance", url = "/services/data-engineering/" },
-        { name = "Trainings & Workshops", url = "/services/training-workshops/" }
+        { name = "Day 0 Discovery & Migration Strategy", url = "/services/day-0-discovery-migration-strategy/" },
+        { name = "Data Governance & Architecture", url = "/services/data-governance-architecture/" },
+        { name = "AI Governance & ISO 42001 Readiness", url = "/services/ai-governance-iso-readiness/" },
+        { name = "Cloud & Legacy Data Engineering", url = "/services/cloud-legacy-data-engineering/" },
+        { name = "Fractional Data Leadership", url = "/services/fractional-data-leadership/" }
       ]
   [[languages.en.menu.main]]
     name = "Work"
@@ -467,17 +469,25 @@ enableGitInfo = true
 
   # Footer Column 1 Menu
   [[languages.en.menu.footer_column_1]]
-    name = "Data Eng. & Governance"
-    url = "/services/data-engineering/"
+    name = "Day 0 Discovery & Migration Strategy"
+    url = "/services/day-0-discovery-migration-strategy/"
     weight = 1
   [[languages.en.menu.footer_column_1]]
-    name = "Digital Transformation"
-    url = "/services/digital-transformation/"
+    name = "Data Governance & Architecture"
+    url = "/services/data-governance-architecture/"
     weight = 2
   [[languages.en.menu.footer_column_1]]
-    name = "Trainings & Workshops"
-    url = "/services/training-workshops/"
+    name = "AI Governance & ISO 42001 Readiness"
+    url = "/services/ai-governance-iso-readiness/"
     weight = 3
+  [[languages.en.menu.footer_column_1]]
+    name = "Cloud & Legacy Data Engineering"
+    url = "/services/cloud-legacy-data-engineering/"
+    weight = 4
+  [[languages.en.menu.footer_column_1]]
+    name = "Fractional Data Leadership"
+    url = "/services/fractional-data-leadership/"
+    weight = 5
 
   # Footer Column 2 Menu
   [[languages.en.menu.footer_column_2]]

@@ -27,8 +27,8 @@ testimonials:
 ---
 
 {{< hero
-    headline="Data & AI Governance Programs, Solutions Partner, PMO Guidance"
-    sub_headline="Etherion Consulting engineers resilient cloud data estates and implements ISO 42001-aligned AI governance frameworks for APRA, HIPAA, and CPG 235-regulated industries de-risking your most complex data programs."
+    headline="Your Data Program Is One Audit Away From Exposing Its Governance Debt"
+    sub_headline="Most cloud migrations and AI rollouts are built on architecture that was never designed to survive an APRA, HIPAA, or CPG 235 audit. Etherion Consulting steps in before that gap becomes a finding by building engineering resilient data estates and ISO 42001-aligned AI governance into regulated programs from day one."
     primary_button_text="Schedule a Day 0 Strategy Session"
     primary_button_url="/contact/"
     secondary_button_text="View Our Service Stack"
@@ -47,11 +47,11 @@ testimonials:
 
 {{< features-section
     title="The Gap That Breaks Regulated Data Programs"
-    description="Enterprise data transformations fail because governance, quality, and compliance are added as afterthoughts rather than structural foundations. Etherion Consulting was built to close that gap, bringing ISO 42001 Lead Practitioner certification, CDMP-aligned frameworks, and 15 years of PMP certified Project Management experience in regulated delivery across Australia, Europe, and the US."
+    description="Enterprise data transformations don't fail on engineering. They fail because governance, quality, and compliance get treated as paperwork to produce after the platform is built instead of a structure to design before it. Etherion exists to close that gap, bringing ISO 42001 Lead Practitioner certification, CDMP-aligned frameworks, and 15 years of PMP-certified delivery in regulated environments across Australia, Europe, and the US."
 >}}
 
 {{< feature
-    title="The Day 0 Blueprint"
+    title="The Risk No One Sees Until It's Already Live"
     description="We surface the risks your engineering team can't see from inside the project before a single pipeline moves | Audit your legacy data platform and identify hidden governance and compliance debt | Construct a phased migration roadmap your board can defend to regulators | Validate proof-of-concept architecture before large scale commitments | Start with structural integrity, not optimism"
     badge="Strategy"
     badgeColor="#2563EB"
@@ -63,7 +63,7 @@ testimonials:
 >}}
 
 {{< feature
-    title="Governance as Architecture"
+    title="Governance Bolted On Is Governance That Fails Under Audit"
     description="We treat governance as a structural layer engineered from line one bolted on after delivery | Critical data elements, automated quality gates, and end-to-end lineage embedded in your platform | Backed by BSI ISO 42001 Lead Practitioner certification and CDMP (DAMA-DMBOK) qualification | AI risk controls built in by design | Architecture that answers the auditor's questions before they're asked"
     badge="Governance"
     badgeColor="#7C3AED"
@@ -75,7 +75,7 @@ testimonials:
 >}}
 
 {{< feature
-    title="AI Governance & Agentic Solutions"
+    title="Your AI Systems Are Outrunning Your Ability to Govern Them"
     description="ISO 42001 is the first international standard for AI Management Systems and most organisations have no clear path to it. Map AI systems, model versioning pipelines, and data ingestion loops against the full AIMS framework. Produce a concrete AI risk inventory and lifecycle control structure. EU AI Act enforcement deadline arrives August 2026; Australian regulators are sharpening AI expectations. Structured AI governance is no longer optional"
     badge="AI Governance"
     badgeColor="#059669"
@@ -87,7 +87,7 @@ testimonials:
 >}}
 
 {{< feature
-    title="Modern Cloud. Legacy Depth."
+    title="Legacy Systems Don't Modernise Themselves"
     description="We operate across the full stack from SQL Server and SSIS legacy estates to AWS, Databricks, Snowflake, dbt Core, and Apache Airflow. No proprietary frameworks, no vendor lock-in. Governance controls embedded in code, not maintained in spreadsheets. Clean, decoupled, auditable data architecture. Built for long-term resilience and platform independence"
     badge="Engineering"
     badgeColor="#0891B2"
