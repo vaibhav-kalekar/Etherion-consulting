@@ -210,10 +210,10 @@ enableGitInfo = true
     gradient_to = "#7c3aed"    # Purple-600
     gradient_angle = 30
     [languages.en.params.cta.primary_button]
-      text = "Schedule a Consultation"
+      text = "Book a Free 20-Min AI Governance Fit Check"
       url = "/contact"
     [languages.en.params.cta.secondary_button]
-      text = "Talk to a Governance Lead"
+      text = "Schedule a Day 0 Strategy Session"
       url = "/contact"
 
   # Footer Configuration
@@ -439,23 +439,15 @@ enableGitInfo = true
 [languages.en.menu]
   [[languages.en.menu.main]]
     name = "Services"
+    url = "/#services"
     weight = 1
-    [languages.en.menu.main.params]
-      has_submenu = true
-      submenu = [
-        { name = "Day 0 Discovery & Migration Strategy", url = "/services/day-0-discovery-migration-strategy/" },
-        { name = "Data Governance & Architecture", url = "/services/data-governance-architecture/" },
-        { name = "AI Governance & ISO 42001 Readiness", url = "/services/ai-governance-iso-readiness/" },
-        { name = "Cloud & Legacy Data Engineering", url = "/services/cloud-legacy-data-engineering/" },
-        { name = "Fractional Data Leadership", url = "/services/fractional-data-leadership/" }
-      ]
   [[languages.en.menu.main]]
-    name = "Work"
+    name = "Case Studies"
     url = "/case-studies"
     weight = 2
   [[languages.en.menu.main]]
     name = "Blog"
-    url = "/blog"
+    url = "/Blog"
     weight = 4
   [[languages.en.menu.main]]
     name = "Company"
@@ -464,21 +456,22 @@ enableGitInfo = true
       has_submenu = true
       submenu = [
         { name = "About Us", url = "/company/" },
-        { name = "Careers", url = "/careers/" }
+        { name = "Careers", url = "/careers/" },
+        { name = "FAQ", url = "/#faq" }
       ]
 
   # Footer Column 1 Menu
   [[languages.en.menu.footer_column_1]]
+    name = "AI Governance & ISO 42001 Readiness"
+    url = "/services/ai-governance-iso-readiness/"
+    weight = 1
+  [[languages.en.menu.footer_column_1]]
     name = "Day 0 Discovery & Migration Strategy"
     url = "/services/day-0-discovery-migration-strategy/"
-    weight = 1
+    weight = 2
   [[languages.en.menu.footer_column_1]]
     name = "Data Governance & Architecture"
     url = "/services/data-governance-architecture/"
-    weight = 2
-  [[languages.en.menu.footer_column_1]]
-    name = "AI Governance & ISO 42001 Readiness"
-    url = "/services/ai-governance-iso-readiness/"
     weight = 3
   [[languages.en.menu.footer_column_1]]
     name = "Cloud & Legacy Data Engineering"
