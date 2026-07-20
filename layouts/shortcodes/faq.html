@@ -1,0 +1,33 @@
+{{ $data := .Inner | transform.Unmarshal }}
+{{ $background_color := .Get "background-color" }}
+{{ $title_color := .Get "title-color" }}
+{{ $description_color := .Get "description-color" }}
+{{ $id := .Get "id" }}
+<section class="section{{ if not $background_color }} bg-gray-50{{ end }}"{{ with $id }} id="{{ . }}"{{ end }} {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
+    <div class="container">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6{{ if eq $title_color "white" }} text-white{{ end }}{{ if eq $title_color "light" }} text-gray-100{{ end }}">{{ $data.title | default "Frequently Asked Questions" }}</h2>
+            {{ with $data.description }}
+            <p class="text-xl text-gray-600{{ if eq $description_color "white" }} text-white{{ end }}{{ if eq $description_color "light" }} text-gray-100{{ end }}">{{ . }}</p>
+            {{ end }}
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-4">
+            {{ range $data.questions }}
+            <details class="faq-item border border-gray-200 rounded-lg p-5">
+                <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
+                    <span>{{ .question }}</span>
+                    <span class="faq-icon ml-4 flex-shrink-0">+</span>
+                </summary>
+                <p class="text-gray-600 mt-3">{{ .answer }}</p>
+            </details>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<style>
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item[open] .faq-icon { transform: rotate(45deg); }
+.faq-icon { transition: transform 0.2s ease; font-size: 1.25rem; }
+</style>
