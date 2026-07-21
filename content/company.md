@@ -6,13 +6,13 @@ description: "Learn about our mission, leadership team, and our vision"
 
 {{< section-container class="bg-gradient-to-b from-blue-50 via-blue-50 to-white pt-20 pb-32" >}}
     <div class="text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">Data Experts With a Human Touch
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">Governance Embedded, Not Retrofitted
         </h1>
-        <p class="text-xl text-gray-600 mb-16">We're on a mission to revolutionize how businesses operate in the digital age</p>
+        <p class="text-xl text-gray-600 mb-16">We're on a mission to revolutionize how businesses operate in the age of AI</p>
         <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-sm p-8">
             <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
             <p class="text-xl text-gray-600">
-                To democratize data excellence delivering world-class data capabilities to organisations of all sizes, with the speed, transparency and hands-on expertise that only practitioners can offer.
+                To accelerate responsible AI and digital transformation by embedding governance into every stage of innovation and building solutions that are trusted by customers, regulators, and the businesses that depend on them.
             </p>
         </div>
     </div>
@@ -24,13 +24,13 @@ description: "Learn about our mission, leadership team, and our vision"
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {{< team-member 
                 name="Shweta Naik"
-                title="Managing Partner - Digital Transformation"
+                title="Managing Partner - Digital Transformation & PMO Governance"
                 image="/images/company/Shwe-Naik.jpeg"
                 linkedin="https://www.linkedin.com/in/shweta-n-106a7913/"
             >}}
             {{< team-member 
                 name="Vaibhav Kalekar"
-                title="Managing Partner - Data Transformation & Governance"
+                title="Managing Partner - AI Governance & Data Transformation"
                 image="/images/company/Vaibhav-Kalekar.jpeg"
                 linkedin="https://www.linkedin.com/in/vaibhavkalekar/"
             >}}

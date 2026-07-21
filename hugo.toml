@@ -81,12 +81,10 @@ enableGitInfo = true
 
   # Social Media Links
   [params.social]
-    linkedin = "https://linkedin.com/in/etherionconsulting"
-    twitter = "https://twitter.com/etherioncons"
-    youtube = "https://youtube.com/@etherionconsulting"
-    facebook = "https://facebook.com/etherionconsulting"
-    instagram = "https://instagram.com/etherionconsulting"
-    github = "https://github.com/etherionconsulting"
+    linkedin = "https://www.linkedin.com/company/etherionconsulting/ "
+    twitter = "https://x.com/consultetherion?s=11"
+    facebook = "https://www.facebook.com/etherionconsulting/"
+    github = "https://github.com/vaibhav-kalekar"
   
   # Footer Configuration
   [params.footer]
@@ -96,7 +94,7 @@ enableGitInfo = true
 
   [params.forms]
     provider = "formspree"
-    formspreeId = "your-formspree-id"
+    formspreeId = "mannlddb"
     honeypot = true
 
   [params.header]
