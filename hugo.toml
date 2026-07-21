@@ -442,50 +442,28 @@ enableGitInfo = true
     url = "/#services"
     weight = 1
   [[languages.en.menu.main]]
-    name = "Case Studies"
-    url = "/case-studies"
+    name = "FAQ"
+    url = "/#faq"
     weight = 2
   [[languages.en.menu.main]]
-    name = "Blog"
-    url = "/Blog"
-    weight = 4
-  [[languages.en.menu.main]]
-    name = "Company"
-    weight = 5
-    [languages.en.menu.main.params]
-      has_submenu = true
-      submenu = [
-        { name = "About Us", url = "/company/" },
-        { name = "Careers", url = "/careers/" },
-        { name = "FAQ", url = "/#faq" }
-      ]
+    name = "About Us"
+    url = "/company"
+    weight = 3
 
   # Footer Column 1 Menu
   [[languages.en.menu.footer_column_1]]
-    name = "AI Governance & ISO 42001 Readiness"
-    url = "/services/ai-governance-iso-readiness/"
+    name = "Services"
+    url = "/#services"
     weight = 1
   [[languages.en.menu.footer_column_1]]
-    name = "Day 0 Discovery & Migration Strategy"
-    url = "/services/day-0-discovery-migration-strategy/"
+    name = "Contact"
+    url = "/contact"
     weight = 2
-  [[languages.en.menu.footer_column_1]]
-    name = "Data Governance & Architecture"
-    url = "/services/data-governance-architecture/"
-    weight = 3
-  [[languages.en.menu.footer_column_1]]
-    name = "Cloud & Legacy Data Engineering"
-    url = "/services/cloud-legacy-data-engineering/"
-    weight = 4
-  [[languages.en.menu.footer_column_1]]
-    name = "Fractional Data Leadership"
-    url = "/services/fractional-data-leadership/"
-    weight = 5
 
   # Footer Column 2 Menu
   [[languages.en.menu.footer_column_2]]
-    name = "Blog"
-    url = "/blog"
+    name = "FAQ"
+    url = "/#faq"
     weight = 1
   [[languages.en.menu.footer_column_2]]
     name = "About Us"

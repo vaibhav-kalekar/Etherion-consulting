@@ -59,6 +59,7 @@ faq:
 >}}
 
 {{< features-section
+    id="category"
     title="The Gap That Breaks First-Time and Long-Running Data Programs Alike"
     description="Different trigger, same root cause: governance treated as something you produce after the platform is built, instead of a structure you design before it."
 >}}
