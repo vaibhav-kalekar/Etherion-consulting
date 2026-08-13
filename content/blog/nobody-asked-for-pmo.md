@@ -1,7 +1,7 @@
 ---
 title: "Nobody Asked for a PMO: Why That's Exactly the Point"
 date: 2026-04-13
-author: "Vaibhav Kalekar"
+author: "Shweta Naik"
 description: "Standing up a PMO nobody requested means walking into a room that already has a verdict about you. Here's why the first job isn't governance — it's changing the story people tell about what a PMO is for."
 categories: ["Project Management"]
 tags: ["pmo", "project-management", "governance", "change-management", "leadership", "transformation"]
