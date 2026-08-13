@@ -10,7 +10,7 @@ theme = "hugo-saasify-theme"
     languageCode = "en-us"
     languageName = "English"
     title = "Etherion Consulting"
-    weight = 1
+    weight = 2
     contentDir = "content"
 
   [languages.zh-cn]
@@ -151,21 +151,21 @@ enableGitInfo = true
     [params.blog.sidebar]
       # Recent articles section
       [params.blog.sidebar.recent]
-        enable = true
+        enable = false
         count = 5
 
       # Categories section
       [params.blog.sidebar.categories]
-        enable = true
+        enable = false
 
       # Tags section
       [params.blog.sidebar.tags]
-        enable = true
+        enable = false
         count = 20
 
       # Subscribe form section
       [params.blog.sidebar.subscribe]
-        enable = true
+        enable = false
         action = "https://formspree.io/f/your-form-id"
         emailName = "email"
 

@@ -1,13 +1,9 @@
 {{ define "main" }}
-{{ $sb := .Site.Params.blog.sidebar }}
-{{ $hasSidebar := or (and $sb $sb.subscribe.enable) (and $sb $sb.recent.enable) (and $sb $sb.categories.enable) (and $sb $sb.tags.enable) }}
-{{ $contentClass := "max-w-3xl mx-auto" }}
-
 <div class="container mx-auto px-4 py-12">
-    <!-- Content Layout: two-column if sidebar is enabled, centered single-column if not -->
-    <div class="{{ if $hasSidebar }}flex flex-col lg:flex-row gap-8{{ end }} mb-12">
+    <!-- Two Column Layout for Content and Sidebar -->
+    <div class="flex flex-col lg:flex-row gap-8 mb-12">
         <!-- Main Content -->
-        <article class="{{ if $hasSidebar }}flex-1{{ else }}{{ $contentClass }}{{ end }}">
+        <article class="flex-1">
             <header class="mb-8">
                 {{ with .Params.categories }}
                     <div class="mb-4">
@@ -39,16 +35,14 @@
             </div>
         </article>
 
-        {{ if $hasSidebar }}
         <!-- Sidebar -->
         <aside class="lg:w-80 xl:w-96">
             {{ partial "sidebar.html" . }}
         </aside>
-        {{ end }}
     </div>
 
-    <!-- Navigation Section: centered to match content when sidebar is off -->
-    <nav class="{{ if not $hasSidebar }}{{ $contentClass }}{{ end }} border-t border-gray-200 mt-12 pt-8">
+    <!-- Full-width Navigation Section -->
+    <nav class="border-t border-gray-200 mt-12 pt-8">
         <div class="flex justify-between items-center">
             {{ with .PrevInSection }}
                 <a href="{{ .RelPermalink }}" 
@@ -82,9 +76,9 @@
         </div>
     </nav>
 
-    <!-- CTA Section: centered to match content when sidebar is off -->
+    <!-- Full-width CTA Section -->
     {{ if and .Site.Params.blog.cta.enable .Site.Params.cta.enable }}
-        <div class="{{ if not $hasSidebar }}{{ $contentClass }}{{ end }} mt-16">
+        <div class="mt-16">
             {{ partial "components/cta.html" . }}
         </div>
     {{ end }}
