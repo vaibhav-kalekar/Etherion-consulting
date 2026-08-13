@@ -236,7 +236,7 @@ enableGitInfo = true
   [languages.en.params.blog]
     enable = true
     title = "Latest Articles"
-    subtitle = "Learn more about Data Governance and best practices"
+    subtitle = "Learn more about PMO, AI Governance and AI Agents, the way Etherion is tackling the problem of Governance in AI Agents and applying the PMO principles to the Agentic way of working."
 
 # Chinese language specific params
 [languages.zh-cn.params]
@@ -440,13 +440,17 @@ enableGitInfo = true
     url = "/#services"
     weight = 1
   [[languages.en.menu.main]]
+    name = "Blog"
+    url = "/blog"
+    weight = 2
+  [[languages.en.menu.main]]
     name = "FAQ"
     url = "/#faq"
-    weight = 2
+    weight = 3
   [[languages.en.menu.main]]
     name = "About Us"
     url = "/company"
-    weight = 3
+    weight = 4
 
   # Footer Column 1 Menu
   [[languages.en.menu.footer_column_1]]
