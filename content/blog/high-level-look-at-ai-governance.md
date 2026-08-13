@@ -1,5 +1,5 @@
 ---
-title: "What is AI Governance? A Guide to Operationalizing It in the Enterprise"
+title: "High Level Look at AI Governance"
 date: 2026-08-09
 author: "Vaibhav Kalekar"
 description: "AI Governance is the set of processes, standards, and guardrails that keep AI and agentic systems safe, ethical, and aligned with human-defined objectives. Here's how to actually operationalize it."
