@@ -199,6 +199,7 @@
       "hover:scale-105",
       "hover:shadow-lg",
       "hover:shadow-md",
+      "hover:shadow-xl",
       "hover:text-gray-900",
       "hover:text-primary-600",
       "hover:text-primary-700",

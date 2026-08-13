@@ -9,7 +9,7 @@ theme = "hugo-saasify-theme"
   [languages.en]
     languageCode = "en-us"
     languageName = "English"
-    title = "Etherion Consulting"
+    title = "Etherion"
     weight = 2
     contentDir = "content"
 
@@ -441,8 +441,9 @@ enableGitInfo = true
     weight = 1
   [[languages.en.menu.main]]
     name = "Blog"
-    url = "/blog"
+    url = "https://bytesfrometherion.substack.com/"
     weight = 2
+    openInNewTab = true
   [[languages.en.menu.main]]
     name = "FAQ"
     url = "/#faq"
