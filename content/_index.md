@@ -118,8 +118,8 @@ faq:
 
 {{< benefits-grid
     id="services"
-    title="Four disciplines. One connected practice."
-    subtitle="Most firms are strong in one of these. The gap between them is where AI programs actually fail."
+    title="Defined engagements. Clear outcomes."
+    subtitle="Start with a focused problem, a bounded scope and a tangible outcome. Larger programmes can follow when the business case is clear."
     benefit1="custom|#059669|AI Governance|ISO 42001 readiness, risk inventories and lifecycle controls - governance built into the system, not bolted on after an audit finding.|<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 3l7 3v5c0 4.5-2.8 7.4-7 9-4.2-1.6-7-4.5-7-9V6l7-3z M9 12l2 2 4-4\"></path>"
     benefit2="custom|#2563EB|Agentic AI Automation|AI agents and automated workflows that replace manual, error-prone process - with validation and controls built in, not bolted on.|<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 12h16M14 6l6 6-6 6\"></path>"
     benefit3="custom|#7C3AED|PMO|The program function most AI initiatives skip. Delivery structure, risk visibility and accountability - so pilots become production, not a pile of orphaned POCs.|<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 8a2 2 0 100-4 2 2 0 000 4zM12 4v4M12 12v4M12 16a2 2 0 100-4 2 2 0 000 4zM7 20l5-4 5 4\"></path>"
