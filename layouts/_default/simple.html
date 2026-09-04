@@ -1,0 +1,15 @@
+{{ define "main" }}
+{{ partial "page-header" (dict
+    "eyebrow" .Params.eyebrow
+    "title" .Title
+    "description" .Description
+) }}
+
+<div class="section">
+    <div class="container">
+        <div class="prose max-w-prose mx-auto">
+            {{ .Content }}
+        </div>
+    </div>
+</div>
+{{ end }}

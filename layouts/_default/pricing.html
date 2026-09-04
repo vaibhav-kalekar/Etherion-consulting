@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{ partial "page-header" (dict
+    "eyebrow" (.Params.eyebrow | default "Pricing")
+    "title" .Title
+    "description" .Description
+    "align" "center"
+) }}
+
+<div class="section">
+    <div class="container-wide">
+        {{ .Content }}
+    </div>
+</div>
+{{ end }}

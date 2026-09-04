@@ -3,23 +3,29 @@
 {{ $title_color := .Get "title-color" }}
 {{ $description_color := .Get "description-color" }}
 {{ $id := .Get "id" }}
-<section class="section{{ if not $background_color }} bg-gray-50{{ end }}"{{ with $id }} id="{{ . }}"{{ end }} {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
+{{/* Backgrounds: default transparent, dark="true" navy band, tint="true" gray band. */}}
+{{ $dark := eq (.Get "dark") "true" }}
+{{ $tint := eq (.Get "tint") "true" }}
+<section class="section{{ if $dark }} band-dark{{ else if $tint }} band-light{{ end }}"{{ with $id }} id="{{ . }}"{{ end }} {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
     <div class="container">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6{{ if eq $title_color "white" }} text-white{{ end }}{{ if eq $title_color "light" }} text-gray-100{{ end }}">{{ $data.title | default "Frequently Asked Questions" }}</h2>
+        <div class="section-head mx-auto text-center mb-14">
+            {{ with .Get "eyebrow" }}
+            <div class="eyebrow justify-center mb-4">{{ . }}</div>
+            {{ end }}
+            <h2 class="section-title{{ if eq $title_color "white" }} text-white{{ end }}{{ if eq $title_color "light" }} text-gray-100{{ end }}">{{ $data.title | default "Frequently Asked Questions" }}</h2>
             {{ with $data.description }}
-            <p class="text-xl text-gray-600{{ if eq $description_color "white" }} text-white{{ end }}{{ if eq $description_color "light" }} text-gray-100{{ end }}">{{ . }}</p>
+            <p class="section-subtitle{{ if eq $description_color "white" }} text-white{{ end }}{{ if eq $description_color "light" }} text-gray-100{{ end }}">{{ . }}</p>
             {{ end }}
         </div>
 
-        <div class="max-w-3xl mx-auto space-y-4">
+        <div class="max-w-3xl mx-auto divide-y divide-gray-200 border-y border-gray-200">
             {{ range $data.questions }}
-            <details class="faq-item border border-gray-200 rounded-lg p-5">
-                <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
+            <details class="faq-item group py-5">
+                <summary class="font-medium text-gray-900 cursor-pointer list-none flex justify-between items-center gap-4">
                     <span>{{ .question }}</span>
-                    <span class="faq-icon ml-4 flex-shrink-0">+</span>
+                    <span class="faq-icon flex-shrink-0 text-gray-400 group-hover:text-gray-600">+</span>
                 </summary>
-                <p class="text-gray-600 mt-3">{{ .answer }}</p>
+                <p class="text-gray-600 leading-relaxed mt-3 pr-8">{{ .answer }}</p>
             </details>
             {{ end }}
         </div>

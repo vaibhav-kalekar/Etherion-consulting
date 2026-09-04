@@ -2,77 +2,485 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Design tokens.
+ *
+ * Values are space-separated RGB channels so Tailwind can apply opacity
+ * modifiers (bg-primary-600/10). Adding dark mode later means reassigning
+ * these under a `.dark` selector — no component markup changes.
+ */
 @layer base {
+  :root {
+    /* Brand — cobalt, tuned to sit with the #0A0F1E hero */
+    --color-primary-50: 239 244 255;
+    --color-primary-100: 219 230 254;
+    --color-primary-200: 191 212 254;
+    --color-primary-300: 147 182 253;
+    --color-primary-400: 96 144 250;
+    --color-primary-500: 59 108 246;
+    --color-primary-600: 36 81 232;
+    --color-primary-700: 28 62 207;
+    --color-primary-800: 30 55 168;
+    --color-primary-900: 30 51 132;
+    --color-primary-950: 23 32 80;
+
+    /* Supporting — teal, replaces the theme's stock purple */
+    --color-secondary-50: 238 251 246;
+    --color-secondary-100: 213 245 233;
+    --color-secondary-200: 174 234 214;
+    --color-secondary-300: 121 216 190;
+    --color-secondary-400: 67 190 159;
+    --color-secondary-500: 33 164 134;
+    --color-secondary-600: 20 132 108;
+    --color-secondary-700: 16 106 88;
+    --color-secondary-800: 16 84 71;
+    --color-secondary-900: 15 70 60;
+    --color-secondary-950: 5 40 35;
+
+    /* Brand navy — the surface shared by the hero, dark bands and footer */
+    --band-from: #0A0F1E;
+    --band-mid: #16203C;
+    --band-to: #1A2240;
+
+    /* Neutral — navy-tinted, mapped onto Tailwind's `gray` scale */
+    --color-neutral-50: 248 249 251;
+    --color-neutral-100: 241 243 247;
+    --color-neutral-200: 228 231 238;
+    --color-neutral-300: 207 212 224;
+    --color-neutral-400: 153 161 183;
+    --color-neutral-500: 109 118 141;
+    --color-neutral-600: 81 90 113;
+    --color-neutral-700: 62 70 88;
+    --color-neutral-800: 42 48 64;
+    --color-neutral-900: 26 31 44;
+    --color-neutral-950: 14 17 25;
+  }
+
   html {
     @apply scroll-smooth;
+    scroll-padding-top: 6rem;
   }
-  
+
+  html {
+    background-color: #ffffff;
+  }
+
+  /*
+   * Page surface: soft brand-coloured pools on white. Deliberately not
+   * `background-attachment: fixed` — fixed backgrounds track the viewport
+   * rather than the content, which reads oddly on long pages and is a known
+   * repaint cost on mobile Safari. Offsets sit inside the first ~1600px so
+   * short pages still get the effect.
+   */
   body {
-    @apply font-sans text-gray-700 antialiased;
+    @apply font-sans text-gray-600 antialiased;
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(1100px 560px at 18% 760px, rgba(36, 81, 232, 0.16), transparent 68%),
+      radial-gradient(950px 520px at 88% 1480px, rgba(20, 132, 108, 0.11), transparent 68%);
+    background-repeat: no-repeat;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold text-gray-900;
+    @apply font-heading font-semibold text-gray-900;
+    text-wrap: balance;
   }
-}
 
-@layer utilities {
-  .rounded-lg {
-    border-radius: 2rem;
+  /* Long-form paragraphs read better without orphans. */
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-primary-600/15 text-primary-900;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-600 ring-offset-2 ring-offset-white;
   }
 }
 
 @layer components {
+  /* ---------------------------------------------------------------- layout */
+
+  .container {
+    @apply mx-auto px-5 sm:px-6 lg:px-8 max-w-6xl;
+  }
+
+  .container-wide {
+    @apply mx-auto px-5 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .section {
+    @apply py-20 md:py-28;
+  }
+
   .cta-section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    @apply py-16 md:py-20;
   }
 
   .cta-gradient {
     background: linear-gradient(calc(var(--gradient-angle) * 1deg), var(--gradient-from), var(--gradient-to));
   }
 
+  /* ------------------------------------------------------------ dark bands */
+
+  /*
+   * A full-bleed navy band. Add `band-dark` to any <section> and everything
+   * inside it — headings, body copy, eyebrows, cards, borders, buttons,
+   * form fields — inverts automatically. This is the single hook new pages
+   * should use; do not hand-roll dark section styling elsewhere.
+   */
+  .band-dark {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, var(--band-from) 0%, var(--band-mid) 55%, var(--band-to) 100%);
+    border-top: 1px solid rgb(255 255 255 / 0.07);
+    border-bottom: 1px solid rgb(255 255 255 / 0.07);
+    color: rgb(255 255 255 / 0.66);
+  }
+
+  /* Same fine grid as the hero, so every dark surface reads as one system. */
+  .band-dark::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0;
+    opacity: 0.06;
+    background-image:
+      linear-gradient(to right, #fff 1px, transparent 1px),
+      linear-gradient(to bottom, #fff 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 0%, #000 30%, transparent 100%);
+    mask-image: radial-gradient(ellipse 75% 70% at 50% 0%, #000 30%, transparent 100%);
+  }
+
+  .band-dark > * {
+    @apply relative;
+  }
+
+  .band-dark h1,
+  .band-dark h2,
+  .band-dark h3,
+  .band-dark h4,
+  .band-dark .section-title {
+    color: #f4f7fc;
+  }
+
+  .band-dark p,
+  .band-dark li,
+  .band-dark .section-subtitle {
+    color: rgb(255 255 255 / 0.62);
+  }
+
+  .band-dark .eyebrow {
+    color: rgb(var(--color-primary-300));
+  }
+
+  .band-dark .eyebrow::before {
+    background-color: rgb(var(--color-primary-300) / 0.5);
+  }
+
+  .band-dark .card,
+  .band-dark .card-interactive,
+  .band-dark .testimonial-card {
+    background-color: rgb(255 255 255 / 0.05);
+    border-color: rgb(255 255 255 / 0.12);
+  }
+
+  .band-dark .card-interactive:hover {
+    background-color: rgb(255 255 255 / 0.08);
+    border-color: rgb(255 255 255 / 0.2);
+  }
+
+  /*
+   * Utility-class inversion.
+   *
+   * These deliberately use [class~="..."] rather than plain class selectors.
+   * Tailwind's `@apply` resolves a class name against *every* rule that
+   * declares it, including our own — so `.band-dark .text-gray-900 {}` would
+   * silently leak into any component that does `@apply text-gray-900`
+   * (`.btn-on-dark`, `.prose h2`, ...) and repaint them white. Attribute
+   * selectors are invisible to `@apply` while matching the same elements at
+   * the same specificity.
+   */
+  .band-dark [class~="border-gray-100"],
+  .band-dark [class~="border-gray-200"],
+  .band-dark [class~="border-gray-300"] {
+    border-color: rgb(255 255 255 / 0.12);
+  }
+
+  .band-dark [class~="divide-gray-200"] > * + * {
+    border-color: rgb(255 255 255 / 0.12);
+  }
+
+  /* Alphas are set for >=4.5:1 against the band, not visual parity with the
+     light-mode grays they replace. */
+  .band-dark [class~="text-gray-900"] { color: #f4f7fc; }
+  .band-dark [class~="text-gray-700"],
+  .band-dark [class~="text-gray-600"] { color: rgb(255 255 255 / 0.72); }
+  .band-dark [class~="text-gray-500"] { color: rgb(255 255 255 / 0.6); }
+  .band-dark [class~="text-gray-400"] { color: rgb(255 255 255 / 0.5); }
+
+  /* Hover states would otherwise resolve to their light-mode colours and
+     flip a chip to dark-on-light mid-interaction. */
+  .band-dark [class~="hover:text-gray-900"]:hover,
+  .band-dark [class~="hover:text-gray-700"]:hover { color: #f4f7fc; }
+  .band-dark [class~="hover:bg-gray-50"]:hover { background-color: rgb(255 255 255 / 0.1); }
+  .band-dark [class~="hover:border-gray-300"]:hover { border-color: rgb(255 255 255 / 0.25); }
+
+  .band-dark .btn-outline {
+    @apply bg-transparent text-white;
+    border-color: rgb(255 255 255 / 0.25);
+  }
+
+  .band-dark .btn-outline:hover {
+    background-color: rgb(255 255 255 / 0.1);
+    border-color: rgb(255 255 255 / 0.4);
+  }
+
+  .band-dark .form-field {
+    background-color: rgb(255 255 255 / 0.06);
+    border-color: rgb(255 255 255 / 0.15);
+    color: #f4f7fc;
+  }
+
+  .band-dark .form-field::placeholder {
+    color: rgb(255 255 255 / 0.35);
+  }
+
+  .band-dark .prose {
+    color: rgb(255 255 255 / 0.7);
+  }
+
+  .band-dark a:not([class]) {
+    color: rgb(var(--color-primary-300));
+  }
+
+  /* --------------------------------------------------------------- footer */
+
+  .footer-heading {
+    @apply text-xs font-semibold uppercase tracking-eyebrow mb-4;
+    color: rgb(255 255 255 / 0.4);
+  }
+
+  .footer-link {
+    @apply transition-colors duration-200;
+    color: rgb(255 255 255 / 0.62);
+  }
+
+  .footer-link:hover {
+    color: #ffffff;
+  }
+
+  .social-link {
+    @apply inline-flex transition-opacity duration-200;
+    opacity: 0.55;
+  }
+
+  .social-link:hover {
+    opacity: 1;
+  }
+
+  /* The social SVGs are loaded via <img>, so `currentColor` resolves to their
+     own black fill. Force them white for the dark footer. */
+  .band-dark .social-icon {
+    filter: brightness(0) invert(1);
+  }
+
+  /* The wordmark is cobalt, which sits too close to the navy band. */
+  .band-dark .footer-logo {
+    filter: brightness(1.6) saturate(1.15);
+  }
+
+  /*
+   * Hand-authored lists inside long-form content carry their own class and
+   * usually their own leading glyph. Strip the inherited markers so they
+   * don't double up (the typography plugin styles `ul` unconditionally).
+   */
+  .prose ul[class],
+  .prose ol[class] {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .prose ul[class] > li,
+  .prose ol[class] > li {
+    padding-left: 0;
+  }
+
+  .prose ul[class] > li::before,
+  .prose ol[class] > li::before,
+  .prose ul[class] > li::marker,
+  .prose ol[class] > li::marker {
+    content: none;
+  }
+
+  /*
+   * Cards embedded in long-form content. `.prose h3` is (0,1,1) and so beats
+   * any utility class set on the element, which would otherwise give card
+   * headings article-sized type and margins. Re-assert the card scale here.
+   */
+  .prose .card > :first-child { margin-top: 0; }
+  .prose .card > :last-child { margin-bottom: 0; }
+
+  .prose .card h3 {
+    @apply text-base font-semibold mb-2;
+    margin-top: 0;
+  }
+
+  .prose .card p {
+    @apply text-sm leading-relaxed;
+    color: rgb(var(--color-neutral-500));
+  }
+
+  /* Brand-coloured icons and figures. Cobalt is too dark on navy, so the
+     band lifts them to the 300 stop. */
+  .accent-icon {
+    color: rgb(var(--color-primary-600));
+  }
+
+  .band-dark .accent-icon {
+    color: rgb(var(--color-primary-300));
+  }
+
+  .band-dark .accent-tile {
+    background-color: rgb(var(--color-primary-400) / 0.16);
+  }
+
+  /* Light counterpart, for when a section needs to be explicitly separated
+     from the page surface rather than transparent. */
+  .band-light {
+    @apply bg-gray-50 border-y border-gray-200;
+  }
+
+
+  /* Eyebrow → heading → subhead. Repeated at the top of every section so the
+     page has a consistent scan rhythm. */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-eyebrow text-primary-600;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply inline-block w-5 h-px bg-primary-600/50;
+  }
+
+  .section-head {
+    @apply max-w-2xl;
+  }
+
+  .section-head .eyebrow {
+    @apply mb-4;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold text-gray-900;
+  }
+
+  .section-subtitle {
+    @apply mt-4 text-lg text-gray-500;
+  }
+
+  /* --------------------------------------------------------------- buttons */
+
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 font-medium transition duration-200 ease-in-out;
-    border-radius: 2rem;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg;
+    @apply transition-colors duration-150 ease-out;
   }
 
   .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700 hover:scale-105;
+    @apply btn bg-primary-600 text-white shadow-sm;
+    @apply hover:bg-primary-700 active:bg-primary-800;
   }
 
   .btn-secondary {
-    @apply btn bg-secondary-600 text-white hover:bg-secondary-700 hover:scale-105;
+    @apply btn bg-secondary-600 text-white shadow-sm hover:bg-secondary-700;
   }
 
   .btn-outline {
-    @apply btn border-2 border-primary-600 text-primary-600 hover:scale-105;
+    @apply btn border border-gray-300 text-gray-800 bg-white;
+    @apply hover:bg-gray-50 hover:border-gray-400;
   }
 
-  .container {
-    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  /* For use on the dark hero / CTA panels. */
+  .btn-on-dark {
+    @apply btn bg-white text-gray-900 hover:bg-gray-100;
   }
 
-  .section {
-    @apply py-16 md:py-24;
+  .btn-ghost-on-dark {
+    @apply btn border border-white/25 text-white hover:bg-white/10 hover:border-white/40;
   }
 
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  /* ----------------------------------------------------------------- cards */
+
+  /* Border-first: a hairline defines the edge, shadow only hints on hover. */
   .card {
-    @apply bg-white p-6 transition duration-200 hover:shadow-md;
-    border-radius: 2rem;
+    @apply bg-white border border-gray-200 rounded-xl p-6;
+    @apply transition-[border-color,box-shadow] duration-200 ease-out;
+  }
+
+  .card-interactive {
+    @apply card hover:border-gray-300 hover:shadow-md;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold;
+  }
+
+  /* Small status marker, e.g. "Taking new engagements". */
+  .status-pill {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium;
+    @apply border border-white/15 bg-white/5 text-white/80;
+  }
+
+  .status-dot {
+    @apply relative inline-flex w-1.5 h-1.5 rounded-full bg-secondary-400;
+  }
+
+  .status-dot::after {
+    content: "";
+    @apply absolute inset-0 rounded-full bg-secondary-400;
+    animation: status-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes status-ping {
+    0% { transform: scale(1); opacity: 0.7; }
+    75%, 100% { transform: scale(2.75); opacity: 0; }
   }
 
   .nav-link {
-    @apply text-gray-600 hover:text-primary-600 font-bold transition duration-200;
+    @apply text-sm text-gray-600 hover:text-gray-900 font-medium transition-colors duration-150;
+  }
+
+  /* ----------------------------------------------------------------- forms */
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+
+  .form-field {
+    @apply w-full rounded-lg border border-gray-300 bg-white px-3.5 py-2.5 text-sm text-gray-900;
+    @apply placeholder:text-gray-400 transition-colors duration-150;
+    @apply focus:border-primary-600 focus:ring-2 focus:ring-primary-100 focus:outline-none;
   }
 
   .feature-grid {
-    @apply grid gap-8 md:grid-cols-2 lg:grid-cols-3;
+    @apply grid gap-6 md:grid-cols-2 lg:grid-cols-3;
   }
 
-  /* Blog and Syntax Highlighting Styles */
+  /* Reading-progress indicator in the header. */
+  .scroll-progress {
+    @apply absolute bottom-0 left-0 h-px bg-primary-600 origin-left;
+    width: 100%;
+    transform: scaleX(0);
+  }
+
+  /* ------------------------------------------- syntax highlighting (unchanged) */
+
   .highlight {
     @apply text-sm font-mono text-gray-200;
   }
@@ -121,12 +529,14 @@
     @apply text-gray-400;
   }
 
+  /* ------------------------------------------------------------ long-form */
+
   .prose {
-    @apply max-w-none;
+    @apply max-w-none text-gray-700;
   }
 
   .prose h1, .prose h2, .prose h3, .prose h4 {
-    @apply font-heading font-bold text-gray-900;
+    @apply font-heading font-semibold text-gray-900;
   }
 
   .prose h1 {
@@ -134,43 +544,95 @@
   }
 
   .prose h2 {
-    @apply text-3xl mt-12 mb-6;
+    @apply text-2xl md:text-3xl mt-14 mb-5;
   }
 
   .prose h3 {
-    @apply text-2xl mt-8 mb-4;
+    @apply text-xl md:text-2xl mt-10 mb-4;
   }
 
   .prose p {
-    @apply text-gray-700 leading-relaxed mb-6;
+    @apply leading-relaxed mb-6;
   }
 
   .prose a {
-    @apply text-primary-600 hover:text-primary-700 no-underline;
+    @apply text-primary-700 font-medium underline decoration-primary-300 underline-offset-2;
+    @apply hover:decoration-primary-600 transition-colors;
   }
 
   .prose ul, .prose ol {
-    @apply my-6 ml-6;
+    @apply my-6 ml-5;
+  }
+
+  /* Markers only on markdown-generated lists. Lists authored directly in HTML
+     carry their own class and usually supply their own bullet or icon. */
+  .prose ul:not([class]) {
+    @apply list-disc marker:text-gray-300;
+  }
+
+  .prose ol:not([class]) {
+    @apply list-decimal marker:text-gray-400;
   }
 
   .prose li {
-    @apply mb-2;
+    @apply mb-2 pl-1;
   }
 
   .prose blockquote {
-    @apply border-l-4 border-gray-200 pl-4 italic text-gray-700 my-8;
+    @apply border-l-2 border-primary-500 pl-5 my-8 text-gray-700 not-italic;
   }
 
+  /*
+   * Images keep their intrinsic aspect ratio: cap the width, let height
+   * follow. Tall diagrams stay proportional instead of being stretched to
+   * the column width.
+   */
   .prose img {
-    @apply rounded-lg shadow-lg my-8;
+    @apply block mx-auto my-10 rounded-lg border border-gray-200;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  .prose figure {
+    @apply my-10;
+  }
+
+  .prose figure img {
+    @apply my-0;
+  }
+
+  .prose figcaption {
+    @apply mt-3 text-center text-sm text-gray-500;
   }
 
   .prose code:not(pre code) {
-    @apply bg-gray-100 text-gray-900 px-1.5 py-0.5 rounded text-sm font-mono;
+    @apply bg-gray-100 text-gray-900 px-1.5 py-0.5 rounded text-[0.875em] font-mono;
+  }
+
+  .prose hr {
+    @apply my-12 border-gray-200;
+  }
+
+  .prose table {
+    @apply w-full my-8 text-sm border-collapse;
+  }
+
+  .prose th {
+    @apply text-left font-semibold text-gray-900 border-b border-gray-300 pb-2;
+  }
+
+  .prose td {
+    @apply border-b border-gray-200 py-2.5 align-top;
   }
 
   .table-of-contents {
-    @apply bg-gray-50 p-6 rounded-lg my-8;
+    @apply bg-gray-50 border border-gray-200 p-6 rounded-xl my-10;
+  }
+
+  /* Sits inside .prose, so it needs matching specificity to win the heading. */
+  .table-of-contents h2 {
+    @apply text-xs font-semibold uppercase tracking-eyebrow text-gray-400 mt-0 mb-4;
   }
 
   .table-of-contents nav {
@@ -178,10 +640,19 @@
   }
 
   .table-of-contents a {
-    @apply text-gray-700 hover:text-primary-600 no-underline;
+    @apply text-sm text-gray-600 hover:text-primary-700 no-underline;
   }
 
   .table-of-contents ul {
     @apply list-none ml-4 space-y-2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
