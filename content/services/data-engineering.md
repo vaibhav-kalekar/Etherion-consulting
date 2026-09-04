@@ -15,7 +15,7 @@ layout: "company"
             <p>Most organizations choose between robust data engineering or strong governance. At Etherion, we deliver both. We architect data platforms that are simultaneously scalable, compliant, and operationally excellent.</p>
             
             <h2 class="text-3xl font-bold text-slate-950 mt-12 mb-4">What We Offer</h2>
-            <div class="grid gap-6 mt-8">
+            <div class="grid gap-5 mt-8 sm:grid-cols-2">
                 <div class="rounded-3xl bg-gradient-to-br from-primary-50 to-primary-100 p-8 border border-primary-200 flex flex-col items-center justify-center text-center">
                     <h3 class="text-xl font-semibold text-slate-950 mb-3">Data Architecture Design</h3>
                     <p class="text-slate-700">Enterprise-grade data platforms built on modern cloud infrastructure (AWS, Azure, GCP) with scalability, performance, and security baked in.</p>

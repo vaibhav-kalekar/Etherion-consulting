@@ -15,7 +15,7 @@ layout: "company"
             <p>AI initiatives move fast because they're built by engineering teams optimizing for shipping, not by governance teams thinking about audit trails. That's fine until a regulator, enterprise customer, or board member asks a direct question: how is this model version-controlled, what data trained it, and who's accountable if it fails. The EU AI Act enforcement deadline arrives August 2026. Australian regulators are sharpening expectations in parallel. Organizations without a structured answer today will be building one under pressure.</p>
             
             <h2 class="text-3xl font-bold text-slate-950 mt-12 mb-4">What We Deliver</h2>
-            <div class="grid gap-6 mt-8">
+            <div class="grid gap-5 mt-8 sm:grid-cols-2">
                 <div class="rounded-3xl bg-gradient-to-br from-primary-50 to-primary-100 p-8 border border-primary-200 flex flex-col items-center justify-center text-center">
                     <h3 class="text-xl font-semibold text-slate-950 mb-3">AI Management System (AIMS) Design</h3>
                     <p class="text-slate-700">An AI Management System tailored to your data estate, mapped against the full ISO 42001 AIMS framework.</p>

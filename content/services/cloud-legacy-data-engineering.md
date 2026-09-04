@@ -15,7 +15,7 @@ layout: "company"
             <p>Most legacy migrations are scoped as a technology swap: same logic, same dependencies, same undocumented workarounds, just running on new infrastructure. That approach carries every existing risk forward, adds new platform-specific failure modes, and frequently trades one form of vendor lock-in for another. Real modernization means re-architecting for auditability and platform independence.</p>
             
             <h2 class="text-3xl font-bold text-slate-950 mt-12 mb-4">What We Deliver</h2>
-            <div class="grid gap-6 mt-8">
+            <div class="grid gap-5 mt-8 sm:grid-cols-2">
                 <div class="rounded-3xl bg-gradient-to-br from-primary-50 to-primary-100 p-8 border border-primary-200 flex flex-col items-center justify-center text-center">
                     <h3 class="text-xl font-semibold text-slate-950 mb-3">Legacy Migration Engineering</h3>
                     <p class="text-slate-700">Migration off SQL Server and SSIS estates onto modern cloud infrastructure, without dragging undocumented risk along with it.</p>

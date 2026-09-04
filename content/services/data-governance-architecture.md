@@ -15,7 +15,7 @@ layout: "company"
             <p>Governance usually gets added after the platform ships — a wiki page here, a spreadsheet of data owners there, none of it enforced in code. It looks complete in a slide deck and falls apart the moment someone asks to trace lineage end-to-end or prove who owns a critical data element. That gap shows up as a qualified audit finding, a stalled procurement review, or a board asking questions your team can't answer with evidence.</p>
             
             <h2 class="text-3xl font-bold text-slate-950 mt-12 mb-4">What We Deliver</h2>
-            <div class="grid gap-6 mt-8">
+            <div class="grid gap-5 mt-8 sm:grid-cols-2">
                 <div class="rounded-3xl bg-gradient-to-br from-primary-50 to-primary-100 p-8 border border-primary-200 flex flex-col items-center justify-center text-center">
                     <h3 class="text-xl font-semibold text-slate-950 mb-3">Critical Data Element Definition</h3>
                     <p class="text-slate-700">Clear definition of critical data elements, ownership, and stewardship accountability structures across your enterprise estate.</p>

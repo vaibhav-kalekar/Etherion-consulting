@@ -21,11 +21,11 @@
   {{ $honeypot = $formConfig.honeypot }}
 {{ end }}
 
-<div class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
+<div class="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
   <div class="mb-8">
-    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-primary-600">Send Us a Message</p>
-    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Inquiry & Advisory Request</h2>
-    <p class="mt-4 text-base leading-7 text-slate-600">Share your challenge, and we’ll capture your enquiry for follow-up. This form saves submissions to your chosen form backend.</p>
+    <div class="eyebrow mb-4">Send Us a Message</div>
+    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-900">Inquiry &amp; Advisory Request</h2>
+    <p class="mt-3 text-gray-500">Share your challenge, and we’ll capture your enquiry for follow-up. This form saves submissions to your chosen form backend.</p>
   </div>
 
   <form name="contact" method="POST" action="{{ $action }}" class="space-y-5" {{ if $netlify }}data-netlify="true"{{ end }}>
@@ -39,31 +39,31 @@
 
     <div class="grid gap-5 sm:grid-cols-2">
       <label class="space-y-2">
-        <span class="text-sm font-semibold text-slate-700">Full Name *</span>
-        <input type="text" name="full_name" required placeholder="John Smith" class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-100">
+        <span class="form-label">Full Name *</span>
+        <input type="text" name="full_name" required placeholder="John Smith" class="form-field">
       </label>
 
       <label class="space-y-2">
-        <span class="text-sm font-semibold text-slate-700">Work Email *</span>
-        <input type="email" name="corporate_email" required placeholder="john@company.com" class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-100">
+        <span class="form-label">Work Email *</span>
+        <input type="email" name="corporate_email" required placeholder="john@company.com" class="form-field">
       </label>
     </div>
 
     <div class="grid gap-5 sm:grid-cols-2">
       <label class="space-y-2">
-        <span class="text-sm font-semibold text-slate-700">Company</span>
-        <input type="text" name="company_name" placeholder="Acme Inc" class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-100">
+        <span class="form-label">Company</span>
+        <input type="text" name="company_name" placeholder="Acme Inc" class="form-field">
       </label>
 
       <label class="space-y-2">
-        <span class="text-sm font-semibold text-slate-700">Your Role</span>
-        <input type="text" name="role" placeholder="Chief Data Officer" class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-100">
+        <span class="form-label">Your Role</span>
+        <input type="text" name="role" placeholder="Chief Data Officer" class="form-field">
       </label>
     </div>
 
     <label class="space-y-2">
-      <span class="text-sm font-semibold text-slate-700">Subject *</span>
-      <select name="subject" required class="w-full rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-100">
+      <span class="form-label">Subject *</span>
+      <select name="subject" required class="form-field">
         <option value="">Select a topic</option>
         <option value="Cloud migration & modernisation">Cloud migration & modernisation</option>
         <option value="APRA CPG 235 / HIPAA compliance">APRA CPG 235 / HIPAA compliance</option>
@@ -74,12 +74,12 @@
     </label>
 
     <label class="space-y-2">
-      <span class="text-sm font-semibold text-slate-700">Message *</span>
-      <textarea name="message" rows="6" required placeholder="Tell us about your project or challenge..." class="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-primary-600 focus:ring-2 focus:ring-primary-100"></textarea>
+      <span class="form-label">Message *</span>
+      <textarea name="message" rows="6" required placeholder="Tell us about your project or challenge..." class="form-field"></textarea>
     </label>
 
-    <button type="submit" class="inline-flex w-full items-center justify-center rounded-3xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition duration-200 hover:bg-slate-800">Send Message</button>
+    <button type="submit" class="btn-primary btn-lg w-full">Send Message</button>
 
-    <p class="text-xs text-slate-500">🔒 Your information is secure. We respect your privacy and will never share your data without permission.</p>
+    <p class="text-xs text-gray-400">Your information is secure. We respect your privacy and will never share your data without permission.</p>
   </form>
 </div>

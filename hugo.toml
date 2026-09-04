@@ -99,28 +99,29 @@ enableGitInfo = true
 
   [params.header]
     # Header background and border styles (optional)
-    background = "bg-white/80 backdrop-blur-sm"
-    border = "border-b border-gray-100"
-    
+    background = "bg-white/85 backdrop-blur-md"
+    border = "border-b border-gray-200"
+
     # Logo configuration
     [params.header.logo]
       src = "images/logo.png"
-    
+      class = "h-8 w-auto"
+
     # Menu configuration
     [params.header.menu]
-      spacing = "space-x-6"
-      
+      spacing = "gap-7"
+
       # Dropdown menu configuration
       [params.header.menu.dropdown]
-        width = "w-72"
-        container_padding = "py-6"
-        item_padding = "px-8 py-3"
+        width = "w-64"
+        container_padding = "py-2"
+        item_padding = "px-4 py-2.5"
         background = "bg-white"
-        border = "border border-gray-100"
-        shadow = "shadow-xl"
-        radius = "rounded-lg"
-        text_color = "text-gray-700"
-        hover_background = "hover:bg-gray-50"
+        border = "border border-gray-200"
+        shadow = "shadow-lg"
+        radius = "rounded-xl"
+        text_color = "text-gray-600"
+        hover_background = "hover:bg-gray-50 hover:text-gray-900"
         text_size = "text-sm"
     
     # Button configuration
@@ -133,9 +134,9 @@ enableGitInfo = true
       
       # Get Started button
       [params.header.buttons.getStarted]
-        enable = false  # Set to true to enable Get Started button in header
-        text = "Get Started"
-        url = "/get-started"
+        enable = true
+        text = "Book a Fit Check"
+        url = "/contact"
 
   # Blog configuration
   [params.blog]
@@ -204,9 +205,9 @@ enableGitInfo = true
     enable = true
     title = "Still Treating Governance as a Phase Instead of a Foundation?"
     description = "That's the gap that turns audits into findings and AI pilots into board-level risk. Talk to us before your next migration, model deployment, or compliance review"
-    gradient_from = "#2563eb"  # Indigo-600
-    gradient_to = "#7c3aed"    # Purple-600
-    gradient_angle = 30
+    gradient_from = "#0A0F1E"  # Matches the hero, so the page opens and closes on brand navy
+    gradient_to = "#1A2240"
+    gradient_angle = 135
     [languages.en.params.cta.primary_button]
       text = "Book a Free 20-Min AI Governance Fit Check"
       url = "/contact"

@@ -5,7 +5,7 @@ author: "Etherion Consulting"
 description: "How a healthcare provider launched AI/ML capabilities with HIPAA compliance and bias detection, enabling precision medicine at scale."
 categories: ["Case Study"]
 tags: ["healthcare", "ai-governance", "hipaa-compliance", "ml-operations", "responsible-ai"]
-featured_image: "/images/blog/blog-3.jpg"
+featured_image: "/images/blog/blog-3.webp"
 ---
 
 {{< toc >}}

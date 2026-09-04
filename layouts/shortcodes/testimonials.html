@@ -1,11 +1,14 @@
 {{ $background_color := .Get "background-color" }}
 {{ $title_color := .Get "title-color" }}
 {{ $description_color := .Get "description-color" }}
-<section class="section{{ if not $background_color }} bg-gray-50{{ end }}" {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
+<section class="section{{ if not $background_color }} bg-gray-50 border-y border-gray-200{{ end }}" {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
     <div class="container">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6{{ if eq $title_color "white" }} text-white{{ end }}{{ if eq $title_color "light" }} text-gray-100{{ end }}">{{ .Get "title" | default (i18n "lovedByTeams") }}</h2>
-            <p class="text-xl text-gray-600{{ if eq $description_color "white" }} text-white{{ end }}{{ if eq $description_color "light" }} text-gray-100{{ end }}">{{ .Get "description" | default (i18n "testimonialsDescription") }}</p>
+        <div class="section-head mx-auto text-center mb-14">
+            {{ with .Get "eyebrow" }}
+            <div class="eyebrow justify-center mb-4">{{ . }}</div>
+            {{ end }}
+            <h2 class="section-title{{ if eq $title_color "white" }} text-white{{ end }}{{ if eq $title_color "light" }} text-gray-100{{ end }}">{{ .Get "title" | default (i18n "lovedByTeams") }}</h2>
+            <p class="section-subtitle{{ if eq $description_color "white" }} text-white{{ end }}{{ if eq $description_color "light" }} text-gray-100{{ end }}">{{ .Get "description" | default (i18n "testimonialsDescription") }}</p>
         </div>
 
         <div class="testimonials-container overflow-hidden">
@@ -15,11 +18,11 @@
                     <div class="flex items-center space-x-4 mb-6">
                         <img src="{{ .avatar | relURL }}" alt="{{ .name }}" class="w-12 h-12 rounded-full">
                         <div>
-                            <h4 class="font-bold">{{ .name }}</h4>
-                            <p class="text-gray-600">{{ .title }}</p>
+                            <h4 class="font-semibold text-gray-900">{{ .name }}</h4>
+                            <p class="text-sm text-gray-500">{{ .title }}</p>
                         </div>
                     </div>
-                    <p class="text-gray-600">{{ .quote }}</p>
+                    <p class="text-gray-600 leading-relaxed">{{ .quote }}</p>
                 </div>
                 {{ end }}
                 {{ if ne (.Get "animate" | default "true") "false" }}
@@ -28,11 +31,11 @@
                         <div class="flex items-center space-x-4 mb-6">
                             <img src="{{ .avatar | relURL }}" alt="{{ .name }}" class="w-12 h-12 rounded-full">
                             <div>
-                                <h4 class="font-bold">{{ .name }}</h4>
-                                <p class="text-gray-600">{{ .title }}</p>
+                                <h4 class="font-semibold text-gray-900">{{ .name }}</h4>
+                                <p class="text-sm text-gray-500">{{ .title }}</p>
                             </div>
                         </div>
-                        <p class="text-gray-600">{{ .quote }}</p>
+                        <p class="text-gray-600 leading-relaxed">{{ .quote }}</p>
                     </div>
                     {{ end }}
                 {{ end }}
@@ -151,11 +154,11 @@
 
 .testimonial-card {
     flex: 0 0 auto;
-    width: 300px;
+    width: 320px;
     background: white;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 1.75rem;
+    border-radius: 0.875rem;
+    border: 1px solid rgb(var(--color-neutral-200));
 }
 
 .testimonials-container.static .testimonial-card {

@@ -1,0 +1,40 @@
+{{ $title := .Get "title" }}
+{{ $subtitle := .Get "subtitle" }}
+{{ $eyebrow := .Get "eyebrow" }}
+{{ $id := .Get "id" }}
+
+<section class="section bg-gray-50 border-y border-gray-200"{{ with $id }} id="{{ . }}"{{ end }}>
+  <div class="container">
+    <div class="section-head mx-auto text-center mb-14">
+      {{ with $eyebrow }}
+      <div class="eyebrow justify-center mb-4">{{ . }}</div>
+      {{ end }}
+      <h2 class="section-title">{{ $title }}</h2>
+      <p class="section-subtitle">{{ $subtitle }}</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {{ range $index := (seq 1 10) }}
+        {{ $benefit := printf "benefit%d" $index }}
+        {{ with $.Get $benefit }}
+          {{ $parts := split . "|" }}
+          {{ if ge (len $parts) 4 }}
+            {{ $iconPath := "" }}
+            {{ if ge (len $parts) 5 }}
+              {{ $iconPath = index $parts 4 }}
+            {{ end }}
+            {{ $accent := index $parts 1 }}
+            <div class="card-interactive flex flex-col">
+              <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5"
+                   style="background-color: {{ $accent }}14;">
+                {{ partial "icons" (dict "name" (index $parts 0) "color" $accent "size" "5" "path" $iconPath) }}
+              </div>
+              <h3 class="text-base font-semibold text-gray-900 mb-2">{{ index $parts 2 }}</h3>
+              <p class="text-sm text-gray-500 leading-relaxed">{{ index $parts 3 }}</p>
+            </div>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>

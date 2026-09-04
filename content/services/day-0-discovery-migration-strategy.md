@@ -15,7 +15,7 @@ layout: "company"
             <p>Engineering teams are usually asked to modernize a platform, not interrogate it. So technical debt, undocumented dependencies, and governance gaps ride along into the new architecture unexamined — and surface mid-migration, when they're most expensive to fix. Boards and regulators don't ask "did the migration work?" They ask "what did you know before you started, and can you prove it?" Day 0 closes that gap.</p>
             
             <h2 class="text-3xl font-bold text-slate-950 mt-12 mb-4">What We Deliver</h2>
-            <div class="grid gap-6 mt-8">
+            <div class="grid gap-5 mt-8 sm:grid-cols-2">
                 <div class="rounded-3xl bg-gradient-to-br from-primary-50 to-primary-100 p-8 border border-primary-200 flex flex-col items-center justify-center text-center">
                     <h3 class="text-xl font-semibold text-slate-950 mb-3">Legacy Data Estate Audit</h3>
                     <p class="text-slate-700">Full audit of your legacy platform to surface hidden governance debt, undocumented dependencies, and technical risk before it reaches production.</p>

@@ -5,7 +5,7 @@ author: "Etherion Consulting"
 description: "How a multinational insurance group implemented ISO 42001-aligned data governance across 12 countries and 500+ data sources."
 categories: ["Case Study"]
 tags: ["insurance", "data-governance", "iso-42001", "compliance", "cpg-235"]
-featured_image: "/images/blog/blog-2.jpg"
+featured_image: "/images/blog/blog-2.webp"
 ---
 
 {{< toc >}}

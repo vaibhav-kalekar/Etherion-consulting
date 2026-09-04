@@ -42,6 +42,8 @@ faq:
 ---
 
 {{< hero
+    status="Engagements typically start within 1–2 weeks"
+    eyebrow="AI Governance · Automation · PMO · Data"
     headline="Govern the AI. Automate the work. Run the program properly."
     sub_headline="Etherion helps regulated organisations get AI, data and delivery under control before an audit, a board question, or a stalled deal forces the issue."
     primary_button_text="Book a Fit Check"
@@ -62,6 +64,7 @@ faq:
 
 {{< features-section
     id="capabilities"
+    eyebrow="Capabilities"
     title="Four disciplines. One connected practice."
     description="Most firms are strong in one of these. The gap between them is where AI programs actually fail."
 >}}
@@ -118,6 +121,7 @@ faq:
 
 {{< benefits-grid
     id="services"
+    eyebrow="Engagements"
     title="Defined engagements. Clear outcomes."
     subtitle="Start with a focused problem, a bounded scope and a tangible outcome. Larger programmes can follow when the business case is clear."
     benefit1="custom|#059669|AI Governance|ISO 42001 readiness, risk inventories and lifecycle controls - governance built into the system, not bolted on after an audit finding.|<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 3l7 3v5c0 4.5-2.8 7.4-7 9-4.2-1.6-7-4.5-7-9V6l7-3z M9 12l2 2 4-4\"></path>"
@@ -128,6 +132,7 @@ faq:
 
 {{< features-section
     id="why-etherion"
+    eyebrow="Why Etherion"
     title="Technical execution. Governance by design."
     description="Most consultancies are strong on engineering or strong on governance. Etherion works across the boundary - helping organisations turn governance requirements into practical architecture, controls and operating models."
 >}}
@@ -159,12 +164,14 @@ faq:
 {{< /features-section >}}
 
 {{< testimonials
+    eyebrow="Credentials"
     title="A senior, practical approach to AI and data"
     description="Etherion combines governance discipline with hands-on technology experience - helping organisations move from policy and strategy to systems that actually work."
 >}}
 
 {{< faq
     id="faq"
+    eyebrow="FAQ"
 >}}
 {
     "title": "Common Questions",

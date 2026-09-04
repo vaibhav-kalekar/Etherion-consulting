@@ -15,7 +15,7 @@ layout: "company"
             <p>A full-time Head of Data Governance is hard to justify at mid-market scale — but the absence of that role doesn't remove the need for it. Decisions get made without a governance lens, vendors go unchecked, and engineering teams execute without strategic direction on compliance or AI risk. The cost isn't visible month to month. It shows up later, as technical debt, a stalled audit, or a board question no one can answer.</p>
             
             <h2 class="text-3xl font-bold text-slate-950 mt-12 mb-4">What We Deliver</h2>
-            <div class="grid gap-6 mt-8">
+            <div class="grid gap-5 mt-8 sm:grid-cols-2">
                 <div class="rounded-3xl bg-gradient-to-br from-primary-50 to-primary-100 p-8 border border-primary-200 flex flex-col items-center justify-center text-center">
                     <h3 class="text-xl font-semibold text-slate-950 mb-3">Governance Operating Model Design</h3>
                     <p class="text-slate-700">Shaping your data and AI governance operating model with clear structure, priorities, and accountability lines.</p>

@@ -15,7 +15,7 @@ layout: "company"
             <p>Knowledge transfer and capability building are critical to long-term success. Our training programs combine practical hands-on workshops with governance frameworks to ensure your team can sustain and scale what's been built.</p>
             
             <h2 class="text-3xl font-bold text-slate-950 mt-12 mb-4">Training Programs</h2>
-            <div class="grid gap-6 mt-8 flex flex-col items-center justify-center text-center">
+            <div class="grid gap-5 mt-8 sm:grid-cols-2">
                 <div class="rounded-3xl bg-gradient-to-br from-primary-50 to-primary-100 p-8 border border-primary-200">
                     <h3 class="text-xl font-semibold text-slate-950 mb-3">Data Governance Fundamentals</h3>
                     <p class="text-slate-700">Executive and technical tracks covering governance principles, regulatory requirements, and implementing governance operating models aligned with ISO 42001 and DAMA-DMBOK.</p>
@@ -52,7 +52,7 @@ layout: "company"
             </ul>
 
             <h2 class="text-3xl font-bold text-slate-950 mt-12 mb-4">Who Should Attend</h2>
-            <div class="grid gap-6 mt-8 flex flex-col items-center justify-center text-center">
+            <div class="grid gap-5 mt-8 sm:grid-cols-2">
                 <div class="bg-slate-50 rounded-lg p-6">
                     <h4 class="font-semibold text-slate-950 mb-2">Executives & Leaders</h4>
                     <p class="text-slate-700">Understand governance frameworks, compliance obligations, and how to build sustainable data-driven organizations.</p>
