@@ -10,31 +10,36 @@
     {{ end }}
 {{ end }}
 
+<!-- Dark opening band, matching the interior page pattern -->
+<header class="band-dark py-14 md:py-16">
+    <div class="container">
+        <div class="{{ if not $hasSidebar }}max-w-3xl mx-auto{{ else }}max-w-3xl{{ end }}">
+            {{ with .Params.categories }}
+                <div class="mb-5">
+                    {{ range . }}
+                        <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"
+                           class="badge bg-primary-50 text-primary-700 hover:bg-primary-100 transition-colors mr-2">
+                            {{ . }}
+                        </a>
+                    {{ end }}
+                </div>
+            {{ end }}
+
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">{{ .Title }}</h1>
+
+            {{ with .Description }}
+                <p class="text-lg md:text-xl mb-6">{{ . }}</p>
+            {{ end }}
+
+            {{ partial "post-meta.html" . }}
+        </div>
+    </div>
+</header>
+
 <div class="container py-14 md:py-20">
     <div class="flex flex-col {{ if $hasSidebar }}lg:flex-row gap-12{{ end }} mb-12">
         <!-- Main Content -->
         <article class="{{ if $hasSidebar }}flex-1 min-w-0{{ else }}w-full max-w-3xl mx-auto{{ end }}">
-            <header class="mb-10">
-                {{ with .Params.categories }}
-                    <div class="mb-5">
-                        {{ range . }}
-                            <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}"
-                               class="badge bg-primary-50 text-primary-700 hover:bg-primary-100 transition-colors mr-2">
-                                {{ . }}
-                            </a>
-                        {{ end }}
-                    </div>
-                {{ end }}
-
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-6">{{ .Title }}</h1>
-
-                {{ with .Description }}
-                    <p class="text-lg md:text-xl text-gray-500 mb-6">{{ . }}</p>
-                {{ end }}
-
-                {{ partial "post-meta.html" . }}
-            </header>
-
             {{ with .Params.featured_image }}
                 <div class="mb-12">
                     <img src="{{ . | relURL }}"

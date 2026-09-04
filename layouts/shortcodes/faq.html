@@ -3,7 +3,10 @@
 {{ $title_color := .Get "title-color" }}
 {{ $description_color := .Get "description-color" }}
 {{ $id := .Get "id" }}
-<section class="section{{ if not $background_color }} bg-white{{ end }}"{{ with $id }} id="{{ . }}"{{ end }} {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
+{{/* Backgrounds: default transparent, dark="true" navy band, tint="true" gray band. */}}
+{{ $dark := eq (.Get "dark") "true" }}
+{{ $tint := eq (.Get "tint") "true" }}
+<section class="section{{ if $dark }} band-dark{{ else if $tint }} band-light{{ end }}"{{ with $id }} id="{{ . }}"{{ end }} {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
     <div class="container">
         <div class="section-head mx-auto text-center mb-14">
             {{ with .Get "eyebrow" }}

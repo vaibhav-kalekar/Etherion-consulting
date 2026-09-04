@@ -1,0 +1,34 @@
+{{/* Shared pager. Takes a paginator. */}}
+<nav class="mt-14 flex justify-between items-center gap-4">
+    {{ if .HasPrev }}
+        <a href="{{ .Prev.URL }}" class="btn btn-outline">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            {{ i18n "previous" | default "Previous" }}
+        </a>
+    {{ else }}
+        <div></div>
+    {{ end }}
+
+    <div class="flex items-center gap-1.5">
+        {{ range .Pagers }}
+            {{ if eq . $ }}
+                <span class="px-3.5 py-2 text-sm font-medium rounded-lg bg-primary-600 text-white">{{ .PageNumber }}</span>
+            {{ else }}
+                <a href="{{ .URL }}" class="px-3.5 py-2 text-sm font-medium rounded-lg border border-gray-200 text-gray-600 hover:border-gray-300 hover:text-gray-900 transition-colors">{{ .PageNumber }}</a>
+            {{ end }}
+        {{ end }}
+    </div>
+
+    {{ if .HasNext }}
+        <a href="{{ .Next.URL }}" class="btn btn-outline">
+            {{ i18n "next" | default "Next" }}
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+        </a>
+    {{ else }}
+        <div></div>
+    {{ end }}
+</nav>

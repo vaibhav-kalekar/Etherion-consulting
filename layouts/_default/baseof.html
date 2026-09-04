@@ -94,7 +94,9 @@
     </div>
 
     <!-- Main Content -->
-    <div class="pt-16">
+    <!-- flex-1 keeps short pages (404, thin taxonomies) from leaving a gap
+         between the content and the footer -->
+    <div class="pt-16 flex-1">
         {{ block "main" . }}{{ end }}
     </div>
 

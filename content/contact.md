@@ -4,19 +4,19 @@ layout: "company"
 description: "Let's start a conversation about your data, AI, and governance priorities."
 ---
 
-{{< section-container class="bg-gray-50 border-b border-gray-200 pt-20 pb-20" >}}
+{{< section-container class="section" dark="true" >}}
     <div class="max-w-3xl mx-auto text-center">
         <div class="eyebrow justify-center mb-5">Contact</div>
-        <h1 class="text-4xl md:text-5xl font-semibold mb-6">Let's Start a Conversation</h1>
-        <p class="text-lg md:text-xl text-gray-500">Whether you're ready to transform your data capabilities or just exploring options, we're here to help. No pressure, no jargon — just honest advice from people who care.</p>
-        <div class="mt-12 rounded-2xl border border-gray-200 bg-white p-8 text-left sm:text-center">
+        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">Let's Start a Conversation</h1>
+        <p class="text-lg md:text-xl leading-relaxed">Whether you're ready to transform your data capabilities or just exploring options, we're here to help. No pressure, no jargon — just honest advice from people who care.</p>
+        <div class="card mt-12 text-left sm:text-center">
             <h2 class="text-2xl font-semibold mb-3">Need Expert Guidance?</h2>
-            <p class="text-gray-500">We partner with regulated enterprises across Financial Services, Healthcare, and Insurance to make your next data or AI program audit-ready from day one.</p>
+            <p class="leading-relaxed">We partner with regulated enterprises across Financial Services, Healthcare, and Insurance to make your next data or AI program audit-ready from day one.</p>
         </div>
     </div>
 {{< /section-container >}}
 
-{{< section-container class="py-20" >}}
+{{< section-container class="section" >}}
     <div class="max-w-3xl mx-auto">
         <div class="grid gap-5 sm:grid-cols-2 mb-8">
             <div class="card">

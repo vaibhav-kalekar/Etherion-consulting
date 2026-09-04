@@ -1,7 +1,10 @@
+{{/* Backgrounds: default transparent, dark="true" navy band, tint="true" gray band. */}}
 {{ $background_color := .Get "background-color" }}
 {{ $title_color := .Get "title-color" }}
 {{ $description_color := .Get "description-color" }}
-<section class="section{{ if not $background_color }} bg-gray-50 border-y border-gray-200{{ end }}" {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
+{{ $dark := eq (.Get "dark") "true" }}
+{{ $tint := eq (.Get "tint") "true" }}
+<section class="section{{ if $dark }} band-dark{{ else if $tint }} band-light{{ end }}" {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
     <div class="container">
         <div class="section-head mx-auto text-center mb-14">
             {{ with .Get "eyebrow" }}

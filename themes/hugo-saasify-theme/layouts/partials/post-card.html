@@ -39,8 +39,12 @@
 
         <!-- Meta: date, reading time, author -->
         <div class="mt-auto flex items-center gap-2 text-sm text-gray-400">
+            {{/* Evergreen pages (services, features) carry no date; don't
+                 render Hugo's zero value as "Jan 1, 0001". */}}
+            {{ if not .Date.IsZero }}
             <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
             <span aria-hidden="true">&middot;</span>
+            {{ end }}
             <span>{{ .ReadingTime }} {{ i18n "readTime" }}</span>
             {{ with .Params.author }}
                 <span aria-hidden="true">&middot;</span>

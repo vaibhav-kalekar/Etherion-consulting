@@ -1,46 +1,38 @@
 {{ define "main" }}
 <article class="feature-page" style="--badge-color: {{ .Params.badgeColor }}">
     <!-- Hero Section -->
-    <div class="relative isolate overflow-hidden">
-        <style>
-            .badge {
-                background-color: color-mix(in srgb, var(--badge-color) 10%, transparent);
-                color: var(--badge-color);
-            }
-            .gradient-bg {
-                background-image: linear-gradient(180deg, color-mix(in srgb, var(--badge-color) 5%, white), white);
-            }
-        </style>
-        <div class="absolute inset-x-0 top-0 h-96 gradient-bg opacity-75"></div>
-        <div class="relative pt-24 pb-16 sm:pt-32">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl text-center">
-                    {{ with .Params.badge }}
-                    <div class="mb-6">
-                        <span class="badge inline-flex items-center rounded-full px-4 py-1.5 text-sm font-medium">
-                            {{ . }}
-                        </span>
-                    </div>
-                    {{ end }}
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{{ .Title }}</h1>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">{{ .Description }}</p>
+    <style>
+        .feature-page .badge {
+            background-color: color-mix(in srgb, var(--badge-color) 16%, transparent);
+            color: var(--badge-color);
+        }
+    </style>
+    <section class="band-dark py-16 md:py-20">
+        <div class="container">
+            <div class="max-w-3xl mx-auto text-center">
+                {{ with .Params.badge }}
+                <div class="mb-6">
+                    <span class="badge">{{ . }}</span>
                 </div>
+                {{ end }}
+                <h1 class="text-4xl md:text-5xl font-semibold tracking-tight">{{ .Title }}</h1>
+                <p class="mt-5 text-lg md:text-xl leading-relaxed">{{ .Description }}</p>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Main Content -->
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="container-wide">
         <!-- Key Features Grid -->
         {{ if .Params.features }}
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
             <div class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
                 {{ range .Params.features }}
-                <div class="flex flex-col bg-white rounded-2xl shadow-sm ring-1 ring-gray-200 p-8">
-                    <dt class="text-lg font-semibold leading-7 text-gray-900">
+                <div class="card flex flex-col">
+                    <dt class="text-base font-semibold text-gray-900">
                         {{ .title }}
                     </dt>
-                    <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                    <dd class="mt-2 flex flex-auto flex-col text-sm leading-relaxed text-gray-500">
                         <p class="flex-auto">{{ .description }}</p>
                     </dd>
                 </div>
@@ -56,7 +48,7 @@
 
         <!-- Demo Section -->
         {{ if .Params.demo }}
-        <div class="bg-gray-50 -mx-6 px-6 py-24 sm:py-32">
+        <div class="band-light -mx-6 px-6 py-24 sm:py-32">
             <div class="mx-auto max-w-2xl lg:text-center">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ i18n "seeItInAction" }}</h2>
                 <p class="mt-6 text-lg leading-8 text-gray-600">{{ .Params.demo.description }}</p>

@@ -1,0 +1,31 @@
+{{/* Dark opening band for interior pages.
+
+     Every page that isn't the homepage should start with one of these, so the
+     site reads as: dark header band -> light content on the page glow ->
+     dark footer.
+
+     Usage:
+       {{ partial "page-header" (dict
+            "eyebrow"     "Insights"
+            "title"       .Title
+            "description" .Description
+            "align"       "center"   // optional, defaults to left
+       ) }}
+*/}}
+{{ $center := eq (.align | default "left") "center" }}
+<section class="band-dark py-16 md:py-20">
+    <div class="container">
+        <div class="max-w-3xl{{ if $center }} mx-auto text-center{{ end }}">
+            {{ with .eyebrow }}
+            <div class="eyebrow{{ if $center }} justify-center{{ end }} mb-4">{{ . }}</div>
+            {{ end }}
+            <h1 class="text-4xl md:text-5xl font-semibold tracking-tight">{{ .title }}</h1>
+            {{ with .description }}
+            <p class="mt-5 text-lg md:text-xl leading-relaxed{{ if $center }} mx-auto{{ end }} max-w-2xl">{{ . | safeHTML }}</p>
+            {{ end }}
+            {{ with .meta }}
+            <div class="mt-6 text-sm">{{ . | safeHTML }}</div>
+            {{ end }}
+        </div>
+    </div>
+</section>

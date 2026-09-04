@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ $count := len .Pages }}
+{{ partial "page-header" (dict
+    "eyebrow" (.Data.Singular | title)
+    "title" .Title
+    "description" (printf "%d %s" $count (cond (eq $count 1) "post" "posts"))
+) }}
+
+<div class="section">
+    <div class="container-wide">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {{ $paginator := .Paginate .Pages }}
+            {{ range $paginator.Pages }}
+                {{ partial "post-card.html" . }}
+            {{ end }}
+        </div>
+
+        {{ $paginator := .Paginate .Pages }}
+        {{ if gt $paginator.TotalPages 1 }}
+            {{ partial "pagination" $paginator }}
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -121,6 +121,7 @@ faq:
 
 {{< benefits-grid
     id="services"
+    dark="true"
     eyebrow="Engagements"
     title="Defined engagements. Clear outcomes."
     subtitle="Start with a focused problem, a bounded scope and a tangible outcome. Larger programmes can follow when the business case is clear."
@@ -164,6 +165,7 @@ faq:
 {{< /features-section >}}
 
 {{< testimonials
+    dark="true"
     eyebrow="Credentials"
     title="A senior, practical approach to AI and data"
     description="Etherion combines governance discipline with hands-on technology experience - helping organisations move from policy and strategy to systems that actually work."

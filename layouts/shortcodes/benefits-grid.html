@@ -1,9 +1,12 @@
+{{/* Backgrounds: default transparent, dark="true" navy band, tint="true" gray band. */}}
 {{ $title := .Get "title" }}
 {{ $subtitle := .Get "subtitle" }}
 {{ $eyebrow := .Get "eyebrow" }}
 {{ $id := .Get "id" }}
+{{ $dark := eq (.Get "dark") "true" }}
+{{ $tint := eq (.Get "tint") "true" }}
 
-<section class="section bg-gray-50 border-y border-gray-200"{{ with $id }} id="{{ . }}"{{ end }}>
+<section class="section{{ if $dark }} band-dark{{ else if $tint }} band-light{{ end }}"{{ with $id }} id="{{ . }}"{{ end }}>
   <div class="container">
     <div class="section-head mx-auto text-center mb-14">
       {{ with $eyebrow }}
@@ -26,7 +29,7 @@
             {{ $accent := index $parts 1 }}
             <div class="card-interactive flex flex-col">
               <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5"
-                   style="background-color: {{ $accent }}14;">
+                   style="background-color: {{ $accent }}{{ if $dark }}2e{{ else }}14{{ end }};">
                 {{ partial "icons" (dict "name" (index $parts 0) "color" $accent "size" "5" "path" $iconPath) }}
               </div>
               <h3 class="text-base font-semibold text-gray-900 mb-2">{{ index $parts 2 }}</h3>
