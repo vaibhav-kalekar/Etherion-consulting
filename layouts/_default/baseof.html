@@ -60,8 +60,16 @@
     
     <!-- Main CSS -->
     {{ if getenv "CI" }}
-    <!-- Use pre-built CSS on CI (detect via $CI) to avoid PostCSS runtime issues -->
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    <!-- Use pre-built CSS on CI (detect via $CI) to avoid PostCSS runtime issues.
+         The Tailwind step writes assets/css/style.css so Hugo can fingerprint it;
+         without a hash in the filename, returning visitors get new HTML paired
+         with a stale cached stylesheet. -->
+    {{ with resources.Get "css/style.css" }}
+    {{ $css := . | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+    {{ else }}
+    {{ errorf "assets/css/style.css is missing - run the Tailwind step before building with CI set" }}
+    {{ end }}
     {{ else }}
     {{ $css := resources.Get "css/main.css" }}
     {{ $css = $css | css.PostCSS }}

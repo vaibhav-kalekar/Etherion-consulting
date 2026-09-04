@@ -88,7 +88,7 @@ layouts/            Project overrides — these win over the theme
 themes/hugo-saasify-theme/
   assets/css/main.css   Design tokens and component classes (source of truth)
   layouts/              Theme templates; overridden per-file by layouts/
-static/css/style.css    Prebuilt CSS, used on CI
+assets/css/style.css    Tailwind output, generated at build time (gitignored)
 ```
 
 `content/` also holds `de/`, `es/`, `fr/`, `pt/` and `zh-cn/` translation directories, plus `docs/`,
@@ -132,7 +132,7 @@ Non-home pages open with the `page-header` partial, which renders the band and i
 ) }}
 ```
 
-### Two gotchas
+### Three gotchas
 
 **Don't invert utility classes with plain class selectors.** Tailwind's `@apply` resolves a class name
 against *every* rule that declares it, including ours. A rule like `.band-dark .text-gray-900 {}` leaks
@@ -142,6 +142,13 @@ into any component that does `@apply text-gray-900` and repaints it. The inversi
 **Prose beats utilities.** `.prose h3` is more specific than a `text-base` class on the element, so
 utility classes on headings inside long-form content are silently ignored. Card and list overrides for
 prose content live in `main.css`.
+
+**The stylesheet filename must stay hashed.** Pages are served with `max-age=0` but CSS with a four-hour
+`max-age`, so a fixed filename means returning visitors get new HTML against a stale stylesheet — the site
+renders badly for them and looks fine in a private window. Both build paths fingerprint: locally Hugo's
+PostCSS pipeline emits `main.min.<hash>.css`, and on CI Tailwind writes `assets/css/style.css` which Hugo
+fingerprints to `style.<hash>.css`. If that asset is missing the build fails rather than falling back to an
+unhashed file.
 
 ## License
 

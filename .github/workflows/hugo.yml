@@ -48,8 +48,10 @@ jobs:
           HUGO_BASEURL: "https://vaibhav-kalekar.github.io/Etherion-consulting/"
         run: |
           npm ci
-          # build Tailwind CSS into static/css/style.css so Hugo can use it without PostCSS
-          npx tailwindcss -i themes/hugo-saasify-theme/assets/css/main.css -o static/css/style.css --minify
+          # build Tailwind CSS into assets/ so Hugo can use it without PostCSS and
+          # still fingerprint the filename for cache busting
+          mkdir -p assets/css
+          npx tailwindcss -i themes/hugo-saasify-theme/assets/css/main.css -o assets/css/style.css --minify
           # ensure local node binaries are on PATH (for any tools)
           export PATH="$PWD/node_modules/.bin:$PATH"
           hugo --minify --baseURL "$HUGO_BASEURL"
