@@ -69,8 +69,15 @@ served. Use `rm -rf public && npm run build` whenever you're inspecting the outp
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/hugo.yml`, which builds with `HUGO_ENVIRONMENT=production`
-and publishes to GitHub Pages.
+Two pipelines run off `main`, and it's worth knowing which one users actually hit:
+
+- **Cloudflare Pages serves `www.etherionconsulting.com`.** Its build command is a bare `hugo`, with no
+  separate Tailwind step, so Hugo compiles the CSS itself through PostCSS. Cloudflare sets `CI=true` in
+  the build environment — don't branch templates on `$CI` expecting a prebuilt stylesheet to exist there.
+- **`.github/workflows/hugo.yml` publishes to GitHub Pages** with `HUGO_ENVIRONMENT=production`. It runs
+  the Tailwind CLI first, so Hugo picks up `assets/css/style.css` instead of compiling.
+
+Both paths end up with a fingerprinted stylesheet; see the third gotcha below.
 
 The theme lives in `themes/hugo-saasify-theme/` and is vendored directly in this repo, not a submodule —
 edit it in place.
@@ -145,10 +152,13 @@ prose content live in `main.css`.
 
 **The stylesheet filename must stay hashed.** Pages are served with `max-age=0` but CSS with a four-hour
 `max-age`, so a fixed filename means returning visitors get new HTML against a stale stylesheet — the site
-renders badly for them and looks fine in a private window. Both build paths fingerprint: locally Hugo's
-PostCSS pipeline emits `main.min.<hash>.css`, and on CI Tailwind writes `assets/css/style.css` which Hugo
-fingerprints to `style.<hash>.css`. If that asset is missing the build fails rather than falling back to an
-unhashed file.
+renders badly for them while looking fine in a private window. `baseof.html` therefore always pipes the CSS
+through `fingerprint`.
+
+It picks the source by asking whether `assets/css/style.css` exists, not by checking an environment
+variable: if a build step already ran Tailwind it uses that file, otherwise it compiles `main.css` via
+PostCSS. Both Cloudflare and GitHub Actions install `node_modules`, so either route works from a bare
+`hugo`.
 
 ## License
 
