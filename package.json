@@ -2,8 +2,9 @@
   "name": "hugo-saasify-demo",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"npx tailwindcss -i themes/hugo-saasify-theme/assets/css/main.css -o static/css/style.css --watch\" \"hugo server -D\"",
-    "build": "tailwindcss -i themes/hugo-saasify-theme/assets/css/main.css -o static/css/style.css --minify && hugo --minify"
+    "start": "concurrently \"npx tailwindcss -i themes/hugo-saasify-theme/assets/css/main.css -o assets/css/style.css --watch\" \"hugo server -D\"",
+    "build": "tailwindcss -i themes/hugo-saasify-theme/assets/css/main.css -o assets/css/style.css --minify && hugo --minify",
+    "build:ci": "CI=1 npm run build"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
