@@ -78,7 +78,7 @@ Organizations need to be capable of building the foundational elements required 
 
 The structure must look like:
 
-{{< figure src="/images/blog/vertical-ai-governance-hierarchy-flow.jpg" alt="AI Governance Operating Structure" caption="A typical AI governance operating structure, from executive sponsors down to implementation teams." class="max-w-md mx-auto" >}}
+{{< figure src="/images/blog/vertical-ai-governance-hierarchy-flow.jpg" alt="AI Governance Operating Structure" caption="A typical AI governance operating structure, from executive sponsors down to implementation teams." class="content-figure" >}}
 
 The committee must be grounded in the regulations defined by the EU AI Act, ISO 42001, or similar advisory bodies, and covered by risk frameworks such as NIST or similar. This ensures the underlying implementation is effective, compliant, and monitored across well-defined procedures and controls.
 

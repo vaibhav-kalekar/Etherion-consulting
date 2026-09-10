@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
     
     <!-- Google Tag Manager -->
     {{ partial "google-tag-manager" . }}
@@ -130,6 +131,45 @@
                 }
             });
         }
+    </script>
+
+    <!-- Scroll reveal: images slide into frame once. Skipped when the user
+         prefers reduced motion, so they never start off-canvas. -->
+    <script>
+        (function () {
+            var nodes = document.querySelectorAll('[data-reveal]');
+            if (!nodes.length) return;
+
+            var reveal = function () {
+                for (var i = 0; i < nodes.length; i++) nodes[i].classList.add('is-in');
+            };
+
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (reduce.matches) {
+                reveal();
+                return;
+            }
+            if (reduce.addEventListener) {
+                reduce.addEventListener('change', function (e) {
+                    if (e.matches) reveal();
+                });
+            }
+
+            if (!('IntersectionObserver' in window)) {
+                reveal();
+                return;
+            }
+
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('is-in');
+                    io.unobserve(entry.target);
+                });
+            }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+
+            for (var i = 0; i < nodes.length; i++) io.observe(nodes[i]);
+        })();
     </script>
 </body>
 </html>

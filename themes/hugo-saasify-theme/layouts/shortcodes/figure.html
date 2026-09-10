@@ -1,13 +1,14 @@
 {{ $src := .Get "src" }}
 {{ $alt := .Get "alt" }}
 {{ $caption := .Get "caption" }}
-{{ $class := .Get "class" | default "w-full" }}
+{{ $class := .Get "class" | default "content-figure" }}
 
 <figure class="my-8">
     <img 
         src="{{ $src }}" 
         alt="{{ $alt }}" 
         class="{{ $class }} rounded-lg shadow-lg"
+        data-reveal="up"
         loading="lazy"
     >
     {{ with $caption }}

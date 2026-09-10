@@ -1,4 +1,9 @@
-{{/* Feature Shortcode */}}
+{{/* Feature Shortcode
+
+     Title is a full-width header and wraps only if the line cannot fit.
+     Image and supporting copy sit on one row underneath, always
+     text | image, so every feature lines up with the one above it.
+*/}}
 {{ $title := .Get "title" }}
 {{ $description := .Get "description" | markdownify }}
 {{ $badge := .Get "badge" }}
@@ -6,59 +11,51 @@
 {{ $image := .Get "image" }}
 {{ $buttonText := .Get "buttonText" | default "Learn More" }}
 {{ $buttonLink := .Get "buttonLink" | default "#" }}
-{{ $imagePosition := .Get "imagePosition" | default "right" }}
 
 {{ $features := split (.Get "features") "," }}
 
-<div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center" style="--badge-color: {{ $badgeColor }}">
-
-    {{ if eq $imagePosition "left" }}
-    <div class="order-2 lg:order-1">
-        <img src="{{ $image | relURL }}" alt="" aria-hidden="true"
-             class="w-full rounded-xl border border-gray-200 bg-gray-50">
+<div style="--badge-color: {{ $badgeColor }}">
+    {{ with $badge }}
+    <div class="badge mb-4"
+         style="background-color:color-mix(in srgb, var(--badge-color) 10%, transparent);color:var(--badge-color)">
+        {{ . }}
     </div>
     {{ end }}
 
-    <div class="{{ if eq $imagePosition "left" }}order-1 lg:order-2{{ end }}">
-        {{ with $badge }}
-        <div class="badge mb-5"
-             style="background-color:color-mix(in srgb, var(--badge-color) 10%, transparent);color:var(--badge-color)">
-            {{ . }}
-        </div>
-        {{ end }}
+    <h3 class="feature-title font-semibold text-gray-900">{{ $title }}</h3>
 
-        <h3 class="text-2xl md:text-3xl font-semibold text-gray-900">{{ $title }}</h3>
+    <div class="mt-8 md:mt-10 grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+        <div class="order-2 lg:order-1">
+            <p class="text-lg text-gray-500">{{ $description }}</p>
 
-        <p class="mt-4 text-lg text-gray-500">{{ $description }}</p>
+            <ul class="mt-7 space-y-3">
+                {{ range $features }}
+                {{ with (trim . " ") }}
+                <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color:var(--badge-color)"
+                         fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-gray-700">{{ . }}</span>
+                </li>
+                {{ end }}
+                {{ end }}
+            </ul>
 
-        <ul class="mt-7 space-y-3">
-            {{ range $features }}
-            {{ with (trim . " ") }}
-            <li class="flex items-start gap-3">
-                <svg class="w-5 h-5 mt-0.5 flex-shrink-0" style="color:var(--badge-color)"
-                     fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            {{ if and $buttonText $buttonLink }}
+            <a href="{{ $buttonLink }}" class="btn-outline mt-8">
+                {{ $buttonText }}
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/>
                 </svg>
-                <span class="text-gray-700">{{ . }}</span>
-            </li>
+            </a>
             {{ end }}
-            {{ end }}
-        </ul>
+        </div>
 
-        {{ if and $buttonText $buttonLink }}
-        <a href="{{ $buttonLink }}" class="btn-outline mt-8">
-            {{ $buttonText }}
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/>
-            </svg>
-        </a>
-        {{ end }}
+        <div class="order-1 lg:order-2">
+            <img src="{{ $image | relURL }}" alt="" aria-hidden="true"
+                 class="content-figure lg:mx-0 rounded-xl border border-gray-200 bg-gray-50"
+                 data-reveal="right">
+        </div>
     </div>
-
-    {{ if ne $imagePosition "left" }}
-    <div>
-        <img src="{{ $image | relURL }}" alt="" aria-hidden="true"
-             class="w-full rounded-xl border border-gray-200 bg-gray-50">
-    </div>
-    {{ end }}
 </div>

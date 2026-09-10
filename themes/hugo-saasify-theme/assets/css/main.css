@@ -62,22 +62,24 @@
   }
 
   html {
-    background-color: #ffffff;
+    background-color: #f3f5fb;
   }
 
   /*
-   * Page surface: soft brand-coloured pools on white. Deliberately not
-   * `background-attachment: fixed` — fixed backgrounds track the viewport
-   * rather than the content, which reads oddly on long pages and is a known
-   * repaint cost on mobile Safari. Offsets sit inside the first ~1600px so
-   * short pages still get the effect.
+   * Page surface: a cool brand hue with soft colour pools so the glow
+   * reads all the way down the page. Not `background-attachment: fixed` —
+   * that tracks the viewport on long pages and is a known cost on mobile Safari.
    */
   body {
     @apply font-sans text-gray-600 antialiased;
-    background-color: #ffffff;
+    background-color: #f3f5fb;
     background-image:
-      radial-gradient(1100px 560px at 18% 760px, rgba(36, 81, 232, 0.16), transparent 68%),
-      radial-gradient(950px 520px at 88% 1480px, rgba(20, 132, 108, 0.11), transparent 68%);
+      radial-gradient(ellipse 90% 55% at 8% -8%, rgba(36, 81, 232, 0.22), transparent 58%),
+      radial-gradient(ellipse 70% 45% at 100% 12%, rgba(8, 145, 178, 0.14), transparent 52%),
+      radial-gradient(ellipse 80% 50% at -5% 38%, rgba(36, 81, 232, 0.12), transparent 58%),
+      radial-gradient(ellipse 75% 48% at 105% 58%, rgba(124, 58, 237, 0.10), transparent 52%),
+      radial-gradient(ellipse 90% 55% at 20% 88%, rgba(20, 132, 108, 0.12), transparent 58%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(36, 81, 232, 0.10), transparent 55%);
     background-repeat: no-repeat;
     text-rendering: optimizeLegibility;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
@@ -124,6 +126,62 @@
   .cta-gradient {
     background: linear-gradient(calc(var(--gradient-angle) * 1deg), var(--gradient-from), var(--gradient-to));
   }
+
+  /*
+   * Content images (hero, features, blog photos, figures). Below `lg` they
+   * stack above the copy, so `width: 100%` makes a phone-width illustration
+   * dwarf the text. Cap them until the two-column layout takes over.
+   */
+  .content-figure {
+    display: block;
+    width: 68%;
+    max-width: 16.5rem;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 640px) {
+    .content-figure {
+      width: 78%;
+      max-width: 24rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .content-figure {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  /* Fill the line; wrap only when the characters cannot fit. */
+  .hero-title,
+  .feature-title {
+    text-wrap: wrap;
+  }
+
+  /* Scale so feature headings stay on one line from tablet up. Phone is
+     too narrow for the longest titles, so wrapping there is necessary. */
+  .feature-title {
+    font-size: clamp(1.125rem, 2.5vw, 1.875rem);
+    line-height: 1.2;
+    letter-spacing: -0.022em;
+  }
+
+  /*
+   * Scroll-triggered slide-in. The offset is applied only when JS marked
+   * the document (`html.js`) and the user has not asked for reduced motion.
+   * No-JS and reduced-motion both leave the image in its resting place.
+   */
+  html.js [data-reveal] {
+    --reveal-x: 0px;
+    --reveal-y: 1.25rem;
+  }
+
+  html.js [data-reveal="left"]  { --reveal-x: -1.75rem; --reveal-y: 0px; }
+  html.js [data-reveal="right"] { --reveal-x:  1.75rem; --reveal-y: 0px; }
+  html.js [data-reveal="up"]    { --reveal-x:  0px;     --reveal-y: 1.25rem; }
 
   /* ------------------------------------------------------------ dark bands */
 
@@ -375,6 +433,7 @@
 
   .section-title {
     @apply text-3xl md:text-4xl font-semibold text-gray-900;
+    text-wrap: wrap;
   }
 
   .section-subtitle {
@@ -477,6 +536,38 @@
     @apply absolute bottom-0 left-0 h-px bg-primary-600 origin-left;
     width: 100%;
     transform: scaleX(0);
+  }
+
+  /* ---------------------------------------------------------- marquee */
+
+  .logo-scroll {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .logos-slide {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+  }
+
+  .logos-slide.animate {
+    animation: marquee 28s linear infinite;
+  }
+
+  .brand-title {
+    @apply inline-block shrink-0 text-xs font-semibold uppercase tracking-eyebrow no-underline;
+    margin: 0 2.5rem;
+    color: rgb(var(--color-neutral-500));
+    transition: color 0.15s ease;
+  }
+
+  .brand-title:hover {
+    color: rgb(var(--color-neutral-800));
+  }
+
+  .logo-scroll:hover .logos-slide.animate {
+    animation-play-state: paused;
   }
 
   /* ------------------------------------------- syntax highlighting (unchanged) */
@@ -589,9 +680,21 @@
    */
   .prose img {
     @apply block mx-auto my-10 rounded-lg border border-gray-200;
-    max-width: 100%;
+    max-width: 68%;
     width: auto;
     height: auto;
+  }
+
+  @media (min-width: 640px) {
+    .prose img {
+      max-width: 24rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .prose img {
+      max-width: 100%;
+    }
   }
 
   .prose figure {
@@ -648,6 +751,27 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html.js [data-reveal] {
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.js [data-reveal]:not(.is-in) {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x), var(--reveal-y), 0);
+  }
+
+  html.js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .team-member:nth-child(2) [data-reveal] { transition-delay: 90ms; }
+  .team-member:nth-child(3) [data-reveal] { transition-delay: 180ms; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -655,4 +779,21 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+
+  /* Images stay in place — no off-canvas start, no slide. */
+  html.js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* The award ticker is the one motion the page is meant to keep. */
+  .logos-slide.animate {
+    animation: marquee 28s linear infinite !important;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
