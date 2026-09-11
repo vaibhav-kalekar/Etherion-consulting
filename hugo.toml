@@ -476,8 +476,8 @@ enableGitInfo = true
 
   # Footer Column 3 Menu
   [[languages.en.menu.footer_column_3]]
-    name = "License"
-    url = "/license"
+    name = "Terms of Use"
+    url = "/terms-of-use"
     weight = 1
   [[languages.en.menu.footer_column_3]]
     name = "Privacy Policy"
