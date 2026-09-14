@@ -13,6 +13,9 @@
 {{ $gradient_angle := .Get "gradient-angle" | default "180" }}
 {{ $text_color := .Get "text-color" | default "" }}
 {{ $creds := .Page.Params.testimonials }}
+{{ $on_dark := false }}
+{{ with $gradient_from }}{{ $on_dark = true }}{{ end }}
+{{ with $.Get "on-dark" }}{{ if eq . "true" }}{{ $on_dark = true }}{{ end }}{{ end }}
 
 {{ if and .Page.IsHome (eq .Page.Lang "en") }}
 <section class="make-hero">
@@ -62,11 +65,6 @@
     </div>
 </section>
 {{ else }}
-{{/* Panels with a custom gradient are dark, so switch to the on-dark palette. */}}
-{{ $on_dark := false }}
-{{ with $gradient_from }}{{ $on_dark = true }}{{ end }}
-{{ with $.Get "on-dark" }}{{ if eq . "true" }}{{ $on_dark = true }}{{ end }}{{ end }}
-
 <section class="relative overflow-hidden {{ if not $gradient_from }}bg-white border-b border-gray-100{{ end }}"
     {{ if $gradient_from }}style="background:linear-gradient({{ $gradient_angle }}deg,{{ $gradient_from }},{{ $gradient_to | default $gradient_from }})"{{ end }}>
 
