@@ -89,7 +89,8 @@
     {{ $isAbout := and .File (eq .File.TranslationBaseName "company") (eq .Lang "en") }}
     {{ $isContact := and .File (eq .File.TranslationBaseName "contact") (eq .Lang "en") }}
     {{ $isTerms := and .File (eq .File.TranslationBaseName "terms-of-use") (eq .Lang "en") }}
-    {{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact $isTerms }}
+    {{ $isPrivacy := and .File (eq .File.TranslationBaseName "privacy") (eq .Lang "en") }}
+    {{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact $isTerms $isPrivacy }}
     {{ if $make }}
     {{ with resources.Get "css/make-theme.css" }}
     {{ $makeCss := . | minify | fingerprint }}
@@ -108,7 +109,8 @@
 {{ $isAbout := and .File (eq .File.TranslationBaseName "company") (eq .Lang "en") }}
 {{ $isContact := and .File (eq .File.TranslationBaseName "contact") (eq .Lang "en") }}
 {{ $isTerms := and .File (eq .File.TranslationBaseName "terms-of-use") (eq .Lang "en") }}
-{{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact $isTerms }}
+{{ $isPrivacy := and .File (eq .File.TranslationBaseName "privacy") (eq .Lang "en") }}
+{{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact $isTerms $isPrivacy }}
 <body class="min-h-screen flex flex-col{{ if $make }} make-theme{{ end }}">
     <!-- Google Tag Manager (noscript) -->
     {{ if and hugo.IsProduction .Site.Params.googleTagManager }}

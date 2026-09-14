@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $makeLegal := and .File (eq .File.TranslationBaseName "terms-of-use") (eq .Lang "en") }}
+{{ $makeLegal := and .File (eq .Lang "en") (or (eq .File.TranslationBaseName "terms-of-use") (eq .File.TranslationBaseName "privacy")) }}
 {{ if $makeLegal }}
 <section class="make-legal-hero">
     <div class="container">
