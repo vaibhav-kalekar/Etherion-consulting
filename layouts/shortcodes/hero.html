@@ -1,6 +1,7 @@
 {{ $headline := .Get "headline" }}
 {{ $sub_headline := .Get "sub_headline" }}
 {{ $eyebrow := .Get "eyebrow" }}
+{{ $status := .Get "status" }}
 {{ $primary_button_text := .Get "primary_button_text" }}
 {{ $primary_button_url := .Get "primary_button_url" }}
 {{ $secondary_button_text := .Get "secondary_button_text" }}
@@ -61,35 +62,80 @@
     </div>
 </section>
 {{ else }}
-<section class="relative overflow-hidden" {{ if $gradient_from }}style="background:linear-gradient({{ $gradient_angle }}deg,{{ $gradient_from }},{{ $gradient_to | default $gradient_from }})"{{ else }}class="bg-gradient-to-b from-gray-50 to-white"{{ end }}>
+{{/* Panels with a custom gradient are dark, so switch to the on-dark palette. */}}
+{{ $on_dark := false }}
+{{ with $gradient_from }}{{ $on_dark = true }}{{ end }}
+{{ with $.Get "on-dark" }}{{ if eq . "true" }}{{ $on_dark = true }}{{ end }}{{ end }}
+
+<section class="relative overflow-hidden {{ if not $gradient_from }}bg-white border-b border-gray-100{{ end }}"
+    {{ if $gradient_from }}style="background:linear-gradient({{ $gradient_angle }}deg,{{ $gradient_from }},{{ $gradient_to | default $gradient_from }})"{{ end }}>
+
     {{ if $background_image }}
     <div class="absolute inset-0">
-        <img src="{{ $background_image | relURL }}" alt="Background" class="w-full h-full object-cover">
+        <img src="{{ $background_image | relURL }}" alt="" aria-hidden="true" class="w-full h-full object-cover">
     </div>
     {{ end }}
-    <div class="container pt-16 pb-20 md:pt-24 md:pb-28">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"{{ if $text_color }} style="color:{{ $text_color }}"{{ end }}>
+
+    {{ if $on_dark }}
+    {{/* Fine grid, fading out toward the bottom. Adds depth without the
+         blurred-blob look of the original. */}}
+    <div class="pointer-events-none absolute inset-0 opacity-[0.06]"
+         style="background-image:linear-gradient(to right,#fff 1px,transparent 1px),linear-gradient(to bottom,#fff 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%);mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 40%,transparent 100%)"
+         aria-hidden="true"></div>
+    {{ end }}
+
+    <div class="container relative pt-20 pb-24 md:pt-28 md:pb-32">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+            <div class="lg:col-span-7 animate-fade-up">
+                {{ with $status }}
+                <div class="mb-7">
+                    <span class="status-pill">
+                        <span class="status-dot"></span>
+                        {{ . }}
+                    </span>
+                </div>
+                {{ end }}
+
+                {{ with $eyebrow }}
+                <div class="eyebrow mb-5 {{ if $on_dark }}!text-primary-300{{ end }}">{{ . }}</div>
+                {{ end }}
+
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold"
+                    {{ if $text_color }}style="color:{{ $text_color }}"{{ end }}>
                     {{ $headline | safeHTML }}
                 </h1>
-                <p class="{{ if $text_color }}text-xl{{ else }}text-xl text-gray-600{{ end }}"{{ if $text_color }} style="color:{{ $text_color }}"{{ end }}>
+
+                <p class="mt-6 text-lg md:text-xl max-w-2xl {{ if $on_dark }}text-white/70{{ else }}text-gray-500{{ end }}">
                     {{ $sub_headline | safeHTML }}
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
+
+                {{ if or $primary_button_text $secondary_button_text }}
+                <div class="mt-10 flex flex-col sm:flex-row gap-3">
                     {{ if and $primary_button_text $primary_button_url }}
-                    <a href="{{ $primary_button_url }}" class="btn-primary text-center">{{ $primary_button_text }}</a>
+                    <a href="{{ $primary_button_url }}" class="{{ if $on_dark }}btn-on-dark{{ else }}btn-primary{{ end }} btn-lg">
+                        {{ $primary_button_text }}
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0l-6-6m6 6l-6 6"/>
+                        </svg>
+                    </a>
                     {{ end }}
                     {{ if and $secondary_button_text $secondary_button_url }}
-                    <a href="{{ $secondary_button_url }}" class="btn-outline text-center">{{ $secondary_button_text }}</a>
+                    <a href="{{ $secondary_button_url }}" class="{{ if $on_dark }}btn-ghost-on-dark{{ else }}btn-outline{{ end }} btn-lg">
+                        {{ $secondary_button_text }}
+                    </a>
                     {{ end }}
                 </div>
+                {{ end }}
             </div>
+
             {{ if $hero_image }}
-            <div class="relative">
-                <img src="{{ $hero_image | relURL }}" alt="" class="rounded-xl shadow-elevation">
+            <div class="lg:col-span-5">
+                <img src="{{ $hero_image | relURL }}" alt="" aria-hidden="true"
+                     class="w-full rounded-xl {{ if $on_dark }}ring-1 ring-white/10{{ else }}border border-gray-200 shadow-elevation{{ end }}">
             </div>
             {{ end }}
+
         </div>
     </div>
 </section>

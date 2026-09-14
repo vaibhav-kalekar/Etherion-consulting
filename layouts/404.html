@@ -1,0 +1,17 @@
+{{ define "main" }}
+<section class="band-dark py-24 md:py-32">
+    <div class="container">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="eyebrow justify-center mb-4">Error 404</div>
+            <h1 class="text-4xl md:text-5xl font-semibold tracking-tight">This page doesn't exist</h1>
+            <p class="mt-5 text-lg leading-relaxed">
+                The page you're looking for may have moved, or the link may be out of date.
+            </p>
+            <div class="mt-9 flex flex-wrap justify-center gap-3">
+                <a href="{{ "/" | relURL }}" class="btn btn-on-dark btn-lg">Back to home</a>
+                <a href="{{ "/contact/" | relURL }}" class="btn btn-ghost-on-dark btn-lg">Get in touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

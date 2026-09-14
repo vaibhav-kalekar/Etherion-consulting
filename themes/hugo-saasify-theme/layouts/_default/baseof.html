@@ -58,8 +58,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Main CSS (built by the `tailwindcss` CLI watch/build script, see package.json) -->
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    <!-- Main CSS: prebuilt by the `tailwindcss` CLI (see package.json) if present,
+         otherwise compiled here. Fingerprinted either way for cache busting. -->
+    {{ $css := resources.Get "css/style.css" }}
+    {{ if not $css }}
+    {{ $css = resources.Get "css/main.css" | css.PostCSS }}
+    {{ end }}
+    {{ $css = $css | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
     <!-- Additional Meta Tags from Front Matter -->
     {{ with .Params.customMeta }}

@@ -58,18 +58,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Main CSS -->
-    {{ if getenv "CI" }}
-    <!-- Use pre-built CSS on CI (detect via $CI) to avoid PostCSS runtime issues -->
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-    {{ else }}
-    {{ $css := resources.Get "css/main.css" }}
-    {{ $css = $css | css.PostCSS }}
-    {{ if hugo.IsProduction }}
-        {{ $css = $css | minify | fingerprint | resources.PostProcess }}
+    <!-- Main CSS
+
+         Prefer assets/css/style.css if a build step already ran Tailwind, otherwise
+         compile main.css through PostCSS here. Cloudflare Pages builds with a bare
+         `hugo` (no Tailwind step) but sets CI=true, so branching on $CI picks the
+         wrong path there and fails the deploy — presence of the file is the only
+         reliable signal.
+
+         Either way the result is fingerprinted. Pages are served with max-age=0 but
+         CSS with a 4h max-age, so a fixed filename hands returning visitors new HTML
+         against a stale stylesheet. -->
+    {{ $css := resources.Get "css/style.css" }}
+    {{ if not $css }}
+    {{ $css = resources.Get "css/main.css" | css.PostCSS }}
     {{ end }}
+    {{ $css = $css | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}">
-    {{ end }}
 
     <!-- Additional Meta Tags from Front Matter -->
     {{ with .Params.customMeta }}
@@ -114,7 +119,9 @@
     </div>
 
     <!-- Main Content -->
-    <div class="pt-20">
+    <!-- flex-1 keeps short pages (404, thin taxonomies) from leaving a gap
+         between the content and the footer -->
+    <div class="pt-16 flex-1">
         {{ block "main" . }}{{ end }}
     </div>
 

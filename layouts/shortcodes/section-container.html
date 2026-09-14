@@ -1,0 +1,19 @@
+{{/* Generic section wrapper used by interior content pages.
+
+     Backgrounds follow the site convention:
+       (default)      transparent — the page glow shows through
+       dark="true"    full-bleed navy band
+       tint="true"    subtle gray band
+
+     `class` is still honoured for spacing/layout utilities.
+*/}}
+{{ $dark := eq (.Get "dark") "true" }}
+{{ $tint := eq (.Get "tint") "true" }}
+{{ $wide := eq (.Get "wide") "true" }}
+{{ $id := .Get "id" }}
+
+<section class="{{ .Get "class" | default "section" }}{{ if $dark }} band-dark{{ else if $tint }} band-light{{ end }}"{{ with $id }} id="{{ . }}"{{ end }}>
+    <div class="{{ if $wide }}container-wide{{ else }}container{{ end }}">
+        {{ .Inner }}
+    </div>
+</section>

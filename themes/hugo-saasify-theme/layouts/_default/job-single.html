@@ -1,38 +1,36 @@
 {{ define "main" }}
-<div class="bg-gray-50 min-h-screen">
+<div>
     <!-- Job Header -->
-    <div class="bg-gradient-to-r from-primary-600 to-primary-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="text-center">
-                <h1 class="text-3xl font-bold text-white mb-6">{{ .Title }}</h1>
-                <div class="flex items-center justify-center text-white space-x-8 text-lg">
+    <section class="band-dark py-16 md:py-20">
+        <div class="container">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="eyebrow justify-center mb-4">Open Role</div>
+                <h1 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">{{ .Title }}</h1>
+                <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
                     {{ with .Params.location }}
-                    <span class="flex items-center">
-                        <span class="mr-2">📍</span>
-                        {{ . }}
+                    <span class="flex items-center gap-2">
+                        <span aria-hidden="true">📍</span>{{ . }}
                     </span>
                     {{ end }}
                     {{ with .Params.type }}
-                    <span class="flex items-center">
-                        <span class="mr-2">💼</span>
-                        {{ . }}
+                    <span class="flex items-center gap-2">
+                        <span aria-hidden="true">💼</span>{{ . }}
                     </span>
                     {{ end }}
                     {{ with .Params.salary }}
-                    <span class="flex items-center">
-                        <span class="mr-2">💰</span>
-                        {{ . }}
+                    <span class="flex items-center gap-2">
+                        <span aria-hidden="true">💰</span>{{ . }}
                     </span>
                     {{ end }}
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Job Content -->
-    <div class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gray-50 rounded-xl shadow-sm p-8 lg:p-12">
+    <div class="section">
+        <div class="container">
+            <div class="card p-8 lg:p-12">
                 <div class="prose prose-lg max-w-none">
                     <div class="text-gray-600 text-lg mb-8">{{ .Description }}</div>
                     {{ .Content }}
