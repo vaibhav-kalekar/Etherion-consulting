@@ -447,16 +447,27 @@ html[data-make-scheme="light"] .make-cred { background: var(--make-card); }
 .make-theme .faq-item p { color: var(--make-muted); }
 
 .make-theme .value-card,
+.make-theme .card-interactive,
 .make-theme .team-member,
 .make-theme .stat-card,
 .make-theme .testimonial-card {
-  background: var(--make-card);
-  border: 1px solid var(--make-line);
-  border-radius: 1rem;
+  background: var(--make-card) !important;
+  border: 1px solid var(--make-line) !important;
+  border-radius: 1.25rem;
   color: var(--make-text);
+  box-shadow: none !important;
 }
 
-.make-theme .value-card svg { color: var(--make-teal); }
+.make-theme .value-card svg,
+.make-theme .card-interactive .accent-icon { color: var(--make-teal) !important; }
+
+.make-theme .card-interactive .accent-tile {
+  background: rgb(46 230 199 / 0.12) !important;
+}
+
+html[data-make-scheme="light"] .make-theme .card-interactive .accent-tile {
+  background: rgb(11 111 104 / 0.12) !important;
+}
 .make-theme .stat-card .text-blue-600 { color: var(--make-teal) !important; }
 
 .make-theme footer,
@@ -511,12 +522,19 @@ html[data-make-scheme="light"] .make-cred { background: var(--make-card); }
   border-radius: 999px;
 }
 
-.make-theme footer img {
-  filter: brightness(10);
+.make-theme .footer-logo-default { display: none !important; }
+.make-theme .footer-logo-make { display: block !important; }
+html[data-make-scheme="light"] .make-theme .footer-logo-make { display: none !important; }
+html[data-make-scheme="light"] .make-theme .footer-logo-make-light { display: block !important; }
+
+.make-theme footer .social-icon {
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
 }
 
-html[data-make-scheme="light"] .make-theme footer img {
+html[data-make-scheme="light"] .make-theme footer .social-icon {
   filter: none;
+  opacity: 0.65;
 }
 
 .make-accent {
@@ -1473,12 +1491,25 @@ html[data-make-scheme="light"] .make-award-bg {
   transform: scale(1.02);
 }
 
-.make-theme .value-card {
-  transition: transform 0.3s, background 0.3s;
+.make-theme .value-card,
+.make-theme .make-values .card-interactive {
+  padding: 1.75rem;
+  transition: transform 0.3s, background 0.3s, border-color 0.3s;
 }
 
-.make-theme .value-card:hover {
+.make-theme .value-card:hover,
+.make-theme .make-values .card-interactive:hover {
   transform: translateY(-6px);
+  border-color: rgb(46 230 199 / 0.28) !important;
+  background: var(--make-bg-2) !important;
+}
+
+.make-theme .make-values .text-gray-900 {
+  color: var(--make-text) !important;
+}
+
+.make-theme .make-values .text-gray-500 {
+  color: var(--make-muted) !important;
 }
 
 .make-theme .make-text-link {
@@ -1769,8 +1800,13 @@ html[data-make-scheme="light"] .make-theme .img-teal-overlay::after {
 html[data-make-scheme="light"] .make-theme .faq-item,
 html[data-make-scheme="light"] .make-theme .make-facts,
 html[data-make-scheme="light"] .make-theme .make-contact-panel,
-html[data-make-scheme="light"] .make-theme .make-service-card {
+html[data-make-scheme="light"] .make-theme .make-service-card,
+html[data-make-scheme="light"] .make-theme .make-values .card-interactive {
   box-shadow: 0 10px 30px rgb(16 48 40 / 0.06);
+}
+
+html[data-make-scheme="light"] .make-theme .make-values .card-interactive:hover {
+  border-color: rgb(11 111 104 / 0.32) !important;
 }
 
 html[data-make-scheme="light"] .make-theme .make-toggle {

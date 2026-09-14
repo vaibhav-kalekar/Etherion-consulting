@@ -4,10 +4,12 @@
             <!-- Logo and Social Media -->
             <div class="flex-1">
                 <div class="flex items-center space-x-3 mb-4">
-                    <a href="{{ .Site.BaseURL }}" class="inline-block">
+                    <a href="{{ .Site.BaseURL }}" class="inline-flex items-center">
                         {{ with .Site.Params.logo }}
-                            <img src="{{ . | relURL }}" alt="{{ $.Site.Title }}" class="footer-logo h-7">
+                            <img src="{{ . | relURL }}" alt="{{ $.Site.Title }}" class="footer-logo footer-logo-default h-7">
                         {{ end }}
+                        <img src="{{ "images/brand/etherion-icon-white.png" | relURL }}" alt="{{ $.Site.Title }}" class="footer-logo-make hidden h-8 w-8">
+                        <img src="{{ "images/brand/etherion-icon-teal.png" | relURL }}" alt="{{ $.Site.Title }}" class="footer-logo-make-light hidden h-8 w-8">
                     </a>
                     <span class="text-lg font-heading font-semibold text-white tracking-tight">{{ .Site.Title }}</span>
                 </div>

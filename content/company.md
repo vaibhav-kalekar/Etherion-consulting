@@ -87,7 +87,7 @@ description: "Governance embedded, not retrofitted. The people and practice behi
     </div>
 {{< /section-container >}}
 
-{{< section-container class="section" >}}
+{{< section-container class="section make-values" >}}
     <div class="max-w-3xl mb-12">
         <div class="make-eyebrow mb-4">How we work</div>
         <h2 class="text-3xl md:text-4xl font-semibold">The principles that shape every engagement</h2>
