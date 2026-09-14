@@ -88,7 +88,8 @@
 
     {{ $isAbout := and .File (eq .File.TranslationBaseName "company") (eq .Lang "en") }}
     {{ $isContact := and .File (eq .File.TranslationBaseName "contact") (eq .Lang "en") }}
-    {{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact }}
+    {{ $isTerms := and .File (eq .File.TranslationBaseName "terms-of-use") (eq .Lang "en") }}
+    {{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact $isTerms }}
     {{ if $make }}
     {{ with resources.Get "css/make-theme.css" }}
     {{ $makeCss := . | minify | fingerprint }}
@@ -106,7 +107,8 @@
 </head>
 {{ $isAbout := and .File (eq .File.TranslationBaseName "company") (eq .Lang "en") }}
 {{ $isContact := and .File (eq .File.TranslationBaseName "contact") (eq .Lang "en") }}
-{{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact }}
+{{ $isTerms := and .File (eq .File.TranslationBaseName "terms-of-use") (eq .Lang "en") }}
+{{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact $isTerms }}
 <body class="min-h-screen flex flex-col{{ if $make }} make-theme{{ end }}">
     <!-- Google Tag Manager (noscript) -->
     {{ if and hugo.IsProduction .Site.Params.googleTagManager }}

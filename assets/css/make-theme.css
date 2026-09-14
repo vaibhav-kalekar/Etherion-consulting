@@ -1461,6 +1461,89 @@ html[data-make-scheme="light"] .make-award-bg {
   z-index: 1;
 }
 
+.make-legal-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 4.5rem 0 3.25rem;
+}
+
+.make-legal-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/images/make/circuit.jpg") center / cover no-repeat;
+  opacity: 0.18;
+  filter: saturate(0.65) brightness(0.32);
+  pointer-events: none;
+}
+
+.make-legal-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.make-legal-hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 40% at 85% 0%, rgb(46 230 199 / 0.12), transparent 55%),
+    linear-gradient(180deg, transparent 40%, var(--make-bg) 100%);
+  pointer-events: none;
+}
+
+.make-legal-prose {
+  max-width: 42rem;
+}
+
+.make-legal-prose > :first-child {
+  margin-top: 0;
+}
+
+.make-legal-prose em {
+  color: var(--make-muted);
+  font-style: normal;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.make-legal-prose h2 {
+  color: var(--make-text);
+  font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 2.75rem 0 0.85rem;
+}
+
+.make-legal-prose p,
+.make-legal-prose li {
+  color: var(--make-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.make-legal-prose p { margin: 0 0 1rem; }
+
+.make-legal-prose ul {
+  margin: 0 0 1.25rem;
+  padding-left: 1.15rem;
+}
+
+.make-legal-prose li { margin: 0.4rem 0; }
+
+.make-legal-prose strong { color: var(--make-text); font-weight: 600; }
+
+.make-legal-prose a {
+  color: var(--make-teal);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.make-legal-prose a:hover { opacity: 0.75; }
+
 .make-about-hero::after {
   content: "";
   position: absolute;
@@ -1777,13 +1860,18 @@ html[data-make-scheme="light"] .make-theme em {
   color: #0a5f59;
 }
 
+html[data-make-scheme="light"] .make-legal-prose em {
+  color: var(--make-muted);
+}
+
 html[data-make-scheme="light"] .make-theme .make-home-about em,
 html[data-make-scheme="light"] .make-theme .make-contact em,
 html[data-make-scheme="light"] .make-theme .make-contact-page em {
   color: #0a5f59;
 }
 
-html[data-make-scheme="light"] .make-about-hero::before {
+html[data-make-scheme="light"] .make-about-hero::before,
+html[data-make-scheme="light"] .make-legal-hero::before {
   opacity: 0.08;
   filter: saturate(0.35) brightness(1.45);
 }
