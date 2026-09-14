@@ -9,7 +9,7 @@ layout: "company"
     <div class="max-w-3xl mx-auto text-center">
         <div class="eyebrow justify-center mb-5">Services</div>
         <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">Day 0 Discovery & Migration Strategy</h1>
-        <p class="text-lg md:text-xl leading-relaxed">Your migration will fail in the places no one audited. We find that risk before it becomes your incident — not after.</p>
+        <p class="text-lg md:text-xl leading-relaxed">Your migration will fail in the places no one audited. We find that risk before it becomes your incident - not after.</p>
     </div>
 {{< /section-container >}}
 
@@ -17,7 +17,7 @@ layout: "company"
     <div class="max-w-3xl mx-auto">
         <div class="prose max-w-none">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">Overview</h2>
-            <p>Engineering teams are usually asked to modernize a platform, not interrogate it. So technical debt, undocumented dependencies, and governance gaps ride along into the new architecture unexamined — and surface mid-migration, when they're most expensive to fix. Boards and regulators don't ask "did the migration work?" They ask "what did you know before you started, and can you prove it?" Day 0 closes that gap.</p>
+            <p>Engineering teams are usually asked to modernize a platform, not interrogate it. So technical debt, undocumented dependencies, and governance gaps ride along into the new architecture unexamined - and surface mid-migration, when they're most expensive to fix. Boards and regulators don't ask "did the migration work?" They ask "what did you know before you started, and can you prove it?" Day 0 closes that gap.</p>
             
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">What We Deliver</h2>
             <div class="grid gap-5 mt-8 sm:grid-cols-2">
@@ -27,7 +27,7 @@ layout: "company"
                 </div>
                 <div class="card">
                     <h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Technical Risk Register</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed mb-0">A structured, executive-ready risk register your board can review and defend to regulators — not a slide deck of assumptions.</p>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-0">A structured, executive-ready risk register your board can review and defend to regulators - not a slide deck of assumptions.</p>
                 </div>
                 <div class="card">
                     <h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Phased Migration Roadmap</h3>
@@ -56,7 +56,7 @@ layout: "company"
             </ul>
 
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">Why Choose Etherion</h2>
-            <p>Delivered in 4–6 weeks. We start with structural integrity, not optimism — auditing what's actually there before we design what comes next, so your migration roadmap is built on evidence, not assumptions.</p>
+            <p>Delivered in 4–6 weeks. We start with structural integrity, not optimism - auditing what's actually there before we design what comes next, so your migration roadmap is built on evidence, not assumptions.</p>
         </div>
     </div>
 {{< /section-container >}}

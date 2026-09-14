@@ -9,7 +9,7 @@ layout: "company"
     <div class="max-w-3xl mx-auto text-center">
         <div class="eyebrow justify-center mb-5">Services</div>
         <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">Cloud & Legacy Data Engineering</h1>
-        <p class="text-lg md:text-xl leading-relaxed">Modernizing legacy systems doesn't make them safer — it just moves the risk. We re-architect for auditability and independence, not just relocation.</p>
+        <p class="text-lg md:text-xl leading-relaxed">Modernizing legacy systems doesn't make them safer - it just moves the risk. We re-architect for auditability and independence, not just relocation.</p>
     </div>
 {{< /section-container >}}
 
@@ -27,11 +27,11 @@ layout: "company"
                 </div>
                 <div class="card">
                     <h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Cloud-Native Platform Build</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed mb-0">Full-stack delivery across AWS, Databricks, Snowflake, GCP, and Azure — no proprietary frameworks, no vendor lock-in.</p>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-0">Full-stack delivery across AWS, Databricks, Snowflake, GCP, and Azure - no proprietary frameworks, no vendor lock-in.</p>
                 </div>
                 <div class="card">
                     <h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Governance Embedded in Code</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed mb-0">Governance controls written into pipeline code using dbt Core and Apache Airflow — not maintained separately in spreadsheets.</p>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-0">Governance controls written into pipeline code using dbt Core and Apache Airflow - not maintained separately in spreadsheets.</p>
                 </div>
                 <div class="card">
                     <h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">CI/CD & Automated Testing</h3>
@@ -56,7 +56,7 @@ layout: "company"
             </ul>
 
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">Why Choose Etherion</h2>
-            <p>We operate across the full stack, from legacy SSIS to modern cloud-native tooling, building architecture designed for long-term resilience and platform independence — not vendor dependency dressed up as modernization.</p>
+            <p>We operate across the full stack, from legacy SSIS to modern cloud-native tooling, building architecture designed for long-term resilience and platform independence - not vendor dependency dressed up as modernization.</p>
         </div>
     </div>
 {{< /section-container >}}

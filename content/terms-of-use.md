@@ -11,7 +11,7 @@ aliases:
 
 ## Who we are
 
-Etherion Consulting (“Etherion”, “we”, “us”) is a professional services practice based in Sydney, NSW, Australia. We help regulated organisations get AI, data and delivery under control — before an audit, a board question, or a stalled deal forces the issue.
+Etherion Consulting (“Etherion”, “we”, “us”) is a professional services practice based in Sydney, NSW, Australia. We help regulated organisations get AI, data and delivery under control - before an audit, a board question, or a stalled deal forces the issue.
 
 We work particularly with Financial Services, Insurance, Healthcare and technology organisations operating under enterprise procurement, regulatory or risk scrutiny, across AU, EU and US markets.
 
@@ -19,10 +19,10 @@ We work particularly with Financial Services, Insurance, Healthcare and technolo
 
 Etherion provides advisory and implementation support across four connected disciplines:
 
-- **AI Governance** — ISO 42001 readiness, AI risk inventories, lifecycle controls and board-ready reporting
-- **Agentic AI Automation** — AI agents and automated workflows with validation and controls built in
-- **PMO** — delivery structure, capacity and dependency visibility, intake and prioritisation
-- **Data Governance & Quality** — lineage, quality and ownership at the source; legacy estate modernisation
+- **AI Governance** - ISO 42001 readiness, AI risk inventories, lifecycle controls and board-ready reporting
+- **Agentic AI Automation** - AI agents and automated workflows with validation and controls built in
+- **PMO** - delivery structure, capacity and dependency visibility, intake and prioritisation
+- **Data Governance & Quality** - lineage, quality and ownership at the source; legacy estate modernisation
 
 We do not sell a software product, SaaS platform or licensed toolkit through this website. Work is delivered as professional services under a separately agreed statement of work or engagement letter.
 
@@ -34,7 +34,7 @@ Submitting the contact form, booking a fit check, or reading this site does not 
 
 ## Professional advice
 
-Content on this site — including articles, case studies, frameworks and examples — is general in nature. It is not legal, regulatory, audit, or investment advice, and it is not tailored to your organisation.
+Content on this site - including articles, case studies, frameworks and examples - is general in nature. It is not legal, regulatory, audit, or investment advice, and it is not tailored to your organisation.
 
 AI governance, data protection and delivery obligations vary by industry, jurisdiction and system. You should take advice appropriate to your circumstances before relying on anything published here.
 

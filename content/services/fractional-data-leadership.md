@@ -17,7 +17,7 @@ layout: "company"
     <div class="max-w-3xl mx-auto">
         <div class="prose max-w-none">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">Overview</h2>
-            <p>A full-time Head of Data Governance is hard to justify at mid-market scale — but the absence of that role doesn't remove the need for it. Decisions get made without a governance lens, vendors go unchecked, and engineering teams execute without strategic direction on compliance or AI risk. The cost isn't visible month to month. It shows up later, as technical debt, a stalled audit, or a board question no one can answer.</p>
+            <p>A full-time Head of Data Governance is hard to justify at mid-market scale - but the absence of that role doesn't remove the need for it. Decisions get made without a governance lens, vendors go unchecked, and engineering teams execute without strategic direction on compliance or AI risk. The cost isn't visible month to month. It shows up later, as technical debt, a stalled audit, or a board question no one can answer.</p>
             
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">What We Deliver</h2>
             <div class="grid gap-5 mt-8 sm:grid-cols-2">
@@ -56,7 +56,7 @@ layout: "company"
             </ul>
 
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">Why Choose Etherion</h2>
-            <p>Available 1–2 days per week, designed for organizations that need the strategic weight of an executive hire without the full-time overhead — so governance has an owner from day one, not after the first stalled audit.</p>
+            <p>Available 1–2 days per week, designed for organizations that need the strategic weight of an executive hire without the full-time overhead - so governance has an owner from day one, not after the first stalled audit.</p>
         </div>
     </div>
 {{< /section-container >}}

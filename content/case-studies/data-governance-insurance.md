@@ -226,7 +226,7 @@ The insurance group's governance maturity now exceeds industry norms:
 
 ## Conclusion
 
-This transformation demonstrates that global data governance is achievable—even with legacy systems, multiple jurisdictions, and complex regulatory requirements. By establishing clear governance foundations, investing in capability, and taking a phased approach, the insurance group moved from reactive compliance to proactive data stewardship.
+This transformation demonstrates that global data governance is achievable-even with legacy systems, multiple jurisdictions, and complex regulatory requirements. By establishing clear governance foundations, investing in capability, and taking a phased approach, the insurance group moved from reactive compliance to proactive data stewardship.
 
 The result: a trusted, governed data ecosystem that powers better decisions, reduces risk, and exceeds regulatory expectations.
 

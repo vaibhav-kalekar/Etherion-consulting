@@ -17,7 +17,7 @@ layout: "company"
     <div class="max-w-3xl mx-auto">
         <div class="prose max-w-none">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">Overview</h2>
-            <p>Digital transformation is more than technology adoption—it's about reimagining how your organization operates, delivers value, and competes in the digital economy.</p>
+            <p>Digital transformation is more than technology adoption-it's about reimagining how your organization operates, delivers value, and competes in the digital economy.</p>
             
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">What We Offer</h2>
             <div class="grid gap-5 mt-8 sm:grid-cols-2">
@@ -48,7 +48,7 @@ layout: "company"
             </ul>
 
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">Why Choose Etherion</h2>
-            <p>We bring 15+ years of experience in regulated industries, combining deep technical expertise with governance discipline. We don't just implement technology—we transform how your organization operates while maintaining security, compliance, and operational excellence.</p>
+            <p>We bring 15+ years of experience in regulated industries, combining deep technical expertise with governance discipline. We don't just implement technology-we transform how your organization operates while maintaining security, compliance, and operational excellence.</p>
         </div>
     </div>
 {{< /section-container >}}

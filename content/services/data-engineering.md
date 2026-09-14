@@ -64,7 +64,7 @@ layout: "company"
             </ul>
 
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">Why Choose Etherion</h2>
-            <p>We're not just engineers or governance consultants—we're both. We design data platforms that satisfy your technical requirements while exceeding regulatory expectations, delivering systems that are production-ready and audit-ready from day one.</p>
+            <p>We're not just engineers or governance consultants-we're both. We design data platforms that satisfy your technical requirements while exceeding regulatory expectations, delivering systems that are production-ready and audit-ready from day one.</p>
         </div>
     </div>
 {{< /section-container >}}

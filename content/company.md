@@ -8,7 +8,7 @@ description: "Governance embedded, not retrofitted. The people and practice behi
     <div class="max-w-3xl anim-fade-up in-view delay-100">
         <div class="make-eyebrow mb-5">About Etherion</div>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-6">Governance<br>embedded, <span class="shimmer-text">not retrofitted.</span></h1>
-        <p class="text-lg md:text-xl">We're a senior practice helping regulated organisations get AI, data and delivery under control — before an audit, a board question, or a stalled deal forces the issue.</p>
+        <p class="text-lg md:text-xl">We're a senior practice helping regulated organisations get AI, data and delivery under control - before an audit, a board question, or a stalled deal forces the issue.</p>
     </div>
 {{< /section-container >}}
 
@@ -27,7 +27,7 @@ description: "Governance embedded, not retrofitted. The people and practice behi
             </div>
             <div>
                 <p class="make-serve-kicker">How we engage</p>
-                <p>Bounded-scope engagements with defined outcomes — no open-ended retainers</p>
+                <p>Bounded-scope engagements with defined outcomes - no open-ended retainers</p>
             </div>
             <div>
                 <p class="make-serve-kicker">What we avoid</p>
@@ -54,7 +54,7 @@ description: "Governance embedded, not retrofitted. The people and practice behi
     <div class="max-w-3xl mb-12">
         <div class="make-eyebrow mb-4">Leadership</div>
         <h2 class="text-3xl md:text-4xl font-semibold mb-4">The people behind the practice</h2>
-        <p>Etherion was built by practitioners who've spent careers inside regulated organisations — not consultants who advise from the outside.</p>
+        <p>Etherion was built by practitioners who've spent careers inside regulated organisations - not consultants who advise from the outside.</p>
     </div>
     <div class="make-team-stack">
         {{< team-member
@@ -64,7 +64,7 @@ description: "Governance embedded, not retrofitted. The people and practice behi
             title="Digital Transformation & PMO Governance"
             image="/images/company/Shwe-Naik.jpeg"
             linkedin="https://www.linkedin.com/in/shweta-n-106a7913/"
-            description="Shweta leads Etherion's PMO and Digital Transformation practice. With over a decade of delivery leadership across regulated enterprise programmes, she brings the structure and accountability that turns AI pilots into production capability — not another backlog of stalled initiatives."
+            description="Shweta leads Etherion's PMO and Digital Transformation practice. With over a decade of delivery leadership across regulated enterprise programmes, she brings the structure and accountability that turns AI pilots into production capability - not another backlog of stalled initiatives."
         >}}
         {{< team-member
             layout="row"
@@ -73,7 +73,7 @@ description: "Governance embedded, not retrofitted. The people and practice behi
             title="AI Governance & Data Transformation"
             image="/images/company/Vaibhav-Kalekar.jpeg"
             linkedin="https://www.linkedin.com/in/vaibhavkalekar/"
-            description="Vaibhav leads Etherion's AI Governance and Data practice. An ISO 42001 Lead Implementer and DAMA Certified Data Management Professional, he has spent his career helping regulated organisations turn governance requirements into practical architecture — not documentation exercises."
+            description="Vaibhav leads Etherion's AI Governance and Data practice. An ISO 42001 Lead Implementer and DAMA Certified Data Management Professional, he has spent his career helping regulated organisations turn governance requirements into practical architecture - not documentation exercises."
         >}}
         {{< team-member
             layout="row"
@@ -96,17 +96,17 @@ description: "Governance embedded, not retrofitted. The people and practice behi
         {{< value-card
             title="Speed Without Shortcuts"
             icon="lightbulb"
-            description="We deliver fast through efficiency, not corner-cutting. Governance programmes that move quickly and hold up under scrutiny aren't opposites — they're what good delivery looks like."
+            description="We deliver fast through efficiency, not corner-cutting. Governance programmes that move quickly and hold up under scrutiny aren't opposites - they're what good delivery looks like."
         >}}
         {{< value-card
             title="Human-Centered"
             icon="users"
-            description="We build for people. Data and AI should empower the humans who depend on them — not create complexity that only specialists can navigate."
+            description="We build for people. Data and AI should empower the humans who depend on them - not create complexity that only specialists can navigate."
         >}}
         {{< value-card
             title="Transparent Partnership"
             icon="eye"
-            description="No black boxes, no surprises. You're part of the journey every step of the way — from scoping to delivery to handover."
+            description="No black boxes, no surprises. You're part of the journey every step of the way - from scoping to delivery to handover."
         >}}
     </div>
 {{< /section-container >}}

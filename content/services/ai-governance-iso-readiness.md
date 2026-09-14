@@ -31,7 +31,7 @@ layout: "company"
                 </div>
                 <div class="card">
                     <h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Model Lifecycle Control Frameworks</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed mb-0">Lifecycle controls that govern models from training through deployment and retirement — not just at launch.</p>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-0">Lifecycle controls that govern models from training through deployment and retirement - not just at launch.</p>
                 </div>
                 <div class="card">
                     <h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Board-Ready AI Governance Reporting</h3>
@@ -56,7 +56,7 @@ layout: "company"
             </ul>
 
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">Why Choose Etherion</h2>
-            <p>Delivered in 4 weeks. Scoped for the window that exists right now — before EU AI Act enforcement begins August 2026 — so you're building your governance answer on your own timeline, not under regulatory pressure.</p>
+            <p>Delivered in 4 weeks. Scoped for the window that exists right now - before EU AI Act enforcement begins August 2026 - so you're building your governance answer on your own timeline, not under regulatory pressure.</p>
         </div>
     </div>
 {{< /section-container >}}

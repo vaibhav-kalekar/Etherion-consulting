@@ -17,7 +17,7 @@ layout: "company"
     <div class="max-w-3xl mx-auto">
         <div class="prose max-w-none">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">Overview</h2>
-            <p>Governance usually gets added after the platform ships — a wiki page here, a spreadsheet of data owners there, none of it enforced in code. It looks complete in a slide deck and falls apart the moment someone asks to trace lineage end-to-end or prove who owns a critical data element. That gap shows up as a qualified audit finding, a stalled procurement review, or a board asking questions your team can't answer with evidence.</p>
+            <p>Governance usually gets added after the platform ships - a wiki page here, a spreadsheet of data owners there, none of it enforced in code. It looks complete in a slide deck and falls apart the moment someone asks to trace lineage end-to-end or prove who owns a critical data element. That gap shows up as a qualified audit finding, a stalled procurement review, or a board asking questions your team can't answer with evidence.</p>
             
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">What We Deliver</h2>
             <div class="grid gap-5 mt-8 sm:grid-cols-2">
@@ -31,11 +31,11 @@ layout: "company"
                 </div>
                 <div class="card">
                     <h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Automated Quality Gates & Lineage</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed mb-0">Quality thresholds and end-to-end lineage mapping enforced in code at ingestion and transformation — not tracked in spreadsheets.</p>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-0">Quality thresholds and end-to-end lineage mapping enforced in code at ingestion and transformation - not tracked in spreadsheets.</p>
                 </div>
                 <div class="card">
                     <h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Governance Operating Model</h3>
-                    <p class="text-sm text-gray-500 leading-relaxed mb-0">A framework embedded into your operating model and team workflows — not filed away as a document no one references again.</p>
+                    <p class="text-sm text-gray-500 leading-relaxed mb-0">A framework embedded into your operating model and team workflows - not filed away as a document no one references again.</p>
                 </div>
             </div>
 
@@ -56,7 +56,7 @@ layout: "company"
             </ul>
 
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mt-14 mb-4">Why Choose Etherion</h2>
-            <p>Delivered in 6–8 weeks. We answer the auditor's question before it's asked — because governance that only exists in a document isn't governance, it's a liability waiting to be discovered.</p>
+            <p>Delivered in 6–8 weeks. We answer the auditor's question before it's asked - because governance that only exists in a document isn't governance, it's a liability waiting to be discovered.</p>
         </div>
     </div>
 {{< /section-container >}}

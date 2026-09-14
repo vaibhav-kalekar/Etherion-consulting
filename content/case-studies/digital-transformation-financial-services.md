@@ -166,7 +166,7 @@ Embedded mentorship to create sustainable operational excellence:
 
 ## Conclusion
 
-This transformation demonstrates that regulated enterprises can modernize successfully—even at scale. By prioritizing governance alongside technology, investing in people, and taking a phased approach, we delivered a world-class digital platform that increased revenue, reduced costs, and exceeded regulatory expectations.
+This transformation demonstrates that regulated enterprises can modernize successfully-even at scale. By prioritizing governance alongside technology, investing in people, and taking a phased approach, we delivered a world-class digital platform that increased revenue, reduced costs, and exceeded regulatory expectations.
 
 The bank now competes effectively with fintech disruptors while maintaining the trust and compliance excellence required in their industry.
 
