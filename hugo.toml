@@ -96,7 +96,7 @@ enableGitInfo = true
 
   [params.forms]
     provider = "formspree"
-    formspreeId = "your-formspree-id"
+    formspreeId = "mannlddb"
     honeypot = true
 
   [params.header]
@@ -168,7 +168,7 @@ enableGitInfo = true
       # Subscribe form section
       [params.blog.sidebar.subscribe]
         enable = true
-        action = "https://formspree.io/f/your-form-id"
+        action = "https://formspree.io/f/mannlddb"
         emailName = "email"
 
 [module]
