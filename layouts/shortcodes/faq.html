@@ -3,8 +3,31 @@
 {{ $title_color := .Get "title-color" }}
 {{ $description_color := .Get "description-color" }}
 {{ $id := .Get "id" }}
-<section class="section{{ if not $background_color }} bg-gray-50{{ end }}"{{ with $id }} id="{{ . }}"{{ end }} {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
+{{ $makeFaq := and .Page.IsHome (eq .Page.Lang "en") }}
+<section class="section{{ if not $background_color }} bg-gray-50{{ end }}{{ if $makeFaq }} make-faq{{ end }}"{{ with $id }} id="{{ . }}"{{ end }} {{ if $background_color }}style="background-color:{{ $background_color }};"{{ end }}>
     <div class="container">
+        {{ if $makeFaq }}
+        <div class="make-faq-layout">
+            <div class="anim-fade-left" data-reveal>
+                <div class="make-eyebrow mb-4">FAQ</div>
+                <h2 class="text-3xl md:text-4xl font-semibold mb-6">{{ $data.title | default "Frequently Asked Questions" }}</h2>
+                {{ with $data.description }}
+                <p>{{ . }}</p>
+                {{ end }}
+            </div>
+            <div class="space-y-4 anim-fade-right delay-200" data-reveal>
+                {{ range $data.questions }}
+                <details class="faq-item border border-gray-200 rounded-lg p-5">
+                    <summary class="font-bold cursor-pointer list-none flex justify-between items-center">
+                        <span>{{ .question }}</span>
+                        <span class="faq-icon ml-4 flex-shrink-0">+</span>
+                    </summary>
+                    <p class="text-gray-600 mt-3">{{ .answer }}</p>
+                </details>
+                {{ end }}
+            </div>
+        </div>
+        {{ else }}
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h2 class="text-3xl md:text-4xl font-bold mb-6{{ if eq $title_color "white" }} text-white{{ end }}{{ if eq $title_color "light" }} text-gray-100{{ end }}">{{ $data.title | default "Frequently Asked Questions" }}</h2>
             {{ with $data.description }}
@@ -23,6 +46,7 @@
             </details>
             {{ end }}
         </div>
+        {{ end }}
     </div>
 </section>
 

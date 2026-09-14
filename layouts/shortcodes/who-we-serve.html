@@ -1,0 +1,159 @@
+<section class="section make-serve" id="who-we-serve">
+    {{ $tabs := slice
+        (dict
+            "id" "fs"
+            "label" "Financial Services"
+            "image" "images/make/industry-fs.jpg"
+            "body" "Banks, asset managers and trading firms operating under APRA, FCA, SEC and MAS scrutiny. We embed governance that satisfies regulators without stalling innovation programmes."
+            "tags" (slice "APRA" "FCA" "SEC" "MAS")
+            "statValue" "4"
+            "statLabel" "Major regulatory frameworks"
+            "bullets" (slice "Model risk governance & AI risk management" "Regulatory AI lifecycle controls" "Automated compliance monitoring" "PMO for enterprise data platforms"))
+        (dict
+            "id" "ins"
+            "label" "Insurance"
+            "image" "images/make/industry-ins.jpg"
+            "body" "Insurers and reinsurers using AI for underwriting, claims and fraud detection. We ensure every model has lineage, an owner, and a governance control that survives an audit."
+            "tags" (slice "ISO 42001" "Underwriting AI" "Claims Ops")
+            "statValue" "ISO 42001"
+            "statLabel" "Lead Implementer certified"
+            "bullets" (slice "Claims automation governance" "AI underwriting model controls" "Data quality for actuarial pipelines" "ISO 42001 readiness programmes"))
+        (dict
+            "id" "hc"
+            "label" "Healthcare"
+            "image" "images/make/industry-hc.jpg"
+            "body" "Healthcare organisations and MedTech firms deploying AI in clinical and operational workflows. We design governance that builds patient trust and satisfies TGA, FDA and CE requirements."
+            "tags" (slice "TGA" "FDA" "CE Mark" "HIPAA")
+            "statValue" "3"
+            "statLabel" "Regulatory jurisdictions covered"
+            "bullets" (slice "Clinical AI governance frameworks" "Patient data lineage & ownership" "Regulatory submission data quality" "Agentic workflow automation with auditability"))
+        (dict
+            "id" "ent"
+            "label" "Enterprise Technology"
+            "image" "images/make/industry-ent.jpg"
+            "body" "Technology companies building AI products for regulated markets. We provide the governance architecture that turns your AI capability into a product enterprises will buy."
+            "tags" (slice "SaaS" "AI Products" "Enterprise Compliance")
+            "statValue" "1–2 wk"
+            "statLabel" "Time to engagement start"
+            "bullets" (slice "AI product governance design" "Enterprise-ready compliance frameworks" "Data governance for SaaS platforms" "PMO for AI product delivery"))
+        (dict
+            "id" "gov"
+            "label" "Regulated Government"
+            "image" "images/make/industry-gov.jpg"
+            "body" "Government agencies and public-sector bodies adopting AI under APS, NHS Digital, and equivalent frameworks. We design governance structures that scale across departments."
+            "tags" (slice "APS" "NHS Digital" "AU · EU · US")
+            "statValue" "AU·EU·US"
+            "statLabel" "Cross-market experience"
+            "bullets" (slice "Public sector AI governance" "Cross-agency data ownership mapping" "Ministerial-grade governance reporting" "Agentic automation for back-office processes"))
+    }}
+
+    <div class="container make-serve-head anim-fade-up" data-reveal>
+        <div class="make-eyebrow mb-4">Who we serve</div>
+        <div class="make-serve-head-row">
+            <h2 class="text-3xl md:text-5xl font-semibold">Built for organisations<br>where trust matters</h2>
+            <p>Select a sector to explore how we work within it.</p>
+        </div>
+    </div>
+
+    <div class="make-ind-columns anim-scale-in delay-200" data-reveal data-ind-root>
+        {{ range $i, $tab := $tabs }}
+        <div
+            class="make-ind-col{{ if eq $i 0 }} is-active{{ end }}"
+            data-ind="{{ $tab.id }}"
+            role="button"
+            tabindex="0"
+            aria-pressed="{{ if eq $i 0 }}true{{ else }}false{{ end }}"
+            aria-label="{{ $tab.label }}"
+        >
+            <img class="make-ind-bg" src="{{ $tab.image | relURL }}" alt="" aria-hidden="true">
+            <div class="make-ind-overlay"></div>
+            <div class="make-ind-wash"></div>
+            <div class="make-ind-accent"></div>
+
+            <div class="make-ind-collapsed">
+                <span class="make-ind-num">{{ printf "%02d" (add $i 1) }}</span>
+                <span class="make-ind-vert">{{ $tab.label }}</span>
+            </div>
+
+            <div class="make-ind-expanded">
+                <div>
+                    <div class="make-ind-meta">
+                        <span class="make-ind-num">{{ printf "%02d" (add $i 1) }}</span>
+                        <span class="make-ind-rule"></span>
+                        {{ range $tab.tags }}
+                        <span class="make-ind-tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    <h3>{{ $tab.label }}</h3>
+                    <p>{{ $tab.body }}</p>
+                    <ul>
+                        {{ range $tab.bullets }}
+                        <li>
+                            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <circle cx="8" cy="8" r="7.5" stroke="rgba(0,212,170,0.3)"></circle>
+                                <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                            {{ . }}
+                        </li>
+                        {{ end }}
+                    </ul>
+                </div>
+                <div class="make-ind-foot">
+                    <div>
+                        <div class="make-ind-stat">{{ $tab.statValue }}</div>
+                        <div class="make-ind-stat-label">{{ $tab.statLabel }}</div>
+                    </div>
+                    <a href="{{ "/contact/" | relLangURL }}" class="make-btn-teal make-ind-cta">
+                        Let's talk
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                            <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+
+    <div class="make-ind-mobile" data-ind-mobile>
+        {{ range $i, $tab := $tabs }}
+        <div class="make-ind-acc{{ if eq $i 0 }} is-active{{ end }}" data-ind="{{ $tab.id }}">
+            <button type="button" class="make-ind-acc-btn" data-ind="{{ $tab.id }}" aria-expanded="{{ if eq $i 0 }}true{{ else }}false{{ end }}">
+                <span class="make-ind-acc-label">
+                    <span class="make-ind-num">{{ printf "%02d" (add $i 1) }}</span>
+                    <span>{{ $tab.label }}</span>
+                </span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </button>
+            <div class="make-ind-acc-body">
+                <p>{{ $tab.body }}</p>
+                <ul>
+                    {{ range $tab.bullets }}
+                    <li>
+                        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <circle cx="8" cy="8" r="7.5" stroke="rgba(0,212,170,0.3)"></circle>
+                            <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        {{ . }}
+                    </li>
+                    {{ end }}
+                </ul>
+                <div class="make-ind-foot">
+                    <div>
+                        <div class="make-ind-stat">{{ $tab.statValue }}</div>
+                        <div class="make-ind-stat-label">{{ $tab.statLabel }}</div>
+                    </div>
+                    <a href="{{ "/contact/" | relLangURL }}" class="make-btn-teal make-ind-cta">
+                        Let's talk
+                        <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                            <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>

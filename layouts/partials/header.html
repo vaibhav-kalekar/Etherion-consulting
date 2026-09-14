@@ -8,13 +8,10 @@
                 <!-- Logo and Title -->
                 <a href="{{ "/" | relLangURL }}" class="flex items-center space-x-4">
                     {{ with $headerConfig.logo }}
-                        <img src="{{ .src | relURL }}" alt="{{ $.Site.Title }}" class="{{ with .class }}{{ . }}{{ else }}h-12{{ end }}">
-                    {{ else }}
-                        <span class="text-3xl font-bold text-gray-900">{{ .Site.Title }}</span>
+                        <img src="{{ .src | relURL }}" alt="{{ $.Site.Title }}" class="logo-default {{ with .class }}{{ . }}{{ else }}h-12{{ end }}">
                     {{ end }}
-                    {{ if .Site.Title }}
-                        <span class="text-3xl font-semibold text-gray-800">{{ .Site.Title }}</span>
-                    {{ end }}
+                    <img src="{{ "images/brand/etherion-icon-white.png" | relURL }}" alt="{{ $.Site.Title }}" class="logo-make hidden h-9 w-9">
+                    <img src="{{ "images/brand/etherion-icon-teal.png" | relURL }}" alt="{{ $.Site.Title }}" class="logo-make-light hidden h-9 w-9">
                 </a>
 
                 <!-- Navigation -->
@@ -37,14 +34,20 @@
                             </div>
                         </div>
                         {{ else }}
-                        <a href="{{ .URL }}" class="{{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">{{ .Name }}</a>
+                        <a href="{{ .URL }}"{{ if or .Params.openInNewTab (hasPrefix .URL "http") }} target="_blank" rel="noopener noreferrer"{{ end }} class="{{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">{{ .Name }}</a>
                         {{ end }}
                     {{ end }}
                 </div>
 
                 <!-- CTA Buttons -->
                 {{ if not $headerConfig.hideButtons }}
-                <div class="hidden md:flex items-center space-x-4">
+                <div class="hidden md:flex items-center space-x-3">
+                    <button type="button" class="make-toggle make-only" data-make-toggle aria-label="Toggle background">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                    <a href="{{ "/contact/" | relLangURL }}" class="make-fit-check make-only">Book a Fit Check</a>
                     {{ with $headerConfig.buttons.signIn }}
                     {{ if .enable }}
                     <a href="{{ .url | default "#" }}" class="{{ with .class }}{{ . }}{{ else }}inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold transition duration-200 ease-in-out border-2 border-gray-200 hover:border-primary-600 hover:text-primary-600{{ end }}">
@@ -55,7 +58,7 @@
                     
                     {{ with $headerConfig.buttons.getStarted }}
                     {{ if .enable }}
-                    <a href="{{ .url | default "#" }}" class="{{ with .class }}{{ . }}{{ else }}inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold transition duration-200 ease-in-out bg-primary-600 text-white hover:bg-primary-700 hover:scale-105{{ end }}">
+                    <a href="{{ .url | default "#" }}" class="header-default-cta {{ with .class }}{{ . }}{{ else }}inline-flex items-center justify-center px-6 py-3 rounded-lg font-bold transition duration-200 ease-in-out bg-primary-600 text-white hover:bg-primary-700 hover:scale-105{{ end }}">
                         {{ .text | default "Get Started" }}
                     </a>
                     {{ end }}
@@ -64,8 +67,13 @@
                 {{ end }}
 
                 <!-- Mobile Menu Toggle -->
-                <div class="md:hidden">
-                    <label for="nav-toggle" class="p-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 transition-colors cursor-pointer">
+                <div class="md:hidden flex items-center gap-2">
+                    <button type="button" class="make-toggle make-only" data-make-toggle aria-label="Toggle background">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                    </button>
+                    <label for="nav-toggle" class="make-burger p-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 transition-colors cursor-pointer">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -88,9 +96,11 @@
                         </div>
                     </div>
                     {{ else }}
-                    <a href="{{ .URL }}" class="{{ with $headerConfig.menu.mobileLinkClass }}{{ . }}{{ else }}block text-xl text-gray-900 hover:text-primary-600 font-bold transition duration-200 py-2{{ end }}">{{ .Name }}</a>
+                    <a href="{{ .URL }}"{{ if or .Params.openInNewTab (hasPrefix .URL "http") }} target="_blank" rel="noopener noreferrer"{{ end }} class="{{ with $headerConfig.menu.mobileLinkClass }}{{ . }}{{ else }}block text-xl text-gray-900 hover:text-primary-600 font-bold transition duration-200 py-2{{ end }}">{{ .Name }}</a>
                     {{ end }}
                 {{ end }}
+
+                <a href="{{ "/contact/" | relLangURL }}" class="make-fit-check make-only w-full mt-4">Book a Fit Check</a>
 
                 {{ if not $headerConfig.hideButtons }}
                 <div class="pt-4 space-y-4">
@@ -104,7 +114,7 @@
                     
                     {{ with $headerConfig.buttons.getStarted }}
                     {{ if .enable }}
-                    <a href="{{ .url | default "#" }}" class="{{ with .mobileClass }}{{ . }}{{ else }}block text-center px-6 py-3 rounded-lg font-bold transition duration-200 ease-in-out bg-primary-600 text-white hover:bg-primary-700 hover:scale-105{{ end }}">
+                    <a href="{{ .url | default "#" }}" class="header-default-cta {{ with .mobileClass }}{{ . }}{{ else }}block text-center px-6 py-3 rounded-lg font-bold transition duration-200 ease-in-out bg-primary-600 text-white hover:bg-primary-700 hover:scale-105{{ end }}">
                         {{ .text | default "Get Started" }}
                     </a>
                     {{ end }}
@@ -129,6 +139,7 @@
         .nav-toggle:checked ~ header .nav-content {
             display: block;
         }
+        .make-only { display: none !important; }
     </style>
 
     <script>

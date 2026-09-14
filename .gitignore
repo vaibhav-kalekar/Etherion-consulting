@@ -22,3 +22,6 @@ Thumbs.db
 .vscode
 *.swp
 *.swo
+
+# Figma Make design export
+*.make

@@ -1,5 +1,6 @@
 {{ $headline := .Get "headline" }}
 {{ $sub_headline := .Get "sub_headline" }}
+{{ $eyebrow := .Get "eyebrow" }}
 {{ $primary_button_text := .Get "primary_button_text" }}
 {{ $primary_button_url := .Get "primary_button_url" }}
 {{ $secondary_button_text := .Get "secondary_button_text" }}
@@ -10,7 +11,56 @@
 {{ $gradient_to := .Get "gradient-to" }}
 {{ $gradient_angle := .Get "gradient-angle" | default "180" }}
 {{ $text_color := .Get "text-color" | default "" }}
+{{ $creds := .Page.Params.testimonials }}
 
+{{ if and .Page.IsHome (eq .Page.Lang "en") }}
+<section class="make-hero">
+    <div class="make-hero-parallax" data-parallax>
+        <img src="{{ "images/make/hero-bg.jpg" | relURL }}" alt="" class="make-hero-bg">
+    </div>
+    <div class="make-hero-overlay"></div>
+    <div class="make-hero-bottom-fade"></div>
+    <div class="make-hero-shimmer"></div>
+    <div class="container pt-16 pb-20 md:pt-24 md:pb-28">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div class="lg:col-span-7 space-y-8">
+                {{ with $eyebrow }}
+                <div class="make-eyebrow anim-fade-up in-view delay-100">{{ . }}</div>
+                {{ end }}
+                <h1 class="text-4xl md:text-5xl lg:text-6xl leading-tight anim-fade-up in-view delay-200">
+                    {{ $headline | safeHTML }}
+                </h1>
+                <p class="text-lg md:text-xl max-w-2xl anim-fade-up in-view delay-300">{{ $sub_headline | safeHTML }}</p>
+                <div class="flex flex-col sm:flex-row gap-3 anim-fade-up in-view delay-400">
+                    {{ if and $primary_button_text $primary_button_url }}
+                    <a href="{{ $primary_button_url }}" class="make-btn-teal">{{ $primary_button_text }}</a>
+                    {{ end }}
+                    {{ if and $secondary_button_text $secondary_button_url }}
+                    <a href="{{ $secondary_button_url }}" class="make-btn-ghost">{{ $secondary_button_text }} →</a>
+                    {{ end }}
+                </div>
+            </div>
+            <div class="lg:col-span-5 space-y-3 anim-fade-right in-view delay-300">
+                {{ range $creds }}
+                <div class="make-cred">
+                    <strong><span class="make-cred-dot">◆</span>{{ .name }}{{ with .title }} · {{ . }}{{ end }}</strong>
+                    <span>{{ .quote }}</span>
+                </div>
+                {{ end }}
+                <div class="make-session">
+                    <div class="kicker">Day 0 strategy session</div>
+                    <p class="mt-2 text-sm">Start with a structured engagement scoping session — no commitment required.</p>
+                    <a href="{{ "/contact/" | relLangURL }}" class="inline-flex mt-3 text-sm font-semibold" style="color:var(--make-teal)">Schedule now →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="make-scroll-cue hidden lg:flex" aria-hidden="true">
+        <span>Scroll</span>
+        <i></i>
+    </div>
+</section>
+{{ else }}
 <section class="relative overflow-hidden" {{ if $gradient_from }}style="background:linear-gradient({{ $gradient_angle }}deg,{{ $gradient_from }},{{ $gradient_to | default $gradient_from }})"{{ else }}class="bg-gradient-to-b from-gray-50 to-white"{{ end }}>
     {{ if $background_image }}
     <div class="absolute inset-0">
@@ -28,27 +78,19 @@
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     {{ if and $primary_button_text $primary_button_url }}
-                    <a href="{{ $primary_button_url }}" class="btn-primary text-center">
-                        {{ $primary_button_text }}
-                    </a>
+                    <a href="{{ $primary_button_url }}" class="btn-primary text-center">{{ $primary_button_text }}</a>
                     {{ end }}
                     {{ if and $secondary_button_text $secondary_button_url }}
-                    <a href="{{ $secondary_button_url }}" class="btn-outline text-center">
-                        {{ $secondary_button_text }}
-                    </a>
+                    <a href="{{ $secondary_button_url }}" class="btn-outline text-center">{{ $secondary_button_text }}</a>
                     {{ end }}
                 </div>
             </div>
+            {{ if $hero_image }}
             <div class="relative">
-                {{ if $hero_image }}
-                <div class="relative z-10">
-                    <img src="{{ $hero_image | relURL }}" alt="Hero Image" class="rounded-xl shadow-elevation">
-                </div>
-                {{ end }}
-                <!-- Background decoration -->
-                <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-100 rounded-full filter blur-3xl opacity-50"></div>
-                <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-secondary-100 rounded-full filter blur-3xl opacity-50"></div>
+                <img src="{{ $hero_image | relURL }}" alt="" class="rounded-xl shadow-elevation">
             </div>
+            {{ end }}
         </div>
     </div>
 </section>
+{{ end }}

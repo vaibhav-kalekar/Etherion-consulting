@@ -21,11 +21,11 @@
   {{ $honeypot = $formConfig.honeypot }}
 {{ end }}
 
-<div class="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
+<div class="make-form rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
   <div class="mb-8">
-    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-primary-600">Send Us a Message</p>
-    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Inquiry & Advisory Request</h2>
-    <p class="mt-4 text-base leading-7 text-slate-600">Share your challenge, and we’ll capture your enquiry for follow-up. This form saves submissions to your chosen form backend.</p>
+    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-primary-600">Send us a message</p>
+    <h2 class="mt-4 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">Inquiry &amp; advisory request</h2>
+    <p class="mt-4 text-base leading-7 text-slate-600">Share your challenge and we’ll capture your enquiry for follow-up. A 20-minute Governance Fit Check is the fastest way to understand the next step.</p>
   </div>
 
   <form name="contact" method="POST" action="{{ $action }}" class="space-y-5" {{ if $netlify }}data-netlify="true"{{ end }}>

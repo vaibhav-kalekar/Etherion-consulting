@@ -80,8 +80,28 @@
 
     <!-- Custom Head Content -->
     {{ partial "custom-head" . }}
+
+    {{ $isAbout := and .File (eq .File.TranslationBaseName "company") (eq .Lang "en") }}
+    {{ $isContact := and .File (eq .File.TranslationBaseName "contact") (eq .Lang "en") }}
+    {{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact }}
+    {{ if $make }}
+    {{ with resources.Get "css/make-theme.css" }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{ end }}
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('make-scheme');
+          if (stored) document.documentElement.setAttribute('data-make-scheme', stored);
+        } catch (e) {}
+      })();
+    </script>
+    {{ end }}
 </head>
-<body class="min-h-screen flex flex-col">
+{{ $isAbout := and .File (eq .File.TranslationBaseName "company") (eq .Lang "en") }}
+{{ $isContact := and .File (eq .File.TranslationBaseName "contact") (eq .Lang "en") }}
+{{ $make := or (and .IsHome (eq .Lang "en")) $isAbout $isContact }}
+<body class="min-h-screen flex flex-col{{ if $make }} make-theme{{ end }}">
     <!-- Google Tag Manager (noscript) -->
     {{ if and hugo.IsProduction .Site.Params.googleTagManager }}
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.googleTagManager }}"
@@ -124,5 +144,22 @@
             });
         }
     </script>
+    {{ if $make }}
+    <script>
+        (function () {
+            document.querySelectorAll('[data-make-toggle]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var next = document.documentElement.getAttribute('data-make-scheme') === 'light' ? 'dark' : 'light';
+                    if (next === 'dark') document.documentElement.removeAttribute('data-make-scheme');
+                    else document.documentElement.setAttribute('data-make-scheme', 'light');
+                    try { localStorage.setItem('make-scheme', next === 'dark' ? '' : 'light'); } catch (e) {}
+                });
+            });
+        })();
+    </script>
+    {{ with resources.Get "js/make-motion.js" }}
+    <script src="{{ .RelPermalink }}" defer></script>
+    {{ end }}
+    {{ end }}
 </body>
 </html>

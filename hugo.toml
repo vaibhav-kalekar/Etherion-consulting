@@ -1,6 +1,6 @@
 baseURL = "https://www.etherionconsulting.com"
 defaultContentLanguage = "en"
-title = "Etherion Consulting"
+title = "etherion"
 defaultContentLanguageInSubdir = false
 theme = "hugo-saasify-theme"
 
@@ -9,42 +9,42 @@ theme = "hugo-saasify-theme"
   [languages.en]
     languageCode = "en-us"
     languageName = "English"
-    title = "Etherion Consulting"
+    title = "etherion"
     weight = 1
     contentDir = "content"
 
   [languages.zh-cn]
     languageCode = "zh-cn"
     languageName = "简体中文"
-    title = "Etherion Consulting"
+    title = "etherion"
     weight = 2
     contentDir = "content/zh-cn"
 
   [languages.de]
     languageCode = "de-de"
     languageName = "Deutsch"
-    title = "Etherion Consulting"
+    title = "etherion"
     weight = 3
     contentDir = "content/de"
 
   [languages.fr]
     languageCode = "fr-fr"
     languageName = "Français"
-    title = "Etherion Consulting"
+    title = "etherion"
     weight = 4
     contentDir = "content/fr"
 
   [languages.es]
     languageCode = "es-es"
     languageName = "Español"
-    title = "Etherion Consulting"
+    title = "etherion"
     weight = 5
     contentDir = "content/es"
 
   [languages.pt]
     languageCode = "pt-pt"
     languageName = "Português"
-    title = "Etherion Consulting"
+    title = "etherion"
     weight = 6
     contentDir = "content/pt"
 
@@ -70,7 +70,7 @@ enableGitInfo = true
 
 [params]
   description = "Strategic consulting for modern businesses, specializing in digital transformation, operational efficiency, and growth strategies."
-  author = "Etherion Consulting"
+  author = "etherion"
   logo = "images/logo.png"
   googleAnalytics = ""
 
@@ -442,23 +442,19 @@ enableGitInfo = true
     url = "/#services"
     weight = 1
   [[languages.en.menu.main]]
-    name = "Case Studies"
-    url = "/case-studies"
-    weight = 2
-  [[languages.en.menu.main]]
     name = "Blog"
-    url = "/Blog"
-    weight = 4
-  [[languages.en.menu.main]]
-    name = "Company"
-    weight = 5
+    url = "https://bytesfrometherion.substack.com/"
+    weight = 2
     [languages.en.menu.main.params]
-      has_submenu = true
-      submenu = [
-        { name = "About Us", url = "/company/" },
-        { name = "Careers", url = "/careers/" },
-        { name = "FAQ", url = "/#faq" }
-      ]
+      openInNewTab = true
+  [[languages.en.menu.main]]
+    name = "FAQ"
+    url = "/#faq"
+    weight = 3
+  [[languages.en.menu.main]]
+    name = "About Us"
+    url = "/company"
+    weight = 4
 
   # Footer Column 1 Menu
   [[languages.en.menu.footer_column_1]]
