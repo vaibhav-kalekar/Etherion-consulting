@@ -1,60 +1,55 @@
 <section class="section make-serve" id="who-we-serve">
     {{ $tabs := slice
         (dict
-            "id" "fs"
-            "label" "Financial Services"
-            "image" "images/make/industry-fs.jpg"
-            "body" "Banks, asset managers and trading firms operating under APRA, FCA, SEC and MAS scrutiny. We embed governance that satisfies regulators without stalling innovation programmes."
-            "tags" (slice "APRA" "FCA" "SEC" "MAS")
-            "statValue" "4"
-            "statLabel" "Major regulatory frameworks"
-            "bullets" (slice "Model risk governance & AI risk management" "Regulatory AI lifecycle controls" "Automated compliance monitoring" "PMO for enterprise data platforms"))
-        (dict
             "id" "ins"
             "label" "Insurance"
             "image" "images/make/industry-ins.jpg"
-            "body" "Insurers and reinsurers using AI for underwriting, claims and fraud detection. We ensure every model has lineage, an owner, and a governance control that survives an audit."
-            "tags" (slice "ISO 42001" "Underwriting AI" "Claims Ops")
-            "statValue" "ISO 42001"
-            "statLabel" "Lead Implementer certified"
-            "bullets" (slice "Claims automation governance" "AI underwriting model controls" "Data quality for actuarial pipelines" "ISO 42001 readiness programmes"))
+            "body" "We help insurers modernise operations, improve claims and policy processes, strengthen programme delivery and identify opportunities for intelligent automation."
+            "tags" (slice "Claims" "Policy workflows" "Automation")
+            "statValue" "Insurance"
+            "statLabel" "Industry experience"
+            "bullets" (slice "Claims and policy workflow improvement" "Operational process optimisation" "Programme and PMO uplift" "Compliance and assurance automation" "Data and AI enablement"))
+        (dict
+            "id" "fs"
+            "label" "Financial Services"
+            "image" "images/make/industry-fs.jpg"
+            "body" "We support financial services organisations in improving operating models, modernising data capabilities and implementing technology-enabled transformation."
+            "tags" (slice "Process improvement" "Data modernisation" "Transformation")
+            "statValue" "Financial services"
+            "statLabel" "Industry experience"
+            "bullets" (slice "Business process improvement" "Data governance and quality" "Transformation programme delivery" "AI and automation opportunities" "Operational controls and reporting"))
         (dict
             "id" "hc"
             "label" "Healthcare"
             "image" "images/make/industry-hc.jpg"
-            "body" "Healthcare organisations and MedTech firms deploying AI in clinical and operational workflows. We design governance that builds patient trust and satisfies TGA, FDA and CE requirements."
-            "tags" (slice "TGA" "FDA" "CE Mark" "HIPAA")
-            "statValue" "3"
-            "statLabel" "Regulatory jurisdictions covered"
-            "bullets" (slice "Clinical AI governance frameworks" "Patient data lineage & ownership" "Regulatory submission data quality" "Agentic workflow automation with auditability"))
+            "body" "We help healthcare organisations improve operational processes, modernise data environments and implement technology solutions within complex information and compliance environments."
+            "tags" (slice "Workflows" "Data interoperability" "Technology")
+            "statValue" "Healthcare"
+            "statLabel" "Industry experience"
+            "bullets" (slice "Healthcare workflow automation" "Data quality and interoperability" "Operational process improvement" "Technology modernisation" "Governance and assurance"))
         (dict
             "id" "ent"
-            "label" "Enterprise Technology"
+            "label" "Enterprise & Technology"
             "image" "images/make/industry-ent.jpg"
-            "body" "Technology companies building AI products for regulated markets. We provide the governance architecture that turns your AI capability into a product enterprises will buy."
-            "tags" (slice "SaaS" "AI Products" "Enterprise Compliance")
-            "statValue" "1–2 wk"
-            "statLabel" "Time to engagement start"
-            "bullets" (slice "AI product governance design" "Enterprise-ready compliance frameworks" "Data governance for SaaS platforms" "PMO for AI product delivery"))
-        (dict
-            "id" "gov"
-            "label" "Regulated Government"
-            "image" "images/make/industry-gov.jpg"
-            "body" "Government agencies and public-sector bodies adopting AI under APS, NHS Digital, and equivalent frameworks. We design governance structures that scale across departments."
-            "tags" (slice "APS" "NHS Digital" "AU · EU · US")
-            "statValue" "AU·EU·US"
-            "statLabel" "Cross-market experience"
-            "bullets" (slice "Public sector AI governance" "Cross-agency data ownership mapping" "Ministerial-grade governance reporting" "Agentic automation for back-office processes"))
+            "body" "We work with technology-led organisations seeking to improve delivery capabilities, modernise operations and embed automation into business workflows."
+            "tags" (slice "Operating models" "Automation" "AI implementation")
+            "statValue" "Enterprise"
+            "statLabel" "Technology experience"
+            "bullets" (slice "Technology operating models" "Workflow automation" "Data platform enablement" "AI implementation" "Programme delivery"))
     }}
 
     <div class="container make-serve-head anim-fade-up" data-reveal>
-        <div class="make-eyebrow mb-4">Who we serve</div>
+        <div id="industries" class="make-eyebrow mb-4">Industries we serve</div>
         <div class="make-serve-head-row">
-            <h2 class="text-3xl md:text-5xl font-semibold">Built for organisations<br>where trust matters</h2>
+            <div>
+                <h2 class="text-3xl md:text-5xl font-semibold">Experience in complex, regulated environments.</h2>
+                <p class="mt-4">We understand the challenges of transforming organisations where operational performance, regulatory obligations and technology change must work together.</p>
+            </div>
             <p>Select a sector to explore how we work within it.</p>
         </div>
     </div>
 
+    <div class="container">
     <div class="make-ind-columns anim-scale-in delay-200" data-reveal data-ind-root>
         {{ range $i, $tab := $tabs }}
         <div
@@ -155,5 +150,6 @@
             </div>
         </div>
         {{ end }}
+    </div>
     </div>
 </section>

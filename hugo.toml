@@ -89,7 +89,7 @@ enableGitInfo = true
   # Footer Configuration
   [params.footer]
     column_1_title = "Features"
-    column_2_title = "COMPANY"
+    column_2_title = "EXPLORE"
     column_3_title = "LEGAL"
 
   [params.forms]
@@ -135,7 +135,7 @@ enableGitInfo = true
       # Get Started button
       [params.header.buttons.getStarted]
         enable = true
-        text = "Book a Fit Check"
+        text = "Discuss a Transformation Challenge"
         url = "/contact"
 
   # Blog configuration
@@ -203,22 +203,22 @@ enableGitInfo = true
   # Global CTA Configuration
   [languages.en.params.cta]
     enable = true
-    title = "Still Treating Governance as a Phase Instead of a Foundation?"
-    description = "That's the gap that turns audits into findings and AI pilots into board-level risk. Talk to us before your next migration, model deployment, or compliance review"
+    title = "Let's talk about what needs to change."
+    description = "Whether you're planning a transformation, improving an operational process or exploring automation opportunities, we'd like to understand your challenge."
     gradient_from = "#0A0F1E"  # Matches the hero, so the page opens and closes on brand navy
     gradient_to = "#1A2240"
     gradient_angle = 135
     [languages.en.params.cta.primary_button]
-      text = "Book a Free 20-Min AI Governance Fit Check"
+      text = "Discuss a Transformation Challenge"
       url = "/contact"
     [languages.en.params.cta.secondary_button]
-      text = "Schedule a Day 0 Strategy Session"
-      url = "/contact"
+      text = "Explore Our Services"
+      url = "/services/"
 
   # Footer Configuration
   [languages.en.params.footer]
     column_1_title = "Features"
-    column_2_title = "COMPANY"
+    column_2_title = "EXPLORE"
     column_3_title = "LEGAL"
 
   # Header Configuration
@@ -236,8 +236,8 @@ enableGitInfo = true
   # Blog configuration
   [languages.en.params.blog]
     enable = true
-    title = "Latest Articles"
-    subtitle = "Learn more about PMO, AI Governance and AI Agents, the way Etherion is tackling the problem of Governance in AI Agents and applying the PMO principles to the Agentic way of working."
+    title = "Insights"
+    subtitle = "Perspectives on transformation, process improvement, technology and AI."
 
 # Chinese language specific params
 [languages.zh-cn.params]
@@ -437,52 +437,60 @@ enableGitInfo = true
 # English Navigation Menu
 [languages.en.menu]
   [[languages.en.menu.main]]
-    name = "Services"
-    url = "/#services"
+    name = "Home"
+    url = "/"
     weight = 1
   [[languages.en.menu.main]]
-    name = "Blog"
-    url = "https://bytesfrometherion.substack.com/"
+    name = "Services"
+    url = "/#services"
     weight = 2
-    [languages.en.menu.main.params]
-      openInNewTab = true
   [[languages.en.menu.main]]
-    name = "FAQ"
-    url = "/#faq"
+    name = "Industries"
+    url = "/#industries"
     weight = 3
   [[languages.en.menu.main]]
-    name = "About Us"
-    url = "/company"
+    name = "Our Approach"
+    url = "/#approach"
     weight = 4
+  [[languages.en.menu.main]]
+    name = "About Us"
+    url = "/company/"
+    weight = 5
+  [[languages.en.menu.main]]
+    name = "Insights"
+    url = "https://bytesfrometherion.substack.com/"
+    weight = 6
+    [languages.en.menu.main.params]
+      openInNewTab = true
 
   # Footer Column 1 Menu
-  [[languages.en.menu.footer_column_1]]
-    name = "Services"
-    url = "/#services"
-    weight = 1
-  [[languages.en.menu.footer_column_1]]
-    name = "Contact"
-    url = "/contact"
-    weight = 2
-
-  # Footer Column 2 Menu
   [[languages.en.menu.footer_column_2]]
-    name = "FAQ"
-    url = "/#faq"
+    name = "Services"
+    url = "/services/"
     weight = 1
   [[languages.en.menu.footer_column_2]]
     name = "About Us"
-    url = "/company"
+    url = "/company/"
     weight = 2
+  [[languages.en.menu.footer_column_2]]
+    name = "Insights"
+    url = "https://bytesfrometherion.substack.com/"
+    weight = 3
+    [languages.en.menu.footer_column_2.params]
+      openInNewTab = true
+  [[languages.en.menu.footer_column_2]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 4
 
   # Footer Column 3 Menu
   [[languages.en.menu.footer_column_3]]
-    name = "Terms of Use"
-    url = "/terms-of-use/"
+    name = "Privacy"
+    url = "/privacy/"
     weight = 1
   [[languages.en.menu.footer_column_3]]
-    name = "Privacy Policy"
-    url = "/privacy"
+    name = "Terms"
+    url = "/terms-of-use/"
     weight = 2
 
 # Chinese Navigation Menu
