@@ -1,18 +1,19 @@
 {{ $services := slice
-    (dict "num" "01" "title" "AI Governance" "body" "ISO 42001 readiness, risk inventories, lifecycle controls, and board-ready reporting. We turn governance requirements into practical architecture your teams can operate." "tags" (slice "ISO 42001" "Risk Inventory" "Lifecycle Controls" "Board Reporting") "img" "images/make/circuit.jpg")
-    (dict "num" "02" "title" "Agentic AI Automation" "body" "Design and deploy AI agent workflows that automate compliance monitoring, testing, and validation - purpose-built for regulated environments." "tags" (slice "Agent Workflows" "Compliance Automation" "Validation" "AI Ops") "img" "images/make/metal-dots.jpg")
-    (dict "num" "03" "title" "PMO & Delivery" "body" "Fractional or embedded programme leadership. Delivery structure, capacity visibility, intake and prioritisation - run the programme properly from day one." "tags" (slice "Fractional PMO" "Capacity Planning" "Intake & Prioritisation" "Delivery") "img" "images/company/about-team.jpg")
-    (dict "num" "04" "title" "Data Governance & Quality" "body" "Lineage mapping, quality frameworks, legacy modernisation, and cloud-native platforms. Data you can trust, at the pace your business demands." "tags" (slice "Data Lineage" "Quality Frameworks" "Legacy Modernisation" "Cloud Platforms") "img" "images/make/abstract.jpg")
+    (dict "num" "01" "title" "Digital Transformation & Strategy" "url" "/services/digital-transformation/" "body" "We help organisations define transformation priorities, align business and technology objectives, and develop practical roadmaps for change." "tags" (slice "Transformation strategy" "Operating-model design" "Business and technology alignment" "Capability assessments" "Transformation planning") "img" "images/company/about-team.jpg")
+    (dict "num" "02" "title" "Process & Operational Excellence" "url" "/services/process-operational-excellence/" "body" "We assess how work gets done, identify operational inefficiencies and redesign processes to improve performance, consistency and control." "tags" (slice "Current-state assessments" "Process mapping and redesign" "Workflow optimisation" "Operational controls" "Performance and KPI frameworks") "img" "images/make/abstract.jpg")
+    (dict "num" "03" "title" "AI & Intelligent Automation" "url" "/services/ai-intelligent-automation/" "body" "We identify opportunities for automation and implement intelligent workflows that reduce manual effort, improve decision support and strengthen operational efficiency." "tags" (slice "AI opportunity identification" "Workflow automation" "AI agents and agentic workflows" "Compliance and assurance automation" "Human-in-the-loop solutions") "img" "images/make/circuit.jpg")
+    (dict "num" "04" "title" "Data & Technology Modernisation" "url" "/services/data-technology-modernisation/" "body" "We help organisations improve their data foundations, modernise legacy environments and connect technology capabilities to business needs." "tags" (slice "Data governance and quality" "Data architecture and integration" "Legacy modernisation" "Cloud and data platform enablement" "AI-ready data foundations") "img" "images/make/metal-dots.jpg")
+    (dict "num" "05" "title" "Programme & Capability Enablement" "url" "/services/programme-capability-enablement/" "body" "We provide the programme leadership, delivery structure and organisational capabilities required to turn transformation plans into sustainable outcomes." "tags" (slice "PMO establishment and uplift" "Programme and portfolio governance" "Resource and capacity planning" "Delivery assurance" "Change and capability enablement") "img" "images/make/abstract.jpg")
 }}
-{{ $delays := slice "" "delay-100" "delay-200" "delay-300" }}
+{{ $delays := slice "" "delay-100" "delay-200" "delay-300" "delay-300" }}
 <section class="section make-services" id="services">
     <div class="container">
         <div class="make-split-head">
             <div class="anim-fade-left" data-reveal>
                 <div class="make-eyebrow mb-4">What we do</div>
-                <h2 class="text-3xl md:text-5xl font-semibold">Four disciplines.<br>One firm.</h2>
+                <h2 class="text-3xl md:text-5xl font-semibold">From business challenges to implemented change.</h2>
             </div>
-            <p class="anim-fade-right delay-200" data-reveal>We bridge governance and engineering - turning regulatory requirements into practical architecture, controls, and operating models. No handoffs to separate teams. No gaps between strategy and delivery.</p>
+            <p class="anim-fade-right delay-200" data-reveal>We bring together business transformation, operational improvement and technology implementation to help organisations move from identifying opportunities to delivering measurable outcomes.</p>
         </div>
         <div class="make-service-grid">
             {{ range $i, $service := $services }}
@@ -23,7 +24,7 @@
                         <span class="make-service-num">{{ $service.num }}</span>
                         <span class="make-line-grow"></span>
                     </div>
-                    <h3>{{ $service.title }}</h3>
+                    <h3><a href="{{ $service.url | relLangURL }}">{{ $service.title }}</a></h3>
                     <p>{{ $service.body }}</p>
                     <div class="make-tags">
                         {{ range $service.tags }}<span>{{ . }}</span>{{ end }}
