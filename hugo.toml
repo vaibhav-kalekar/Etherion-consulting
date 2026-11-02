@@ -466,7 +466,7 @@ enableGitInfo = true
   # Footer Column 1 Menu
   [[languages.en.menu.footer_column_2]]
     name = "Services"
-    url = "/services/"
+    url = "/#services"
     weight = 1
   [[languages.en.menu.footer_column_2]]
     name = "About Us"
